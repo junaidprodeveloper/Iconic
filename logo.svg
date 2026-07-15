@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 100 100"
+     width="400"
+     height="400">
+
+    <defs>
+        <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7DD3FC"/>
+            <stop offset="50%" stop-color="#3B82F6"/>
+            <stop offset="100%" stop-color="#1D4ED8"/>
+        </linearGradient>
+    </defs>
+
+    <path
+        d="M10 40L10 80Q10 85 15 85Q20 85 20 80L20 40Q20 35 15 35Q10 35 10 40"
+        fill="url(#iconGradient)"
+        stroke="#1E3A8A"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+    <path
+        d="M30 50L50 50Q55 50 55 55Q55 60 50 60L30 60Q25 60 25 55Q25 50 30 50"
+        fill="url(#iconGradient)"
+        stroke="#1E3A8A"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+    <path
+        d="M90 40
+           Q90 35 85 35
+           L75 35
+           Q60 35 60 60
+           Q60 80 75 80
+           L85 80
+           Q90 80 90 75
+           Q90 70 85 70
+           L75 70
+           Q70 70 70 60
+           Q70 45 75 45
+           L85 45
+           Q90 45 90 40
+           Z"
+        fill="url(#iconGradient)"
+        stroke="#1E3A8A"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+</svg>
