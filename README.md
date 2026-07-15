@@ -1,3 +1,4 @@
+![image](logo.svg)
 # Iconic
 
 **A clean, consistent, dependency-free icon library — 1,400+ icons, multiple sizes, one simple class prefix.**
@@ -8,8 +9,8 @@ Iconic is a lightweight icon system built for developers who want a large, well-
 
 ## Table of Contents
 
-- [Features](#features)
-- [Preview](#preview)
+- [Features](##Features)
+- [Preview](##Preview)
 - [Installation](#installation)
   - [Option 1 — CDN (fastest)](#option-1--cdn-fastest)
   - [Option 2 — Self-hosted](#option-3--self-hosted)
@@ -80,14 +81,11 @@ That's it — every `icon-*` class is now available anywhere in your document.
 Then import the stylesheet in your project's entry file (bundler-dependent):
 
 ```js
-import "iconic-icons/dist/iconic.min.css";
+import "https://cdn.jsdelivr.net/gh/junaidprodeveloper/Iconic-webpage@1.0.0.1/iconic.css";
 ```
 
 Or reference it directly from `node_modules` in your HTML:
 
-```html
-
-```
 
 ### Option 3 — Self-hosted
 

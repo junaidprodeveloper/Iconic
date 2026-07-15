@@ -1,121 +1,710 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICONIC — Icon Library</title>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Icon class definitions (size/animation/transform utilities + .icon-*::after rules) -->
     <link rel="stylesheet" href="iconic.css">
+
     <style>
-:root{--bg-deep:#09090b;--bg:#0f0f12;--bg-surface:#161619;--bg-card:#1c1c20;--bg-hover:#242429;--fg:#f0f0f2;--fg-sec:#a0a0aa;--fg-muted:#5c5c66;--accent:#f97316;--accent-h:#ea580c;--accent-soft:rgba(249,115,22,.07);--accent-glow:rgba(249,115,22,.2);--success:#22c55e;--border:#222228;--border-h:#333340;--radius:10px;--radius-sm:7px;--tr:.2s cubic-bezier(.4,0,.2,1);--sidebar-w:230px;--navbar-h:60px;--panel-w:380px}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scrollbar-width:thin;scrollbar-color:var(--border-h) transparent}
-body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--fg);line-height:1.5;overflow:hidden;height:100vh}
-.navbar{position:fixed;top:0;left:0;right:0;height:var(--navbar-h);background:var(--bg-deep);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;gap:16px;z-index:100}
-.navbar::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent-glow),transparent);pointer-events:none}
-.nav-logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.nav-logo-box{width:34px;height:34px;background:linear-gradient(135deg,var(--accent),#fb923c);border-radius:9px;display:flex;align-items:center;justify-content:center}
-.nav-logo-box svg{width:18px;height:18px;color:#fff}
-.nav-logo-text{font-size:1.15rem;font-weight:800;letter-spacing:-.03em;color:var(--fg)}
-.nav-logo-text span{color:var(--accent)}
-.nav-search{flex:1;max-width:480px;position:relative}
-.nav-search input{width:100%;padding:9px 14px 9px 38px;background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--fg);font-family:inherit;font-size:.875rem;outline:none;transition:all var(--tr)}
-.nav-search input::placeholder{color:var(--fg-muted)}
-.nav-search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-.nav-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--fg-muted);pointer-events:none}
-.nav-badge{background:var(--accent-soft);color:var(--accent);font-size:.75rem;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid rgba(249,115,22,.15);white-space:nowrap;font-family:'JetBrains Mono',monospace}
-.nav-ver{font-size:.7rem;color:var(--fg-muted);margin-left:auto;flex-shrink:0}
-.layout{display:flex;height:100vh;padding-top:var(--navbar-h)}
-.sidebar{width:var(--sidebar-w);flex-shrink:0;background:var(--bg-deep);border-right:1px solid var(--border);overflow-y:auto;padding:16px 0;scrollbar-width:thin;scrollbar-color:var(--border-h) transparent}
-.sidebar-label{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--fg-muted);padding:12px 20px 8px}
-.sb-item{display:flex;align-items:center;justify-content:space-between;padding:8px 20px;cursor:pointer;transition:all var(--tr);border-left:3px solid transparent;color:var(--fg-sec);font-size:.85rem;font-weight:500}
-.sb-item:hover{background:var(--bg-surface);color:var(--fg)}
-.sb-item.active{background:var(--accent-soft);color:var(--accent);border-left-color:var(--accent)}
-.sb-count{font-size:.7rem;font-family:'JetBrains Mono',monospace;color:var(--fg-muted);background:var(--bg-surface);padding:1px 7px;border-radius:10px}
-.sb-item.active .sb-count{background:rgba(249,115,22,.12);color:var(--accent)}
-.main{flex:1;overflow-y:auto;padding:24px;scroll-behavior:smooth}
-.main-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
-.main-title{font-size:1.1rem;font-weight:600}
-.main-title b{color:var(--accent);font-family:'JetBrains Mono',monospace;font-weight:700}
-.ic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(105px,1fr));gap:8px}
-.ic-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 8px 12px;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;transition:all var(--tr);position:relative;content-visibility:auto;contain-intrinsic-size:0 90px}
-.ic-card::before{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at 50% 30%,var(--accent-soft),transparent 70%);opacity:0;transition:opacity var(--tr);pointer-events:none}
-.ic-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.3)}
-.ic-card:hover::before{opacity:1}
-.ic-card:active{transform:scale(.96)}
-.ic-card.selected{border-color:var(--accent);background:var(--accent-soft)}
-.ic-card icon-ic{font-size:1.6rem;color:var(--fg-sec);transition:color var(--tr);line-height:1}
-.ic-card:hover icon-ic{color:var(--fg)}
-.ic-name{font-size:.58rem;font-family:'JetBrains Mono',monospace;color:var(--fg-muted);text-align:center;line-height:1.25;word-break:break-all;max-height:2.5em;overflow:hidden;transition:color var(--tr)}
-.ic-card:hover .ic-name{color:var(--fg-sec)}
-.empty{grid-column:1/-1;text-align:center;padding:80px 20px;color:var(--fg-muted)}
-.empty svg{width:48px;height:48px;margin-bottom:12px;opacity:.3}
-.empty h3{font-size:1rem;color:var(--fg-sec);font-weight:500;margin-bottom:4px}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s ease}
-.overlay.show{opacity:1;pointer-events:auto}
-.panel{position:fixed;top:0;right:0;bottom:0;width:var(--panel-w);background:var(--bg-deep);border-left:1px solid var(--border);z-index:201;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border-h) transparent}
-.panel.show{transform:translateX(0)}
-.pn-close{position:absolute;top:16px;right:16px;width:32px;height:32px;background:var(--bg-surface);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--fg-muted);transition:all var(--tr);z-index:5}
-.pn-close:hover{background:var(--bg-hover);color:var(--fg);border-color:var(--border-h)}
-.pn-close svg{width:16px;height:16px}
-.pn-body{padding:28px 24px 40px}
-.pn-preview{display:flex;align-items:center;justify-content:center;height:120px;background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:20px}
-.pn-preview icon-ic{font-size:4rem;line-height:1}
-.pn-name{font-size:1.15rem;font-weight:700;font-family:'JetBrains Mono',monospace;margin-bottom:24px;color:var(--fg);word-break:break-all}
-.pn-section{margin-bottom:24px}
-.pn-label{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--fg-muted);margin-bottom:10px}
-.pn-code{background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
-.pn-code-head{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;background:var(--bg);border-bottom:1px solid var(--border)}
-.pn-code-lang{font-size:.68rem;color:var(--fg-muted);font-family:'JetBrains Mono',monospace}
-.pn-copy{background:transparent;border:1px solid var(--border);color:var(--fg-muted);padding:3px 10px;border-radius:5px;font-family:inherit;font-size:.68rem;cursor:pointer;transition:all var(--tr)}
-.pn-copy:hover{border-color:var(--accent);color:var(--accent)}
-.pn-code pre{padding:14px;font-family:'JetBrains Mono',monospace;font-size:.78rem;line-height:1.7;color:var(--fg-sec);overflow-x:auto;white-space:pre;margin:0}
-.pn-code pre .t{color:#fb923c}.pn-code pre .a{color:#fbbf24}.pn-code pre .s{color:#4ade80}.pn-code pre .c{color:#52525b;font-style:italic}
-.pn-demo-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px;background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--radius-sm)}
-.pn-demo-item{display:flex;flex-direction:column;align-items:center;gap:6px}
-.pn-demo-item icon-ic{line-height:1}
-.pn-demo-tag{font-size:.58rem;font-family:'JetBrains Mono',monospace;color:var(--fg-muted);background:var(--bg);padding:2px 6px;border-radius:4px;border:1px solid var(--border)}
-.toast-wrap{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none}
-.toast-msg{background:var(--bg-card);border:1px solid var(--success);color:var(--success);padding:10px 20px;border-radius:var(--radius-sm);font-size:.82rem;font-weight:500;box-shadow:0 8px 32px rgba(0,0,0,.4);animation:toastIn .3s ease,toastOut .3s ease 1.5s forwards;pointer-events:auto;white-space:nowrap}
-@keyframes toastIn{from{opacity:0;transform:translateY(12px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
-@keyframes toastOut{to{opacity:0;transform:translateY(-8px) scale(.95)}}
-@media(max-width:900px){:root{--sidebar-w:0px;--panel-w:100vw}.sidebar{display:none}.nav-ver{display:none}}
-@media(max-width:600px){.ic-grid{grid-template-columns:repeat(auto-fill,minmax(85px,1fr));gap:6px}.ic-card{padding:12px 6px 10px}.ic-card icon-ic{font-size:1.3rem}.ic-name{font-size:.52rem}.main{padding:16px 12px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+        :root {
+            --bg-deep: #F8F8F8;
+            --bg: #F8F8F8;
+            --bg-surface: #F1F1F4;
+            --bg-card: #F8F8F8;
+            --bg-hover: #ECECF0;
+            --fg: #1a1a22;
+            --fg-sec: #5c5c66;
+            --fg-muted: #a0a0aa;
+            --accent: #f97316;
+            --accent-h: #ea580c;
+            --accent-soft: rgba(249, 115, 22, .07);
+            --accent-glow: rgba(249, 115, 22, .2);
+            --success: #22c55e;
+            --border: #e6e6ec;
+            --border-h: #d8d8e0;
+            --radius: 10px;
+            --radius-sm: 7px;
+            --tr: .2s cubic-bezier(.4, 0, .2, 1);
+            --sidebar-w: 230px;
+            --navbar-h: 60px;
+            --footer-h: 44px;
+            --panel-w: 380px;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-h) transparent;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.5;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== Navbar ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--navbar-h);
+            background: var(--bg-deep);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 16px;
+            z-index: 100;
+        }
+
+        .navbar::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+            pointer-events: none;
+        }
+
+        .nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+
+        .nav-logo-box {
+            width: 34px; height: 34px;
+            background: linear-gradient(135deg, var(--accent), #fb923c);
+            border-radius: 9px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .nav-logo-box svg { width: 18px; height: 18px; color: #fff; }
+
+        .nav-logo-text { font-size: 1.15rem; font-weight: 800; letter-spacing: -.03em; color: var(--fg); }
+        .nav-logo-text span { color: var(--accent); }
+
+        .nav-search { flex: 1; max-width: 480px; position: relative; }
+        .nav-search input {
+            width: 100%;
+            padding: 9px 14px 9px 38px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--fg);
+            font-family: inherit;
+            font-size: .875rem;
+            outline: none;
+            transition: all var(--tr);
+        }
+        .nav-search input::placeholder { color: var(--fg-muted); }
+        .nav-search input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+        .nav-search svg {
+            position: absolute; left: 12px; top: 50%;
+            transform: translateY(-50%);
+            width: 16px; height: 16px;
+            color: var(--fg-muted); pointer-events: none;
+        }
+
+        .nav-badge {
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: .75rem; font-weight: 600;
+            padding: 4px 12px; border-radius: 20px;
+            border: 1px solid rgba(249, 115, 22, .15);
+            white-space: nowrap;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .nav-ver { font-size: .7rem; color: var(--fg-muted); margin-left: auto; flex-shrink: 0; }
+
+        /* ===== Layout ===== */
+        .layout {
+            display: flex;
+            flex: 1;
+            min-height: 0;
+            padding-top: var(--navbar-h);
+            padding-bottom: var(--footer-h);
+        }
+
+        .sidebar {
+            width: var(--sidebar-w);
+            flex-shrink: 0;
+            background: var(--bg-deep);
+            border-right: 1px solid var(--border);
+            overflow-y: auto;
+            padding: 16px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-h) transparent;
+        }
+
+        .sidebar-label {
+            font-size: .65rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .1em;
+            color: var(--fg-muted);
+            padding: 12px 20px 8px;
+        }
+
+        .sb-item {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 8px 20px; cursor: pointer;
+            transition: all var(--tr);
+            border-left: 3px solid transparent;
+            color: var(--fg-sec); font-size: .85rem; font-weight: 500;
+        }
+        .sb-item:hover { background: var(--bg-surface); color: var(--fg); }
+        .sb-item.active { background: var(--accent-soft); color: var(--accent); border-left-color: var(--accent); }
+
+        .sb-count {
+            font-size: .7rem; font-family: 'JetBrains Mono', monospace;
+            color: var(--fg-muted); background: var(--bg-surface);
+            padding: 1px 7px; border-radius: 10px;
+        }
+        .sb-item.active .sb-count { background: rgba(249, 115, 22, .12); color: var(--accent); }
+
+        .main {
+            flex: 1; overflow-y: auto;
+            padding: 24px;
+            scroll-behavior: smooth;
+        }
+
+        .main-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+        .main-title { font-size: 1.1rem; font-weight: 600; }
+        .main-title b { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-weight: 700; }
+
+        /* ===== Icon grid ===== */
+        .ic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+            gap: 8px;
+            margin-bottom: 48px;
+        }
+
+        .ic-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 8px 12px;
+            display: flex; flex-direction: column;
+            align-items: center; gap: 10px;
+            cursor: pointer;
+            transition: all var(--tr);
+            position: relative;
+            content-visibility: auto;
+            contain-intrinsic-size: 0 90px;
+        }
+        .ic-card::before {
+            content: ''; position: absolute; inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at 50% 30%, var(--accent-soft), transparent 70%);
+            opacity: 0; transition: opacity var(--tr); pointer-events: none;
+        }
+        .ic-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0, 0, 0, .08); }
+        .ic-card:hover::before { opacity: 1; }
+        .ic-card:active { transform: scale(.96); }
+        .ic-card.selected { border-color: var(--accent); background: var(--accent-soft); }
+
+        .ic-card icon-ic { font-size: 1.6rem; color: var(--fg-sec); transition: color var(--tr); line-height: 1; }
+        .ic-card:hover icon-ic { color: var(--fg); }
+
+        .ic-name {
+            font-size: .58rem; font-family: 'JetBrains Mono', monospace;
+            color: var(--fg-muted); text-align: center; line-height: 1.25;
+            word-break: break-all; max-height: 2.5em; overflow: hidden;
+            transition: color var(--tr);
+        }
+        .ic-card:hover .ic-name { color: var(--fg-sec); }
+
+        .empty { grid-column: 1 / -1; text-align: center; padding: 80px 20px; color: var(--fg-muted); }
+        .empty svg { width: 48px; height: 48px; margin-bottom: 12px; opacity: .3; }
+        .empty h3 { font-size: 1rem; color: var(--fg-sec); font-weight: 500; margin-bottom: 4px; }
+
+        /* ===== Overlay + Slide Panel ===== */
+        .overlay {
+            position: fixed; inset: 0;
+            background: rgba(0, 0, 0, .5);
+            z-index: 200; opacity: 0; pointer-events: none;
+            transition: opacity .3s ease;
+        }
+        .overlay.show { opacity: 1; pointer-events: auto; }
+
+        .panel {
+            position: fixed; top: 0; right: 0; bottom: 0;
+            width: var(--panel-w);
+            background: var(--bg-deep);
+            border-left: 1px solid var(--border);
+            z-index: 201;
+            transform: translateX(100%);
+            transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-h) transparent;
+        }
+        .panel.show { transform: translateX(0); }
+
+        .pn-close {
+            position: absolute; top: 16px; right: 16px;
+            width: 32px; height: 32px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; color: var(--fg-muted);
+            transition: all var(--tr); z-index: 5;
+        }
+        .pn-close:hover { background: var(--bg-hover); color: var(--fg); border-color: var(--border-h); }
+        .pn-close svg { width: 16px; height: 16px; }
+
+        .pn-body { padding: 28px 24px 40px; }
+
+        .pn-preview {
+            display: flex; align-items: center; justify-content: center;
+            height: 120px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 20px;
+        }
+        .pn-preview icon-ic { font-size: 4rem; line-height: 1; color: var(--fg); }
+
+        .pn-name {
+            font-size: 1.15rem; font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 24px; color: var(--fg);
+            word-break: break-all;
+        }
+
+        .pn-section { margin-bottom: 24px; }
+        .pn-label {
+            font-size: .7rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: .08em;
+            color: var(--fg-muted); margin-bottom: 10px;
+        }
+
+        .pn-code {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+        .pn-code-head {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 8px 14px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+        }
+        .pn-code-lang { font-size: .68rem; color: var(--fg-muted); font-family: 'JetBrains Mono', monospace; }
+        .pn-copy {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--fg-muted);
+            padding: 3px 10px; border-radius: 5px;
+            font-family: inherit; font-size: .68rem;
+            cursor: pointer; transition: all var(--tr);
+        }
+        .pn-copy:hover { border-color: var(--accent); color: var(--accent); }
+
+        .pn-code pre {
+            padding: 14px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .78rem; line-height: 1.7;
+            color: var(--fg-sec);
+            overflow-x: auto; white-space: pre; margin: 0;
+        }
+        .pn-code pre .t { color: #ea580c; }
+        .pn-code pre .a { color: #d97706; }
+        .pn-code pre .s { color: #16a34a; }
+        .pn-code pre .c { color: #9ca3af; font-style: italic; }
+
+        .pn-demo-row {
+            display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+            padding: 14px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+        }
+        .pn-demo-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        .pn-demo-item icon-ic { line-height: 1; color: var(--fg); }
+        .pn-demo-tag {
+            font-size: .58rem; font-family: 'JetBrains Mono', monospace;
+            color: var(--fg-muted); background: var(--bg);
+            padding: 2px 6px; border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        /* ===== Footer (sticky bottom) ===== */
+        .footer {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            height: var(--footer-h);
+            background: var(--bg-deep);
+            border-top: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 20px;
+            z-index: 90;
+            font-size: .75rem;
+            color: var(--fg-muted);
+        }
+        .footer .ft-left { display: flex; align-items: center; gap: 8px; }
+        .footer .ft-left strong { color: var(--fg); font-weight: 700; letter-spacing: -.02em; }
+        .footer .ft-left strong span { color: var(--accent); }
+        .footer .ft-right { display: flex; align-items: center; gap: 14px; font-family: 'JetBrains Mono', monospace; }
+        .footer .ft-right a { color: var(--fg-muted); text-decoration: none; transition: color var(--tr); }
+        .footer .ft-right a:hover { color: var(--accent); }
+        .footer .ft-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--success); display: inline-block; }
+
+        /* ===== Toast ===== */
+        .toast-wrap {
+            position: fixed; bottom: calc(var(--footer-h) + 24px);
+            left: 50%; transform: translateX(-50%);
+            z-index: 9999;
+            display: flex; flex-direction: column; gap: 8px; align-items: center;
+            pointer-events: none;
+        }
+        .toast-msg {
+            background: var(--bg-card);
+            border: 1px solid var(--success);
+            color: var(--success);
+            padding: 10px 20px; border-radius: var(--radius-sm);
+            font-size: .82rem; font-weight: 500;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .15);
+            animation: toastIn .3s ease, toastOut .3s ease 1.5s forwards;
+            pointer-events: auto; white-space: nowrap;
+        }
+        @keyframes toastIn { from { opacity: 0; transform: translateY(12px) scale(.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes toastOut { to { opacity: 0; transform: translateY(-8px) scale(.95); } }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 900px) {
+            :root { --sidebar-w: 0px; --panel-w: 100vw; }
+            .sidebar { display: none; }
+            .nav-ver { display: none; }
+        }
+        @media (max-width: 600px) {
+            .ic-grid { grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); gap: 6px; }
+            .ic-card { padding: 12px 6px 10px; }
+            .ic-card icon-ic { font-size: 1.3rem; }
+            .ic-name { font-size: .52rem; }
+            .main { padding: 16px 12px; }
+            .footer .ft-right { display: none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+        }
     </style>
 </head>
+
 <body>
 
+<!-- ============ NAVBAR ============ -->
 <nav class="navbar">
-  <div class="nav-logo">
-    <div class="nav-logo-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-    <div class="nav-logo-text">ICONIC<span>.</span></div>
-  </div>
-  <div class="nav-search">
-    <input type="text" id="searchInput" placeholder="Search 1400+ icons..." aria-label="Search icons">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-  </div>
-  <div class="nav-badge" id="navBadge">0 icons</div>
-  <div class="nav-ver">v1.0.0</div>
+    <div class="nav-logo">
+        <div class="nav-logo-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="nav-logo-text">ICONIC<span>.</span></div>
+    </div>
+    <div class="nav-search">
+        <input type="text" id="searchInput" placeholder="Search 1138+ icons..." aria-label="Search icons">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </div>
+    <div class="nav-badge" id="navBadge">0 icons</div>
+    <div class="nav-ver">v1.0.0.1</div>
 </nav>
 
+<!-- ============ LAYOUT: SIDEBAR + MAIN ============ -->
 <div class="layout">
-  <aside class="sidebar" id="sidebar"><div class="sidebar-label">Categories</div><div id="sidebarList"></div></aside>
-  <main class="main" id="mainArea">
-    <div class="main-head"><div class="main-title" id="mainTitle">All Icons <b id="countInline">0</b></div></div>
-    <div class="ic-grid" id="icGrid"></div>
-  </main>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-label">Categories</div>
+        <div id="sidebarList"></div>
+    </aside>
+    <main class="main" id="mainArea">
+        <div class="main-head">
+            <div class="main-title" id="mainTitle">All Icons <b id="countInline">0</b></div>
+        </div>
+        <div class="ic-grid" id="icGrid"></div>
+    </main>
 </div>
 
+<!-- ============ OVERLAY + SLIDE PANEL ============ -->
 <div class="overlay" id="overlay"></div>
 <div class="panel" id="panel">
-  <button class="pn-close" id="panelClose" aria-label="Close panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-  <div class="pn-body" id="panelBody"></div>
+    <button class="pn-close" id="panelClose" aria-label="Close panel">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="pn-body" id="panelBody"></div>
 </div>
 
+<!-- ============ TOAST ============ -->
 <div class="toast-wrap" id="toastWrap"></div>
 
-<script src="script.js"></script>
+<!-- ============ FOOTER (sticky bottom) ============ -->
+<footer class="footer">
+    <div class="ft-left">
+        <span class="ft-dot"></span>
+        <strong>ICONIC<span>.</span></strong>
+        <span>— Custom SVG Icon Library</span>
+    </div>
+    <div class="ft-right">
+        <span id="footerCount">0 icons</span>
+        <a href="#" id="footerLink">iconic.css</a>
+        <span>© 2025 ICONIC</span>
+    </div>
+</footer>
+
+<!-- ============ SCRIPT ============ -->
+<script>
+(function () {
+    'use strict';
+
+    // ===== All icon names (1138) — drives preview + categories =====
+    var iconNames = [
+  '42-group', '500px', 'abacus', 'accessible-icon', 'accusoft', 'adn', 'adversal', 'affiliatetheme', 'airbnb', 'algolia', 'alien', 'alien-monster',  'alipay', 'amazon', 'amazon-pay', 'amilia', 'android', 'angellist', 'angle-down', 'angle-left', 'angle-right', 'angle-up', 'angrycreative', 'angular',  'app-store', 'app-store-ios', 'apper', 'apple', 'apple-pay', 'apple-whole', 'arch-linux', 'archive', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-rotate-left',  'arrow-rotate-right', 'arrow-up', 'arrows-left-right', 'arrows-up-down', 'artstation', 'asymmetrik', 'atlassian', 'audible', 'autoprefixer', 'avianex', 'aviato', 'award',  'aws', 'baby', 'backward', 'bandage', 'bandcamp', 'barbell', 'basket-shopping', 'bath', 'battery-empty', 'battery-full', 'battery-half', 'battery-quarter',  'battle-net', 'bed', 'beer-mug', 'behance', 'bell', 'bell-slash', 'bilibili', 'bimobject', 'binoculars', 'bitbucket', 'bitcoin', 'bity',  'black-tie', 'blackberry', 'blender', 'blender-phone', 'blogger', 'blogger-b', 'bluesky', 'bluetooth', 'bluetooth-b', 'board-game-geek', 'bomb', 'bone',  'book', 'book-open', 'book-open-reader', 'bookmark', 'books', 'bootstrap', 'bots', 'bottle-droplet', 'bottle-water', 'bowl-rice', 'box', 'box-open',  'box-tissue', 'brain', 'brave', 'brave-reverse', 'briefcase', 'btc', 'buffer', 'build-awesome', 'building', 'building-columns', 'buromobelexperte', 'bus',  'bus-crash', 'bus-simple', 'buy-n-large', 'buysellads', 'calculator', 'calendar', 'calendar-check', 'calendar-clock', 'calendar-days', 'calendar-minus', 'calendar-plus', 'calendar-range',  'calendar-week', 'calendar-xmark', 'camera', 'campground', 'canadian-maple-leaf', 'cannabis', 'capsules', 'car', 'car-battery', 'car-crash', 'car-on', 'car-rear',  'car-side', 'car-side-crash', 'car-tunnel', 'caret-down', 'caret-left', 'caret-right', 'caret-up', 'carrot', 'cart-plus', 'cart-shopping', 'cash-app', 'cat',  'cc-amazon-pay', 'cc-amex', 'cc-apple-pay', 'cc-diners-club', 'cc-discover', 'cc-jcb', 'cc-mastercard', 'cc-paypal', 'cc-stripe', 'cc-visa', 'cent-sign', 'centercode',  'centos', 'certificate', 'chain', 'chair', 'chalkboard', 'chalkboard-user', 'charging-station', 'chart-area', 'chart-bar', 'chart-line', 'chart-pie', 'chart-simple',  'chevron-down', 'chevron-left', 'chevron-right', 'chevron-up', 'child', 'chrome', 'chromecast', 'church', 'circle', 'circle-arrow-down', 'circle-arrow-left', 'circle-arrow-right',  'circle-arrow-up', 'circle-chevron-down', 'circle-chevron-left', 'circle-chevron-right', 'circle-chevron-up', 'circle-pause', 'circle-play', 'circle-stop', 'circle-stopwatch', 'circle-zulip', 'claude', 'clipboard',  'clipboard-check', 'clipboard-list', 'clock', 'clock-rotate-left', 'clock-rotate-right', 'clone', 'cloud', 'cloud-arrow-down', 'cloud-arrow-up', 'cloud-meatball', 'cloud-rain', 'cloud-showers',  'cloud-sun', 'cloudflare', 'cloudscale', 'cloudsmith', 'cloudversify', 'clover', 'cmplid', 'codeberg', 'codepen', 'codiepie', 'comment', 'comment-dots',  'comments', 'compact-disc', 'compass', 'confluence', 'connectdevelop', 'container-storage', 'contao', 'copy', 'cotton-bureau', 'couch', 'cpanel', 'creative-commons',  'creative-commons-by', 'creative-commons-nc', 'creative-commons-nc-eu', 'creative-commons-nc-jp', 'creative-commons-nd', 'creative-commons-pd', 'creative-commons-pd-alt', 'creative-commons-remix', 'creative-commons-sa', 'creative-commons-sampling', 'creative-commons-sampling-plus', 'creative-commons-share',  'creative-commons-zero', 'credit-card', 'critical-role', 'cross', 'crow', 'css', 'css3', 'css3-alt', 'cuttlefish', 'd-and-d', 'd-and-d-beyond', 'dailymotion',  'dart-lang', 'dashcube', 'database', 'debian', 'deezer', 'delicious', 'deploydog', 'deskpro', 'dev', 'deviantart', 'devpost', 'dharmachakra',  'dhl', 'diamond', 'diaspora', 'digg', 'digital-ocean', 'discord', 'discourse', 'disqus', 'dna', 'dochub', 'docker', 'dog',  'dollar-sign', 'dolly', 'dolly-empty', 'door-closed', 'door-open', 'dove', 'download', 'draft2digital', 'dragon', 'dribbble', 'dropbox', 'droplet',  'droplet-slash', 'drupal', 'dumbbell', 'duolingo', 'dyalog', 'ear-deaf', 'ear-listen', 'earlybirds', 'ebay', 'edge', 'edge-legacy', 'elementor',  'eleventy', 'ello', 'ember', 'empire', 'envelope', 'envelope-open', 'envira', 'eraser', 'erlang', 'ethereum', 'etsy', 'euro-sign',  'evernote', 'expeditedssl', 'eye', 'eye-dropper', 'eye-slash', 'face-angry', 'face-dizzy', 'face-frown', 'face-grin', 'face-grin-beam', 'face-grin-wink', 'face-kiss',  'face-kiss-wink-heart', 'face-laugh', 'face-meh', 'face-rolling-eyes', 'face-sad-tear', 'face-smile', 'face-surprise', 'face-tired', 'facebook', 'facebook-f', 'facebook-messenger', 'fantasy-flight-games',  'fax', 'feather', 'feather-pointed', 'fedex', 'fediverse', 'fedora', 'ferry', 'figma', 'file', 'file-audio', 'file-code', 'file-excel',  'file-image', 'file-lines', 'file-pdf', 'file-video', 'file-word', 'file-zipper', 'files-pinwheel', 'film', 'fire', 'fire-burner', 'fire-extinguisher', 'fire-flame',  'fire-flame-curved', 'fire-flame-simple', 'firefox', 'firefox-browser', 'first-order', 'first-order-alt', 'firstdraft', 'fish', 'fish-fins', 'flag', 'flag-checkered', 'flag-usa',  'flask', 'flask-vial', 'flickr', 'flipboard', 'floppy-disk', 'flower', 'flutter', 'fly', 'folder', 'folder-open', 'font-awesome', 'fonticons',  'fonticons-fi', 'forgejo', 'fork', 'fork-knife', 'forklift', 'fort-awesome', 'fort-awesome-alt', 'forumbee', 'forward', 'foursquare', 'free-code-camp', 'freebsd',  'frog', 'fulcrum', 'galactic-republic', 'galactic-senate', 'gas-pump', 'gauge', 'gauge-high', 'gauge-simple', 'gauge-simple-high', 'gavel', 'gear', 'gears',  'get-pocket', 'gg', 'gg-circle', 'ghost', 'git', 'git-alt', 'gitee', 'github', 'github-alt', 'gitkraken', 'gitlab', 'gitter',  'glide', 'glide-g', 'globaleaks', 'globe', 'globe-americas', 'globe-asia', 'globe-europe', 'gofore', 'golang', 'goodreads', 'goodreads-g', 'google',  'google-drive', 'google-pay', 'google-play', 'google-plus', 'google-plus-g', 'google-scholar', 'google-wallet', 'graduation-cap', 'grapes', 'gratipay', 'grav', 'grill',  'gripfire', 'grunt', 'guilded', 'gulp', 'hacker-news', 'hackerrank', 'hamburger', 'hammer', 'hand', 'hand-back-fist', 'hand-holding', 'hand-holding-box',  'hand-holding-dollar', 'hand-holding-droplet', 'hand-holding-hand', 'hand-holding-heart', 'hand-holding-medical', 'hand-holding-skull', 'hand-point-down', 'hand-point-left', 'hand-point-right', 'hand-point-up', 'hand-pointer', 'hand-soap',  'hand-sparkles', 'handcuffs', 'hands', 'hands-helping', 'hands-praying', 'handshake', 'hard-drive', 'hashnode', 'headphones', 'heart', 'heart-pulse', 'heartbeat',  'helicopter', 'helicopter-symbol', 'hexagon', 'hippo', 'hips', 'hire-a-helper', 'hive', 'home', 'hooli', 'hornbill', 'horse', 'horse-head',  'hospital', 'hotel', 'hotjar', 'hourglass', 'hourglass-end', 'hourglass-half', 'hourglass-start', 'house', 'house-chimney', 'houzz', 'html5', 'hubspot',  'hugging-face', 'ideal', 'igloo', 'image', 'images', 'imdb', 'inbox', 'industry', 'instagram', 'instalod', 'intercom', 'internet-archive',  'internet-explorer', 'invision', 'ioxhost', 'island-tropical', 'itch-io', 'itunes', 'itunes-note', 'jar', 'jar-wheat', 'java', 'jedi-order', 'jenkins',  'jet-fighter', 'jet-fighter-up', 'jira', 'joget', 'joomla', 'journal', 'js', 'jsfiddle', 'julia', 'jxl', 'kaggle', 'kakao-talk',  'key', 'keybase', 'keycdn', 'kickstarter', 'kickstarter-k', 'kitchen-set', 'kiwi-bird', 'knife', 'ko-fi', 'korvue', 'kubernetes', 'lake',  'landmark', 'laravel', 'lastfm', 'leaf', 'leanpub', 'leetcode', 'lemon', 'less', 'lets-encrypt', 'letterboxd', 'lightbulb', 'ligthbulb',  'lime', 'line', 'link', 'linkedin', 'linkedin-in', 'linktree', 'linode', 'linux', 'list', 'list-check', 'list-ol', 'location-arrow',  'location-dot', 'lock', 'lumon', 'lumon-drop', 'lungs', 'lyft', 'magento', 'magnifying-glass', 'magnifying-glass-arrow-right', 'magnifying-glass-chart', 'magnifying-glass-dollar', 'magnifying-glass-location',  'magnifying-glass-minus', 'magnifying-glass-plus', 'mailchimp', 'mandalorian', 'map', 'map-location', 'map-location-dot', 'markdown', 'martini-glass', 'mastodon', 'matrix', 'mattermost',  'maxcdn', 'mdb', 'medal', 'medapps', 'medium', 'medrt', 'meetup', 'megaport', 'memory', 'mendeley', 'meta', 'microblog',  'microchip', 'microphone', 'microscope', 'microsoft', 'mintbit', 'mix', 'mixcloud', 'mixer', 'mizuni', 'modx', 'monero', 'monorail',  'monument', 'moon', 'mountain', 'mountain-city', 'mountain-sun', 'mug-hot', 'mug-saucer', 'music', 'napster', 'neos', 'newspaper', 'nextcloud',  'nfc-directional', 'nfc-symbol', 'nimblr', 'node', 'node-js', 'note', 'note-sticky', 'notion', 'npm', 'ns8', 'nutritionix', 'obsidian',  'octagon', 'octopus-deploy', 'odnoklassniki', 'odysee', 'oil-can', 'oil-well', 'old-republic', 'openai', 'opencart', 'openid', 'openstreetmap', 'opensuse',  'opera', 'optin-monster', 'orange', 'orcid', 'osi', 'otter', 'outbox', 'package', 'padlet', 'page4', 'pagelines', 'palfed',  'pallet', 'pallet-box', 'pallet-boxes', 'pandora', 'paper-plane', 'parachute-box', 'paste', 'patreon', 'pause', 'paw', 'paypal', 'peace',  'pen', 'pen-to-square', 'pencil', 'pentagon', 'pepper-hot', 'perbyte', 'periscope', 'person', 'person-arrow-down-to-line', 'person-arrow-up-from-line', 'person-biking', 'person-breastfeeding',  'person-cane', 'person-chalkboard', 'person-climbing', 'person-dress', 'person-dress-burst', 'person-drowning', 'person-falling', 'person-hiking', 'person-lifting-weights', 'person-military-pointing', 'person-military-rifle', 'person-pregnant',  'person-rays', 'person-rifle', 'person-running', 'person-running-fast', 'person-shelter', 'person-skating', 'person-skiing', 'person-skiing-nordic', 'person-snowboarding', 'person-swimming', 'person-walking', 'person-walking-arrow-right',  'person-walking-dashed-line-arrow', 'person-walking-luggage', 'person-with-cane', 'phabricator', 'phoenix-framework', 'phoenix-squadron', 'phone', 'phone-slash', 'php', 'pied-piper', 'pied-piper-alt', 'pied-piper-hat',  'pied-piper-pp', 'pinterest', 'pinterest-p', 'pix', 'pixelfed', 'pixiv', 'pizza-slice', 'plane', 'plane-arrival', 'plane-circle-check', 'plane-circle-exclamation', 'plane-circle-xmark',  'plane-departure', 'plane-lock', 'plane-slash', 'plane-up-slash', 'plate-wheat', 'play', 'playstation', 'plug', 'poo', 'poo-storm', 'postgresql', 'pound-sign',  'power-off', 'print', 'product-hunt', 'protractor', 'pump-medical', 'pump-soap', 'pushed', 'python', 'qq', 'quinscape', 'quora', 'r-project',  'raspberry-pi', 'ravelry', 'react', 'reacteurope', 'readme', 'rebel', 'receipt', 'red-river', 'reddit', 'reddit-alien', 'redhat', 'refresh',  'renren', 'replyd', 'researchgate', 'resolving', 'rev', 'ribbon', 'river', 'roblox-creator-studio', 'robot', 'rocketchat', 'rockrms', 'ror',  'rotate', 'rotate-back', 'rotate-forward', 'rotate-left', 'rotate-right', 'route', 'ruler', 'ruler-combined', 'ruler-horizontal', 'ruler-vertical', 'rupee-sign', 'rust',  'safari', 'sailboat', 'salesforce', 'sand-clock', 'sass', 'save', 'scale-balanced', 'scale-unbalanced', 'scaleway', 'schlix', 'school', 'scissors',  'screenpal', 'screwdriver', 'screwdriver-wrench', 'scribd', 'scroll', 'sd-card', 'search', 'searchengin', 'seedling', 'sellcast', 'sellsy', 'sensor',  'sensor-on', 'sensor-triangle-exclamation', 'server', 'servicestack', 'shamrock', 'share', 'share-nodes', 'shield', 'shield-cat', 'shield-dog', 'shield-halved', 'shield-virus',  'ship', 'shirtsinbulk', 'shoelace', 'shop', 'shop-lock', 'shopify', 'shopware', 'shower', 'signal', 'signal-messenger', 'signs-post', 'sim-card',  'simplybuilt', 'sink', 'siren', 'siren-on', 'sistrix', 'sith', 'sitrox', 'sketch', 'skull', 'skull-crossbones', 'skyatlas', 'skype',  'slack', 'slideshare', 'smog', 'smoking', 'snapchat', 'snowflake', 'snowman', 'solana', 'solar-panel', 'soundcloud', 'sourcetree', 'space-awesome',  'speakap', 'speaker-deck', 'spider', 'spoon', 'spotify', 'square', 'square-behance', 'square-bluesky', 'square-build-awesome-stroke', 'square-deskpro', 'square-dribbble', 'square-facebook',  'square-figma', 'square-font-awesome', 'square-font-awesome-stroke', 'square-full', 'square-git', 'square-github', 'square-gitlab', 'square-google-plus', 'square-hacker-news', 'square-instagram', 'square-js', 'square-lastfm',  'square-letterboxd', 'square-linkedin', 'square-odnoklassniki', 'square-pied-piper', 'square-pinterest', 'square-reddit', 'square-snapchat', 'square-steam', 'square-threads', 'square-tumblr', 'square-twitter', 'square-upwork',  'square-viadeo', 'square-vimeo', 'square-web-awesome', 'square-web-awesome-stroke', 'square-whatsapp', 'square-x-twitter', 'square-xing', 'square-youtube', 'squarespace', 'stack-exchange', 'stack-overflow', 'stackpath',  'star', 'star-and-crescent', 'star-half', 'star-half-stroke', 'star-of-david', 'star-of-life', 'staylinked', 'steam', 'steam-symbol', 'stethoscope', 'sticker-mule', 'stop',  'stopwatch', 'stopwatch-20', 'store', 'store-slash', 'strava', 'stripe', 'stripe-s', 'stubber', 'studiovinari', 'stumbleupon', 'stumbleupon-circle', 'substack',  'subway', 'suitcase', 'sun', 'sun-plant-wilt', 'superpowers', 'supple', 'supportnow', 'suse', 'svelte', 'swift', 'symfony', 'symfonycasts',  'sync', 'syringe', 'table', 'tablets', 'tag', 'tags', 'tailwind-css', 'taxi', 'teamspeak', 'telegram', 'tencent-weibo', 'tent',  'tesla', 'test-tube', 'tex', 'the-red-yeti', 'themeco', 'themeisle', 'think-peaks', 'threads', 'threema', 'tidal', 'tiktok', 'timer',  'toilet', 'tomb', 'toolbox', 'tor-browser', 'trade-federation', 'train', 'train-subway', 'train-tram', 'tram', 'trash', 'trash-arrow-up', 'trash-can',  'tree', 'tree-bare', 'tree-city', 'trello', 'triangle', 'trophy', 'truck', 'truck-arrow-right', 'truck-droplet', 'truck-fast', 'truck-fast-arrow', 'truck-field',  'truck-field-un', 'truck-front', 'truck-medical', 'truck-monster', 'truck-pickup', 'truck-plane', 'truck-ramp-box', 'tumblr', 'twitch', 'twitter', 'typescript', 'typo3',  'uber', 'ubuntu', 'uikit', 'ultralytics', 'ultralytics-hub', 'ultralytics-yolo', 'umbraco', 'uncharted', 'uniregistry', 'unison', 'unity', 'university',  'unlink', 'unlock', 'unreal-engine', 'unsplash', 'untappd', 'upload', 'ups', 'upwork', 'usb', 'user', 'user-gear', 'user-key',  'user-lock', 'user-minus', 'user-pen', 'user-plus', 'user-shield', 'user-slash', 'user-tag', 'user-xmark', 'users', 'users-gear', 'users-slash', 'usps',  'ussunnah', 'utensils', 'vaadin', 'venmo', 'venmo-v', 'viacoin', 'viadeo', 'vial', 'vial-circle-check', 'vial-virus', 'vials', 'viber',  'video', 'vim', 'vimeo', 'vimeo-v', 'vine', 'vk', 'vnv', 'volcano', 'volume-high', 'volume-low', 'volume-xmark', 'vsco',  'vuejs', 'w3c', 'wallet', 'warehouse', 'watchman-monitoring', 'water', 'watermelon', 'waze', 'web-awesome', 'webflow', 'weebly', 'weibo',  'weixin', 'whatsapp', 'wheelchair', 'whmcs', 'wifi', 'wikipedia-w', 'wind', 'wind-turbine', 'window-maximize', 'window-minimize', 'window-restore', 'windows',  'wine-glass', 'wirsindhandwerk', 'wix', 'wizards-of-the-coast', 'wodu', 'wolf-pack-battalion', 'wordpress', 'wordpress-simple', 'wpbeginner', 'wpexplorer', 'wpforms', 'wpressr',  'wrench', 'x-twitter', 'xbox', 'xing', 'xmpp', 'xrp', 'xrpl', 'y-combinator', 'yahoo', 'yammer', 'yandex', 'yandex-international',  'yarn', 'yelp', 'yen-sign', 'yin-yang', 'yoast', 'youtube', 'youtube-shorts', 'zhihu', 'zoom', 'zulip'
+    ];
+
+    // ===== Category detection =====
+    var catKW = {
+        'Brands': ['google', 'facebook', 'github', 'gitlab', 'discord', 'dribbble', 'behance', 'figma', 'amazon', 'apple', 'android', 'chrome', 'firefox', 'edge', 'linux', 'docker', 'aws', 'angular', 'flutter', 'bandcamp', 'bitbucket', 'bootstrap', 'codepen', 'deviantart', 'dropbox', 'elementor', 'envira', 'erlang', 'etsy', 'font-awesome', 'forgejo', 'fort-awesome', 'forumbee', 'foursquare', 'free-code-camp', 'freebsd', 'fulcrum', 'galactic', 'gofore', 'golang', 'goodreads', 'grav', 'grunt', 'gulp', 'hacker-news', 'hackerrank', 'hooli', 'hotjar', 'hubspot', 'imdb', 'instagram', 'itunes', 'jira', 'joget', 'joomla', 'js', 'jsfiddle', 'julia', 'kaggle', 'keybase', 'kickstarter', 'lastfm', 'leanpub', 'leetcode', 'less', 'letterboxd', 'line', 'linkedin', 'linode', 'laravel', 'mailchimp', 'mandalorian', 'markdown', '500px', 'adn', 'algolia', 'angellist', 'artstation', 'asymmetrik', 'atlassian', 'audible', 'autoprefixer', 'avianex', 'aviato', 'battle-net', 'bilibili', 'bimobject', 'blender', 'blogger', 'bluesky', 'bluetooth', 'board-game-geek', 'btc', 'buffer', 'buromobelexperte', 'buy-n-large', 'buysellads', 'canadian', 'cash-app', 'centercode', 'centos', 'chromecast', 'cloudflare', 'cloudscale', 'cloudsmith', 'cloudversify', 'cmplid', 'codiepie', 'confluence', 'connectdevelop', 'contao', 'cotton-bureau', 'cpanel', 'creative-commons', 'critical-role', 'css', 'css3', 'cuttlefish', 'd-and-d', 'dailymotion', 'dashcube', 'debian', 'deezer', 'delicious', 'deploydog', 'deskpro', 'dev', 'devpost', 'dharmachakra', 'dhl', 'diamond', 'diaspora', 'digg', 'digital-ocean', 'discourse', 'disqus', 'draft2digital', 'earlybirds', 'ebay', 'edge-legacy', 'eleventy', 'ello', 'ember', 'empire', 'expeditedssl', 'fantasy-flight', 'fedex', 'fediverse', 'fedora', 'ferry', 'first-order', 'firstdraft', 'fish-fins', 'flask', 'flickr', 'flipboard', 'floppy-disk', 'flower', 'flutter', 'fly', 'folder-open', 'folder', 'fonticons', 'forgejo', 'fork-knife', 'fork', 'forklift', 'fort-awesome-alt', 'fort-awesome', 'forumbee', 'forward', 'foursquare', 'free-code-camp', 'freebsd', 'frog', 'gripfire', 'guilded', 'hire-a-helper', 'hive', 'hornbill', 'houzz', 'html5', 'hugging-face', 'ideal', 'instalod', 'intercom', 'internet-archive', 'internet-explorer', 'invision', 'ioxhost', 'island-tropical', 'itch-io', 'itunes-note', 'jar-wheat', 'java', 'jedi-order', 'jenkins', 'jet-fighter', 'jxl', 'kakao-talk', 'keycdn', 'kickstarter-k', 'kitchen-set', 'ko-fi', 'korvue', 'kubernetes', 'lake', 'lets-encrypt', 'lightbulb', 'lumon', 'lyft', 'magento'],
+        'Arrows': ['arrow', 'angle', 'chevron', 'caret', 'location-arrow'],
+        'Calendar': ['calendar'],
+        'Charts': ['chart', 'gauge'],
+        'Chat': ['comment', 'comments'],
+        'Cloud': ['cloud'],
+        'Code': ['code', 'file-code', 'markdown'],
+        'Currency': ['dollar', 'euro', 'cent', 'bitcoin', 'ethereum', 'btc', 'credit-card', 'cc-', 'cash-app', 'google-pay', 'apple-pay', 'amazon-pay'],
+        'Files': ['file', 'folder', 'archive', 'copy', 'clipboard', 'clone', 'download'],
+        'Hands': ['hand', 'hands', 'handshake'],
+        'Faces': ['face-'],
+        'Animals': ['cat', 'dog', 'fish', 'frog', 'crow', 'hippo', 'horse', 'kiwi-bird', 'dragon', 'dove', 'bone', 'feather'],
+        'Food & Drink': ['carrot', 'bowl', 'bottle', 'beer', 'hamburger', 'lemon', 'apple-whole', 'grapes', 'kitchen', 'fork-knife', 'flask'],
+        'Health': ['heart', 'heartbeat', 'heart-pulse', 'lungs', 'capsules', 'bandage', 'dna'],
+        'Buildings': ['home', 'house', 'building', 'hotel', 'hospital', 'church', 'igloo', 'campground', 'island-tropical', 'landmark'],
+        'Media': ['film', 'compact-disc', 'backward', 'forward'],
+        'Nature': ['leaf', 'clover', 'lake', 'cannabis', 'fire', 'flower'],
+        'Security': ['lock', 'key', 'shield', 'eye', 'eye-slash'],
+        'Shopping': ['cart', 'basket'],
+        'Transport': ['car', 'bus', 'ferry', 'helicopter', 'jet-fighter', 'forklift'],
+        'Weather': ['cloud-sun', 'cloud-rain', 'cloud-showers', 'cloud-meatball', 'cloud-arrow'],
+        'Objects': ['bell', 'book', 'bomb', 'box', 'brain', 'calculator', 'camera', 'chair', 'clock', 'compass', 'cross', 'diamond', 'door', 'droplet', 'ear', 'eraser', 'fax', 'flag', 'gavel', 'gear', 'gears', 'ghost', 'globe', 'graduation', 'hammer', 'hard-drive', 'headphones', 'hexagon', 'hourglass', 'image', 'images', 'inbox', 'industry', 'jar', 'journal', 'knife', 'link', 'list', 'location-dot', 'map', 'magnifying']
+    };
+
+    function categorize(n) {
+        for (var c in catKW) {
+            var kws = catKW[c];
+            for (var i = 0; i < kws.length; i++) {
+                if (n.indexOf(kws[i]) !== -1) return c;
+            }
+        }
+        return 'Other';
+    }
+
+    // Build category map
+    var cats = {};
+    for (var i = 0; i < iconNames.length; i++) {
+        var n = iconNames[i], c = categorize(n);
+        if (!cats[c]) cats[c] = [];
+        cats[c].push(n);
+    }
+    var sortedCats = Object.entries(cats).sort(function (a, b) { return b[1].length - a[1].length; });
+
+    // ===== DOM refs =====
+    var searchInput = document.getElementById('searchInput');
+    var navBadge = document.getElementById('navBadge');
+    var sidebarList = document.getElementById('sidebarList');
+    var countInline = document.getElementById('countInline');
+    var mainTitle = document.getElementById('mainTitle');
+    var icGrid = document.getElementById('icGrid');
+    var overlay = document.getElementById('overlay');
+    var panel = document.getElementById('panel');
+    var panelClose = document.getElementById('panelClose');
+    var panelBody = document.getElementById('panelBody');
+    var toastWrap = document.getElementById('toastWrap');
+    var footerCount = document.getElementById('footerCount');
+
+    var activeCat = 'All';
+    var selectedIcon = null;
+
+    // ===== Init badges =====
+    navBadge.textContent = iconNames.length + ' icons';
+    footerCount.textContent = iconNames.length + ' icons';
+
+    // ===== Build sidebar =====
+    var sbHtml = '<div class="sb-item active" data-cat="All">All<span class="sb-count">' + iconNames.length + '</span></div>';
+    for (var i = 0; i < sortedCats.length; i++) {
+        sbHtml += '<div class="sb-item" data-cat="' + sortedCats[i][0] + '">' + sortedCats[i][0] + '<span class="sb-count">' + sortedCats[i][1].length + '</span></div>';
+    }
+    sidebarList.innerHTML = sbHtml;
+
+    // ===== Render grid =====
+    function renderGrid(filter, cat) {
+        icGrid.innerHTML = '';
+        var fl = filter ? filter.toLowerCase() : '';
+        var count = 0;
+        var frag = document.createDocumentFragment();
+
+        for (var i = 0; i < iconNames.length; i++) {
+            var name = iconNames[i];
+            var ms = !fl || name.indexOf(fl) !== -1;
+            var mc = cat === 'All' || categorize(name) === cat;
+            if (!ms || !mc) continue;
+            count++;
+
+            var card = document.createElement('div');
+            card.className = 'ic-card';
+            card.dataset.name = name;
+            if (name === selectedIcon) card.classList.add('selected');
+            card.innerHTML = '<icon-ic class="icon-' + name + '"></icon-ic><span class="ic-name">icon-' + name + '</span>';
+            card.addEventListener('click', (function (nm) {
+                return function () { openPanel(nm); };
+            })(name));
+            frag.appendChild(card);
+        }
+
+        if (count === 0) {
+            var empty = document.createElement('div');
+            empty.className = 'empty';
+            empty.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><h3>No icons found</h3><p>Try a different search or category</p>';
+            frag.appendChild(empty);
+        }
+
+        icGrid.appendChild(frag);
+        countInline.textContent = count;
+        var catLabel = cat === 'All' ? 'All Icons' : cat;
+        mainTitle.innerHTML = catLabel + ' <b>' + count + '</b>';
+    }
+
+    renderGrid('', activeCat);
+
+    // ===== Sidebar click =====
+    sidebarList.addEventListener('click', function (e) {
+        var item = e.target.closest('.sb-item');
+        if (!item) return;
+        activeCat = item.dataset.cat;
+        var items = sidebarList.querySelectorAll('.sb-item');
+        for (var i = 0; i < items.length; i++) items[i].classList.remove('active');
+        item.classList.add('active');
+        renderGrid(searchInput.value.trim(), activeCat);
+    });
+
+    // ===== Search =====
+    searchInput.addEventListener('input', function () {
+        renderGrid(searchInput.value.trim(), activeCat);
+    });
+
+    // ===== Detail Panel =====
+    function openPanel(name) {
+        selectedIcon = name;
+        var cards = icGrid.querySelectorAll('.ic-card');
+        for (var i = 0; i < cards.length; i++) {
+            if (cards[i].dataset.name === name) cards[i].classList.add('selected');
+            else cards[i].classList.remove('selected');
+        }
+
+        panelBody.innerHTML =
+            '<div class="pn-preview"><icon-ic class="icon-' + name + '"></icon-ic></div>' +
+            '<div class="pn-name">icon-' + name + '</div>' +
+            '<div class="pn-section"><div class="pn-label">Usage</div><div class="pn-code"><div class="pn-code-head"><span class="pn-code-lang">HTML</span><button class="pn-copy" data-text=\'<icon-ic class="icon-' + name + '"></icon-ic>\'>Copy</button></div><pre><span class="t">&lt;icon-ic</span> <span class="a">class</span>=<span class="s">"icon-' + name + '"</span><span class="t">&gt;&lt;/icon-ic&gt;</span></pre></div></div>' +
+            '<div class="pn-section"><div class="pn-label">CDN</div><div class="pn-code"><div class="pn-code-head"><span class="pn-code-lang">HTML</span><button class="pn-copy" data-text=\'&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/junaidprodeveloper/Iconic-webpage@1.0.0.1/iconic.css&quot;&gt;\'>Copy</button></div><pre><span class="c">&lt;!-- Add to &lt;head&gt; --&gt;</span>\n<span class="t">&lt;link</span> <span class="a">rel</span>=<span class="s">"stylesheet"</span> <span class="a">href</span>=<span class="s">"https://your-cdn.com/iconic/iconic.css"</span><span class="t">&gt;</span></pre></div></div>' +
+            '<div class="pn-section"><div class="pn-label">Sizes</div><div class="pn-demo-row">' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-xs"></icon-ic><span class="pn-demo-tag">xs</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-sm"></icon-ic><span class="pn-demo-tag">sm</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-md"></icon-ic><span class="pn-demo-tag">md</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-lg"></icon-ic><span class="pn-demo-tag">lg</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-xl"></icon-ic><span class="pn-demo-tag">xl</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-2x"></icon-ic><span class="pn-demo-tag">2x</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-3x"></icon-ic><span class="pn-demo-tag">3x</span></div>' +
+            '</div></div>' +
+            '<div class="pn-section"><div class="pn-label">Animations</div><div class="pn-demo-row">' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-spin" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">spin</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-pulse" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">pulse</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-bounce" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">bounce</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-beat" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">beat</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-fade" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">fade</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-shake" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">shake</span></div>' +
+            '</div></div>' +
+            '<div class="pn-section"><div class="pn-label">Transforms</div><div class="pn-demo-row">' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-rotate-90" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">90</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-rotate-180" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">180</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-rotate-270" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">270</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-flip-horizontal" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">flipH</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-flip-vertical" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">flipV</span></div>' +
+            '<div class="pn-demo-item"><icon-ic class="icon-' + name + ' icon-flip-both" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">flipB</span></div>' +
+            '</div></div>';
+
+        // Wire copy buttons inside panel
+        var btns = panelBody.querySelectorAll('.pn-copy');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', function () {
+                var txt = this.dataset.text;
+                var btn = this;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(txt).then(function () {
+                        btn.textContent = 'Copied!';
+                        toast('Copied to clipboard');
+                        setTimeout(function () { btn.textContent = 'Copy'; }, 1200);
+                    }).catch(function () { fallbackCopy(txt, btn); });
+                } else {
+                    fallbackCopy(txt, btn);
+                }
+            });
+        }
+
+        panel.classList.add('show');
+        overlay.classList.add('show');
+    }
+
+    function fallbackCopy(text, btn) {
+        var a = document.createElement('textarea');
+        a.value = text;
+        document.body.appendChild(a);
+        a.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(a);
+        btn.textContent = 'Copied!';
+        toast('Copied to clipboard');
+        setTimeout(function () { btn.textContent = 'Copy'; }, 1200);
+    }
+
+    function closePanel() {
+        panel.classList.remove('show');
+        overlay.classList.remove('show');
+        selectedIcon = null;
+        var cards = icGrid.querySelectorAll('.ic-card.selected');
+        for (var i = 0; i < cards.length; i++) cards[i].classList.remove('selected');
+    }
+
+    panelClose.addEventListener('click', closePanel);
+    overlay.addEventListener('click', closePanel);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePanel(); });
+
+    // ===== Toast =====
+    function toast(msg) {
+        var t = document.createElement('div');
+        t.className = 'toast-msg';
+        t.textContent = msg;
+        toastWrap.appendChild(t);
+        setTimeout(function () { t.remove(); }, 2000);
+    }
+})();
+</script>
+
 </body>
+
 </html>
