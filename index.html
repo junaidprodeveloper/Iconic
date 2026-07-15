@@ -1,0 +1,3638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICONIC — Icon Library</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="iconic.css">
+
+    <!-- ============================================================
+     ICONIC LIBRARY CSS
+     Production: remove the <style> below, uncomment this line:
+     <link rel="stylesheet" href="iconic.css">
+     ============================================================ -->
+    <style id="iconic-css">
+        /* ============================================
+   ICONIC - Custom SVG Icon Library
+   ============================================ */
+        [class^="icon-"],
+        [class*=" icon-"] {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.125em;
+            line-height: 1;
+            font-size: inherit;
+            flex-shrink: 0;
+        }
+
+        icon-ic {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.125em;
+            line-height: 1;
+            font-size: inherit;
+            flex-shrink: 0;
+        }
+
+        [class^="icon-"]::after,
+        [class*=" icon-"]::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .icon-xs {
+            font-size: 0.75rem;
+        }
+
+        .icon-sm {
+            font-size: 0.875rem;
+        }
+
+        .icon-md {
+            font-size: 1rem;
+        }
+
+        .icon-lg {
+            font-size: 1.25rem;
+        }
+
+        .icon-xl {
+            font-size: 1.5rem;
+        }
+
+        .icon-2x {
+            font-size: 2rem;
+        }
+
+        .icon-3x {
+            font-size: 3rem;
+        }
+
+        .icon-4x {
+            font-size: 4rem;
+        }
+
+        .icon-5x {
+            font-size: 5rem;
+        }
+
+        .icon-6x {
+            font-size: 6rem;
+        }
+
+        .icon-7x {
+            font-size: 7rem;
+        }
+
+        .icon-8x {
+            font-size: 8rem;
+        }
+
+        .icon-9x {
+            font-size: 9rem;
+        }
+
+        .icon-10x {
+            font-size: 10rem;
+        }
+
+        .icon-spin {
+            animation: icon-spin 1s linear infinite;
+        }
+
+        .icon-pulse {
+            animation: icon-spin 1s steps(8) infinite;
+        }
+
+        .icon-bounce {
+            animation: icon-bounce 1s ease infinite;
+        }
+
+        .icon-fade {
+            animation: icon-fade 1s ease-in-out infinite;
+        }
+
+        .icon-beat {
+            animation: icon-beat 1s ease-in-out infinite;
+        }
+
+        .icon-shake {
+            animation: icon-shake 0.5s ease-in-out infinite;
+        }
+
+        @keyframes icon-spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes icon-bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            25% {
+                transform: translateY(-6px);
+            }
+
+            50% {
+                transform: translateY(0);
+            }
+
+            75% {
+                transform: translateY(-3px);
+            }
+        }
+
+        @keyframes icon-fade {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        @keyframes icon-beat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.25);
+            }
+        }
+
+        @keyframes icon-shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-4px);
+            }
+
+            75% {
+                transform: translateX(4px);
+            }
+        }
+
+        .icon-rotate-90 {
+            transform: rotate(90deg);
+        }
+
+        .icon-rotate-180 {
+            transform: rotate(180deg);
+        }
+
+        .icon-rotate-270 {
+            transform: rotate(270deg);
+        }
+
+        .icon-flip-horizontal {
+            transform: scaleX(-1);
+        }
+
+        .icon-flip-vertical {
+            transform: scaleY(-1);
+        }
+
+        .icon-flip-both {
+            transform: scale(-1);
+        }
+
+        .icon-fw {
+            text-align: center;
+            width: 1.25em;
+        }
+
+        .icon-ul {
+            list-style-type: none;
+            margin-left: 2em;
+            padding-left: 0;
+        }
+
+        .icon-ul>li {
+            position: relative;
+        }
+
+        .icon-li {
+            left: -2em;
+            position: absolute;
+            text-align: center;
+            width: 2em;
+            line-height: inherit;
+        }
+
+        .icon-stack {
+            display: inline-block;
+            height: 2em;
+            line-height: 2em;
+            position: relative;
+            vertical-align: middle;
+            width: 2em;
+        }
+
+        .icon-stack-1x,
+        .icon-stack-2x {
+            left: 0;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+        }
+
+        .icon-stack-1x {
+            font-size: 1em;
+            line-height: inherit;
+        }
+
+        .icon-stack-2x {
+            font-size: 2em;
+        }
+
+        /* ICON DEFINITIONS */
+        .icon-42-group::after {
+            background-image: url('./icons/42-group.svg')
+        }
+
+        .icon-500px::after {
+            background-image: url('./icons/500px.svg')
+        }
+
+        .icon-abacus::after {
+            background-image: url('./icons/abacus.svg')
+        }
+
+        .icon-accessible-icon::after {
+            background-image: url('./icons/accessible-icon.svg')
+        }
+
+        .icon-accusoft::after {
+            background-image: url('./icons/accusoft.svg')
+        }
+
+        .icon-adn::after {
+            background-image: url('./icons/adn.svg')
+        }
+
+        .icon-adversal::after {
+            background-image: url('./icons/adversal.svg')
+        }
+
+        .icon-affiliatetheme::after {
+            background-image: url('./icons/affiliatetheme.svg')
+        }
+
+        .icon-airbnb::after {
+            background-image: url('./icons/airbnb.svg')
+        }
+
+        .icon-algolia::after {
+            background-image: url('./icons/algolia.svg')
+        }
+
+        .icon-alien-monster::after {
+            background-image: url('./icons/alien-monster.svg')
+        }
+
+        .icon-alien::after {
+            background-image: url('./icons/alien.svg')
+        }
+
+        .icon-alipay::after {
+            background-image: url('./icons/alipay.svg')
+        }
+
+        .icon-amazon-pay::after {
+            background-image: url('./icons/amazon-pay.svg')
+        }
+
+        .icon-amazon::after {
+            background-image: url('./icons/amazon.svg')
+        }
+
+        .icon-amilia::after {
+            background-image: url('./icons/amilia.svg')
+        }
+
+        .icon-android::after {
+            background-image: url('./icons/android.svg')
+        }
+
+        .icon-angellist::after {
+            background-image: url('./icons/angellist.svg')
+        }
+
+        .icon-angle-down::after {
+            background-image: url('./icons/angle-down.svg')
+        }
+
+        .icon-angle-left::after {
+            background-image: url('./icons/angle-left.svg')
+        }
+
+        .icon-angle-right::after {
+            background-image: url('./icons/angle-right.svg')
+        }
+
+        .icon-angle-up::after {
+            background-image: url('./icons/angle-up.svg')
+        }
+
+        .icon-angrycreative::after {
+            background-image: url('./icons/angrycreative.svg')
+        }
+
+        .icon-angular::after {
+            background-image: url('./icons/angular.svg')
+        }
+
+        .icon-app-store-ios::after {
+            background-image: url('./icons/app-store-ios.svg')
+        }
+
+        .icon-app-store::after {
+            background-image: url('./icons/app-store.svg')
+        }
+
+        .icon-apper::after {
+            background-image: url('./icons/apper.svg')
+        }
+
+        .icon-apple-pay::after {
+            background-image: url('./icons/apple-pay.svg')
+        }
+
+        .icon-apple-whole::after {
+            background-image: url('./icons/apple-whole.svg')
+        }
+
+        .icon-apple::after {
+            background-image: url('./icons/apple.svg')
+        }
+
+        .icon-arch-linux::after {
+            background-image: url('./icons/arch-linux.svg')
+        }
+
+        .icon-archive::after {
+            background-image: url('./icons/archive.svg')
+        }
+
+        .icon-arrow-down::after {
+            background-image: url('./icons/arrow-down.svg')
+        }
+
+        .icon-arrow-left::after {
+            background-image: url('./icons/arrow-left.svg')
+        }
+
+        .icon-arrow-right::after {
+            background-image: url('./icons/arrow-right.svg')
+        }
+
+        .icon-arrow-rotate-left::after {
+            background-image: url('./icons/arrow-rotate-left.svg')
+        }
+
+        .icon-arrow-rotate-right::after {
+            background-image: url('./icons/arrow-rotate-right.svg')
+        }
+
+        .icon-arrow-up::after {
+            background-image: url('./icons/arrow-up.svg')
+        }
+
+        .icon-arrows-left-right::after {
+            background-image: url('./icons/arrows-left-right.svg')
+        }
+
+        .icon-arrows-up-down::after {
+            background-image: url('./icons/arrows-up-down.svg')
+        }
+
+        .icon-artstation::after {
+            background-image: url('./icons/artstation.svg')
+        }
+
+        .icon-asymmetrik::after {
+            background-image: url('./icons/asymmetrik.svg')
+        }
+
+        .icon-atlassian::after {
+            background-image: url('./icons/atlassian.svg')
+        }
+
+        .icon-audible::after {
+            background-image: url('./icons/audible.svg')
+        }
+
+        .icon-autoprefixer::after {
+            background-image: url('./icons/autoprefixer.svg')
+        }
+
+        .icon-avianex::after {
+            background-image: url('./icons/avianex.svg')
+        }
+
+        .icon-aviato::after {
+            background-image: url('./icons/aviato.svg')
+        }
+
+        .icon-award::after {
+            background-image: url('./icons/award.svg')
+        }
+
+        .icon-aws::after {
+            background-image: url('./icons/aws.svg')
+        }
+
+        .icon-baby::after {
+            background-image: url('./icons/baby.svg')
+        }
+
+        .icon-backward::after {
+            background-image: url('./icons/backward.svg')
+        }
+
+        .icon-bandage::after {
+            background-image: url('./icons/bandage.svg')
+        }
+
+        .icon-bandcamp::after {
+            background-image: url('./icons/bandcamp.svg')
+        }
+
+        .icon-barbell::after {
+            background-image: url('./icons/barbell.svg')
+        }
+
+        .icon-basket-shopping::after {
+            background-image: url('./icons/basket-shopping.svg')
+        }
+
+        .icon-bath::after {
+            background-image: url('./icons/bath.svg')
+        }
+
+        .icon-battery-empty::after {
+            background-image: url('./icons/battery-empty.svg')
+        }
+
+        .icon-battery-full::after {
+            background-image: url('./icons/battery-full.svg')
+        }
+
+        .icon-battery-half::after {
+            background-image: url('./icons/battery-half.svg')
+        }
+
+        .icon-battery-quarter::after {
+            background-image: url('./icons/battery-quarter.svg')
+        }
+
+        .icon-battle-net::after {
+            background-image: url('./icons/battle-net.svg')
+        }
+
+        .icon-bed::after {
+            background-image: url('./icons/bed.svg')
+        }
+
+        .icon-beer-mug::after {
+            background-image: url('./icons/beer-mug.svg')
+        }
+
+        .icon-behance::after {
+            background-image: url('./icons/behance.svg')
+        }
+
+        .icon-bell-slash::after {
+            background-image: url('./icons/bell-slash.svg')
+        }
+
+        .icon-bell::after {
+            background-image: url('./icons/bell.svg')
+        }
+
+        .icon-bilibili::after {
+            background-image: url('./icons/bilibili.svg')
+        }
+
+        .icon-bimobject::after {
+            background-image: url('./icons/bimobject.svg')
+        }
+
+        .icon-binoculars::after {
+            background-image: url('./icons/binoculars.svg')
+        }
+
+        .icon-bitbucket::after {
+            background-image: url('./icons/bitbucket.svg')
+        }
+
+        .icon-bitcoin::after {
+            background-image: url('./icons/bitcoin.svg')
+        }
+
+        .icon-bity::after {
+            background-image: url('./icons/bity.svg')
+        }
+
+        .icon-black-tie::after {
+            background-image: url('./icons/black-tie.svg')
+        }
+
+        .icon-blackberry::after {
+            background-image: url('./icons/blackberry.svg')
+        }
+
+        .icon-blender-phone::after {
+            background-image: url('./icons/blender-phone.svg')
+        }
+
+        .icon-blender::after {
+            background-image: url('./icons/blender.svg')
+        }
+
+        .icon-blogger-b::after {
+            background-image: url('./icons/blogger-b.svg')
+        }
+
+        .icon-blogger::after {
+            background-image: url('./icons/blogger.svg')
+        }
+
+        .icon-bluesky::after {
+            background-image: url('./icons/bluesky.svg')
+        }
+
+        .icon-bluetooth-b::after {
+            background-image: url('./icons/bluetooth-b.svg')
+        }
+
+        .icon-bluetooth::after {
+            background-image: url('./icons/bluetooth.svg')
+        }
+
+        .icon-board-game-geek::after {
+            background-image: url('./icons/board-game-geek.svg')
+        }
+
+        .icon-bomb::after {
+            background-image: url('./icons/bomb.svg')
+        }
+
+        .icon-bone::after {
+            background-image: url('./icons/bone.svg')
+        }
+
+        .icon-book-open-reader::after {
+            background-image: url('./icons/book-open-reader.svg')
+        }
+
+        .icon-book-open::after {
+            background-image: url('./icons/book-open.svg')
+        }
+
+        .icon-book::after {
+            background-image: url('./icons/book.svg')
+        }
+
+        .icon-bookmark::after {
+            background-image: url('./icons/bookmark.svg')
+        }
+
+        .icon-books::after {
+            background-image: url('./icons/books.svg')
+        }
+
+        .icon-bootstrap::after {
+            background-image: url('./icons/bootstrap.svg')
+        }
+
+        .icon-bots::after {
+            background-image: url('./icons/bots.svg')
+        }
+
+        .icon-bottle-droplet::after {
+            background-image: url('./icons/bottle-droplet.svg')
+        }
+
+        .icon-bottle-water::after {
+            background-image: url('./icons/bottle-water.svg')
+        }
+
+        .icon-bowl-rice::after {
+            background-image: url('./icons/bowl-rice.svg')
+        }
+
+        .icon-box-open::after {
+            background-image: url('./icons/box-open.svg')
+        }
+
+        .icon-box-tissue::after {
+            background-image: url('./icons/box-tissue.svg')
+        }
+
+        .icon-box::after {
+            background-image: url('./icons/box.svg')
+        }
+
+        .icon-brain::after {
+            background-image: url('./icons/brain.svg')
+        }
+
+        .icon-brave-reverse::after {
+            background-image: url('./icons/brave-reverse.svg')
+        }
+
+        .icon-brave::after {
+            background-image: url('./icons/brave.svg')
+        }
+
+        .icon-briefcase::after {
+            background-image: url('./icons/briefcase.svg')
+        }
+
+        .icon-btc::after {
+            background-image: url('./icons/btc.svg')
+        }
+
+        .icon-buffer::after {
+            background-image: url('./icons/buffer.svg')
+        }
+
+        .icon-build-awesome::after {
+            background-image: url('./icons/build-awesome.svg')
+        }
+
+        .icon-building-columns::after {
+            background-image: url('./icons/building-columns.svg')
+        }
+
+        .icon-building::after {
+            background-image: url('./icons/building.svg')
+        }
+
+        .icon-buromobelexperte::after {
+            background-image: url('./icons/buromobelexperte.svg')
+        }
+
+        .icon-bus-crash::after {
+            background-image: url('./icons/bus-crash.svg')
+        }
+
+        .icon-bus-simple::after {
+            background-image: url('./icons/bus-simple.svg')
+        }
+
+        .icon-bus::after {
+            background-image: url('./icons/bus.svg')
+        }
+
+        .icon-buy-n-large::after {
+            background-image: url('./icons/buy-n-large.svg')
+        }
+
+        .icon-buysellads::after {
+            background-image: url('./icons/buysellads.svg')
+        }
+
+        .icon-calculator::after {
+            background-image: url('./icons/calculator.svg')
+        }
+
+        .icon-calendar-check::after {
+            background-image: url('./icons/calendar-check.svg')
+        }
+
+        .icon-calendar-clock::after {
+            background-image: url('./icons/calendar-clock.svg')
+        }
+
+        .icon-calendar-days::after {
+            background-image: url('./icons/calendar-days.svg')
+        }
+
+        .icon-calendar-minus::after {
+            background-image: url('./icons/calendar-minus.svg')
+        }
+
+        .icon-calendar-plus::after {
+            background-image: url('./icons/calendar-plus.svg')
+        }
+
+        .icon-calendar-range::after {
+            background-image: url('./icons/calendar-range.svg')
+        }
+
+        .icon-calendar-week::after {
+            background-image: url('./icons/calendar-week.svg')
+        }
+
+        .icon-calendar-xmark::after {
+            background-image: url('./icons/calendar-xmark.svg')
+        }
+
+        .icon-calendar::after {
+            background-image: url('./icons/calendar.svg')
+        }
+
+        .icon-camera::after {
+            background-image: url('./icons/camera.svg')
+        }
+
+        .icon-campground::after {
+            background-image: url('./icons/campground.svg')
+        }
+
+        .icon-canadian-maple-leaf::after {
+            background-image: url('./icons/canadian-maple-leaf.svg')
+        }
+
+        .icon-cannabis::after {
+            background-image: url('./icons/cannabis.svg')
+        }
+
+        .icon-capsules::after {
+            background-image: url('./icons/capsules.svg')
+        }
+
+        .icon-car-battery::after {
+            background-image: url('./icons/car-battery.svg')
+        }
+
+        .icon-car-crash::after {
+            background-image: url('./icons/car-crash.svg')
+        }
+
+        .icon-car-on::after {
+            background-image: url('./icons/car-on.svg')
+        }
+
+        .icon-car-rear::after {
+            background-image: url('./icons/car-rear.svg')
+        }
+
+        .icon-car-side-crash::after {
+            background-image: url('./icons/car-side-crash.svg')
+        }
+
+        .icon-car-side::after {
+            background-image: url('./icons/car-side.svg')
+        }
+
+        .icon-car-tunnel::after {
+            background-image: url('./icons/car-tunnel.svg')
+        }
+
+        .icon-car::after {
+            background-image: url('./icons/car.svg')
+        }
+
+        .icon-caret-down::after {
+            background-image: url('./icons/caret-down.svg')
+        }
+
+        .icon-caret-left::after {
+            background-image: url('./icons/caret-left.svg')
+        }
+
+        .icon-caret-right::after {
+            background-image: url('./icons/caret-right.svg')
+        }
+
+        .icon-caret-up::after {
+            background-image: url('./icons/caret-up.svg')
+        }
+
+        .icon-carrot::after {
+            background-image: url('./icons/carrot.svg')
+        }
+
+        .icon-cart-plus::after {
+            background-image: url('./icons/cart-plus.svg')
+        }
+
+        .icon-cart-shopping::after {
+            background-image: url('./icons/cart-shopping.svg')
+        }
+
+        .icon-cash-app::after {
+            background-image: url('./icons/cash-app.svg')
+        }
+
+        .icon-cat::after {
+            background-image: url('./icons/cat.svg')
+        }
+
+        .icon-cc-amazon-pay::after {
+            background-image: url('./icons/cc-amazon-pay.svg')
+        }
+
+        .icon-cc-amex::after {
+            background-image: url('./icons/cc-amex.svg')
+        }
+
+        .icon-cc-apple-pay::after {
+            background-image: url('./icons/cc-apple-pay.svg')
+        }
+
+        .icon-cc-diners-club::after {
+            background-image: url('./icons/cc-diners-club.svg')
+        }
+
+        .icon-cc-discover::after {
+            background-image: url('./icons/cc-discover.svg')
+        }
+
+        .icon-cc-jcb::after {
+            background-image: url('./icons/cc-jcb.svg')
+        }
+
+        .icon-cc-mastercard::after {
+            background-image: url('./icons/cc-mastercard.svg')
+        }
+
+        .icon-cc-paypal::after {
+            background-image: url('./icons/cc-paypal.svg')
+        }
+
+        .icon-cc-stripe::after {
+            background-image: url('./icons/cc-stripe.svg')
+        }
+
+        .icon-cc-visa::after {
+            background-image: url('./icons/cc-visa.svg')
+        }
+
+        .icon-cent-sign::after {
+            background-image: url('./icons/cent-sign.svg')
+        }
+
+        .icon-centercode::after {
+            background-image: url('./icons/centercode.svg')
+        }
+
+        .icon-centos::after {
+            background-image: url('./icons/centos.svg')
+        }
+
+        .icon-certificate::after {
+            background-image: url('./icons/certificate.svg')
+        }
+
+        .icon-chain::after {
+            background-image: url('./icons/chain.svg')
+        }
+
+        .icon-chair::after {
+            background-image: url('./icons/chair.svg')
+        }
+
+        .icon-chalkboard-user::after {
+            background-image: url('./icons/chalkboard-user.svg')
+        }
+
+        .icon-chalkboard::after {
+            background-image: url('./icons/chalkboard.svg')
+        }
+
+        .icon-charging-station::after {
+            background-image: url('./icons/charging-station.svg')
+        }
+
+        .icon-chart-area::after {
+            background-image: url('./icons/chart-area.svg')
+        }
+
+        .icon-chart-bar::after {
+            background-image: url('./icons/chart-bar.svg')
+        }
+
+        .icon-chart-line::after {
+            background-image: url('./icons/chart-line.svg')
+        }
+
+        .icon-chart-pie::after {
+            background-image: url('./icons/chart-pie.svg')
+        }
+
+        .icon-chart-simple::after {
+            background-image: url('./icons/chart-simple.svg')
+        }
+
+        .icon-chevron-down::after {
+            background-image: url('./icons/chevron-down.svg')
+        }
+
+        .icon-chevron-left::after {
+            background-image: url('./icons/chevron-left.svg')
+        }
+
+        .icon-chevron-right::after {
+            background-image: url('./icons/chevron-right.svg')
+        }
+
+        .icon-chevron-up::after {
+            background-image: url('./icons/chevron-up.svg')
+        }
+
+        .icon-child::after {
+            background-image: url('./icons/child.svg')
+        }
+
+        .icon-chrome::after {
+            background-image: url('./icons/chrome.svg')
+        }
+
+        .icon-chromecast::after {
+            background-image: url('./icons/chromecast.svg')
+        }
+
+        .icon-church::after {
+            background-image: url('./icons/church.svg')
+        }
+
+        .icon-circle-arrow-down::after {
+            background-image: url('./icons/circle-arrow-down.svg')
+        }
+
+        .icon-circle-arrow-left::after {
+            background-image: url('./icons/circle-arrow-left.svg')
+        }
+
+        .icon-circle-arrow-right::after {
+            background-image: url('./icons/circle-arrow-right.svg')
+        }
+
+        .icon-circle-arrow-up::after {
+            background-image: url('./icons/circle-arrow-up.svg')
+        }
+
+        .icon-circle-chevron-down::after {
+            background-image: url('./icons/circle-chevron-down.svg')
+        }
+
+        .icon-circle-chevron-left::after {
+            background-image: url('./icons/circle-chevron-left.svg')
+        }
+
+        .icon-circle-chevron-right::after {
+            background-image: url('./icons/circle-chevron-right.svg')
+        }
+
+        .icon-circle-chevron-up::after {
+            background-image: url('./icons/circle-chevron-up.svg')
+        }
+
+        .icon-circle-pause::after {
+            background-image: url('./icons/circle-pause.svg')
+        }
+
+        .icon-circle-play::after {
+            background-image: url('./icons/circle-play.svg')
+        }
+
+        .icon-circle-stop::after {
+            background-image: url('./icons/circle-stop.svg')
+        }
+
+        .icon-circle-stopwatch::after {
+            background-image: url('./icons/circle-stopwatch.svg')
+        }
+
+        .icon-circle-zulip::after {
+            background-image: url('./icons/circle-zulip.svg')
+        }
+
+        .icon-circle::after {
+            background-image: url('./icons/circle.svg')
+        }
+
+        .icon-claude::after {
+            background-image: url('./icons/claude.svg')
+        }
+
+        .icon-clipboard-check::after {
+            background-image: url('./icons/clipboard-check.svg')
+        }
+
+        .icon-clipboard-list::after {
+            background-image: url('./icons/clipboard-list.svg')
+        }
+
+        .icon-clipboard::after {
+            background-image: url('./icons/clipboard.svg')
+        }
+
+        .icon-clock-rotate-left::after {
+            background-image: url('./icons/clock-rotate-left.svg')
+        }
+
+        .icon-clock-rotate-right::after {
+            background-image: url('./icons/clock-rotate-right.svg')
+        }
+
+        .icon-clock::after {
+            background-image: url('./icons/clock.svg')
+        }
+
+        .icon-clone::after {
+            background-image: url('./icons/clone.svg')
+        }
+
+        .icon-cloud-arrow-down::after {
+            background-image: url('./icons/cloud-arrow-down.svg')
+        }
+
+        .icon-cloud-arrow-up::after {
+            background-image: url('./icons/cloud-arrow-up.svg')
+        }
+
+        .icon-cloud-meatball::after {
+            background-image: url('./icons/cloud-meatball.svg')
+        }
+
+        .icon-cloud-rain::after {
+            background-image: url('./icons/cloud-rain.svg')
+        }
+
+        .icon-cloud-showers::after {
+            background-image: url('./icons/cloud-showers.svg')
+        }
+
+        .icon-cloud-sun::after {
+            background-image: url('./icons/cloud-sun.svg')
+        }
+
+        .icon-cloud::after {
+            background-image: url('./icons/cloud.svg')
+        }
+
+        .icon-cloudflare::after {
+            background-image: url('./icons/cloudflare.svg')
+        }
+
+        .icon-cloudscale::after {
+            background-image: url('./icons/cloudscale.svg')
+        }
+
+        .icon-cloudsmith::after {
+            background-image: url('./icons/cloudsmith.svg')
+        }
+
+        .icon-cloudversify::after {
+            background-image: url('./icons/cloudversify.svg')
+        }
+
+        .icon-clover::after {
+            background-image: url('./icons/clover.svg')
+        }
+
+        .icon-cmplid::after {
+            background-image: url('./icons/cmplid.svg')
+        }
+
+        .icon-codeberg::after {
+            background-image: url('./icons/codeberg.svg')
+        }
+
+        .icon-codepen::after {
+            background-image: url('./icons/codepen.svg')
+        }
+
+        .icon-codiepie::after {
+            background-image: url('./icons/codiepie.svg')
+        }
+
+        .icon-comment-dots::after {
+            background-image: url('./icons/comment-dots.svg')
+        }
+
+        .icon-comment::after {
+            background-image: url('./icons/comment.svg')
+        }
+
+        .icon-comments::after {
+            background-image: url('./icons/comments.svg')
+        }
+
+        .icon-compact-disc::after {
+            background-image: url('./icons/compact-disc.svg')
+        }
+
+        .icon-compass::after {
+            background-image: url('./icons/compass.svg')
+        }
+
+        .icon-confluence::after {
+            background-image: url('./icons/confluence.svg')
+        }
+
+        .icon-connectdevelop::after {
+            background-image: url('./icons/connectdevelop.svg')
+        }
+
+        .icon-container-storage::after {
+            background-image: url('./icons/container-storage.svg')
+        }
+
+        .icon-contao::after {
+            background-image: url('./icons/contao.svg')
+        }
+
+        .icon-copy::after {
+            background-image: url('./icons/copy.svg')
+        }
+
+        .icon-cotton-bureau::after {
+            background-image: url('./icons/cotton-bureau.svg')
+        }
+
+        .icon-couch::after {
+            background-image: url('./icons/couch.svg')
+        }
+
+        .icon-cpanel::after {
+            background-image: url('./icons/cpanel.svg')
+        }
+
+        .icon-creative-commons-by::after {
+            background-image: url('./icons/creative-commons-by.svg')
+        }
+
+        .icon-creative-commons-nc-eu::after {
+            background-image: url('./icons/creative-commons-nc-eu.svg')
+        }
+
+        .icon-creative-commons-nc-jp::after {
+            background-image: url('./icons/creative-commons-nc-jp.svg')
+        }
+
+        .icon-creative-commons-nc::after {
+            background-image: url('./icons/creative-commons-nc.svg')
+        }
+
+        .icon-creative-commons-nd::after {
+            background-image: url('./icons/creative-commons-nd.svg')
+        }
+
+        .icon-creative-commons-pd-alt::after {
+            background-image: url('./icons/creative-commons-pd-alt.svg')
+        }
+
+        .icon-creative-commons-pd::after {
+            background-image: url('./icons/creative-commons-pd.svg')
+        }
+
+        .icon-creative-commons-remix::after {
+            background-image: url('./icons/creative-commons-remix.svg')
+        }
+
+        .icon-creative-commons-sa::after {
+            background-image: url('./icons/creative-commons-sa.svg')
+        }
+
+        .icon-creative-commons-sampling-plus::after {
+            background-image: url('./icons/creative-commons-sampling-plus.svg')
+        }
+
+        .icon-creative-commons-sampling::after {
+            background-image: url('./icons/creative-commons-sampling.svg')
+        }
+
+        .icon-creative-commons-share::after {
+            background-image: url('./icons/creative-commons-share.svg')
+        }
+
+        .icon-creative-commons-zero::after {
+            background-image: url('./icons/creative-commons-zero.svg')
+        }
+
+        .icon-creative-commons::after {
+            background-image: url('./icons/creative-commons.svg')
+        }
+
+        .icon-credit-card::after {
+            background-image: url('./icons/credit-card.svg')
+        }
+
+        .icon-critical-role::after {
+            background-image: url('./icons/critical-role.svg')
+        }
+
+        .icon-cross::after {
+            background-image: url('./icons/cross.svg')
+        }
+
+        .icon-crow::after {
+            background-image: url('./icons/crow.svg')
+        }
+
+        .icon-css::after {
+            background-image: url('./icons/css.svg')
+        }
+
+        .icon-css3-alt::after {
+            background-image: url('./icons/css3-alt.svg')
+        }
+
+        .icon-css3::after {
+            background-image: url('./icons/css3-alt.svg')
+        }
+
+        .icon-cuttlefish::after {
+            background-image: url('./icons/cuttlefish.svg')
+        }
+
+        .icon-d-and-d-beyond::after {
+            background-image: url('./icons/d-and-d-beyond.svg')
+        }
+
+        .icon-d-and-d::after {
+            background-image: url('./icons/d-and-d.svg')
+        }
+
+        .icon-dailymotion::after {
+            background-image: url('./icons/dailymotion.svg')
+        }
+
+        .icon-dart-lang::after {
+            background-image: url('./icons/dart-lang.svg')
+        }
+
+        .icon-dashcube::after {
+            background-image: url('./icons/dashcube.svg')
+        }
+
+        .icon-database::after {
+            background-image: url('./icons/database.svg')
+        }
+
+        .icon-debian::after {
+            background-image: url('./icons/debian.svg')
+        }
+
+        .icon-deezer::after {
+            background-image: url('./icons/deezer.svg')
+        }
+
+        .icon-delicious::after {
+            background-image: url('./icons/delicious.svg')
+        }
+
+        .icon-deploydog::after {
+            background-image: url('./icons/deploydog.svg')
+        }
+
+        .icon-deskpro::after {
+            background-image: url('./icons/deskpro.svg')
+        }
+
+        .icon-dev::after {
+            background-image: url('./icons/dev.svg')
+        }
+
+        .icon-deviantart::after {
+            background-image: url('./icons/deviantart.svg')
+        }
+
+        .icon-devpost::after {
+            background-image: url('./icons/devpost.svg')
+        }
+
+        .icon-dharmachakra::after {
+            background-image: url('./icons/dharmachakra.svg')
+        }
+
+        .icon-dhl::after {
+            background-image: url('./icons/dhl.svg')
+        }
+
+        .icon-diamond::after {
+            background-image: url('./icons/diamond.svg')
+        }
+
+        .icon-diaspora::after {
+            background-image: url('./icons/diaspora.svg')
+        }
+
+        .icon-digg::after {
+            background-image: url('./icons/digg.svg')
+        }
+
+        .icon-digital-ocean::after {
+            background-image: url('./icons/digital-ocean.svg')
+        }
+
+        .icon-discord::after {
+            background-image: url('./icons/discord.svg')
+        }
+
+        .icon-discourse::after {
+            background-image: url('./icons/discourse.svg')
+        }
+
+        .icon-disqus::after {
+            background-image: url('./icons/disqus.svg')
+        }
+
+        .icon-dna::after {
+            background-image: url('./icons/dna.svg')
+        }
+
+        .icon-dochub::after {
+            background-image: url('./icons/dochub.svg')
+        }
+
+        .icon-docker::after {
+            background-image: url('./icons/docker.svg')
+        }
+
+        .icon-dog::after {
+            background-image: url('./icons/dog.svg')
+        }
+
+        .icon-dollar-sign::after {
+            background-image: url('./icons/dollar-sign.svg')
+        }
+
+        .icon-dolly-empty::after {
+            background-image: url('./icons/dolly-empty.svg')
+        }
+
+        .icon-dolly::after {
+            background-image: url('./icons/dolly.svg')
+        }
+
+        .icon-door-closed::after {
+            background-image: url('./icons/door-closed.svg')
+        }
+
+        .icon-door-open::after {
+            background-image: url('./icons/door-open.svg')
+        }
+
+        .icon-dove::after {
+            background-image: url('./icons/dove.svg')
+        }
+
+        .icon-download::after {
+            background-image: url('./icons/download.svg')
+        }
+
+        .icon-draft2digital::after {
+            background-image: url('./icons/draft2digital.svg')
+        }
+
+        .icon-dragon::after {
+            background-image: url('./icons/dragon.svg')
+        }
+
+        .icon-dribbble::after {
+            background-image: url('./icons/dribbble.svg')
+        }
+
+        .icon-dropbox::after {
+            background-image: url('./icons/dropbox.svg')
+        }
+
+        .icon-droplet-slash::after {
+            background-image: url('./icons/droplet-slash.svg')
+        }
+
+        .icon-droplet::after {
+            background-image: url('./icons/droplet.svg')
+        }
+
+        .icon-drupal::after {
+            background-image: url('./icons/drupal.svg')
+        }
+
+        .icon-dumbbell::after {
+            background-image: url('./icons/dumbbell.svg')
+        }
+
+        .icon-duolingo::after {
+            background-image: url('./icons/duolingo.svg')
+        }
+
+        .icon-dyalog::after {
+            background-image: url('./icons/dyalog.svg')
+        }
+
+        .icon-ear-deaf::after {
+            background-image: url('./icons/ear-deaf.svg')
+        }
+
+        .icon-ear-listen::after {
+            background-image: url('./icons/ear-listen.svg')
+        }
+
+        .icon-earlybirds::after {
+            background-image: url('./icons/earlybirds.svg')
+        }
+
+        .icon-ebay::after {
+            background-image: url('./icons/ebay.svg')
+        }
+
+        .icon-edge-legacy::after {
+            background-image: url('./icons/edge-legacy.svg')
+        }
+
+        .icon-edge::after {
+            background-image: url('./icons/edge.svg')
+        }
+
+        .icon-elementor::after {
+            background-image: url('./icons/elementor.svg')
+        }
+
+        .icon-eleventy::after {
+            background-image: url('./icons/eleventy.svg')
+        }
+
+        .icon-ello::after {
+            background-image: url('./icons/ello.svg')
+        }
+
+        .icon-ember::after {
+            background-image: url('./icons/ember.svg')
+        }
+
+        .icon-empire::after {
+            background-image: url('./icons/empire.svg')
+        }
+
+        .icon-envelope-open::after {
+            background-image: url('./icons/envelope-open.svg')
+        }
+
+        .icon-envelope::after {
+            background-image: url('./icons/envelope.svg')
+        }
+
+        .icon-envira::after {
+            background-image: url('./icons/envira.svg')
+        }
+
+        .icon-eraser::after {
+            background-image: url('./icons/eraser.svg')
+        }
+
+        .icon-erlang::after {
+            background-image: url('./icons/erlang.svg')
+        }
+
+        .icon-ethereum::after {
+            background-image: url('./icons/ethereum.svg')
+        }
+
+        .icon-etsy::after {
+            background-image: url('./icons/etsy.svg')
+        }
+
+        .icon-euro-sign::after {
+            background-image: url('./icons/euro-sign.svg')
+        }
+
+        .icon-evernote::after {
+            background-image: url('./icons/evernote.svg')
+        }
+
+        .icon-expeditedssl::after {
+            background-image: url('./icons/expeditedssl.svg')
+        }
+
+        .icon-eye-dropper::after {
+            background-image: url('./icons/eye-dropper.svg')
+        }
+
+        .icon-eye-slash::after {
+            background-image: url('./icons/eye-slash.svg')
+        }
+
+        .icon-eye::after {
+            background-image: url('./icons/eye.svg')
+        }
+
+        .icon-face-angry::after {
+            background-image: url('./icons/face-angry.svg')
+        }
+
+        .icon-face-dizzy::after {
+            background-image: url('./icons/face-dizzy.svg')
+        }
+
+        .icon-face-frown::after {
+            background-image: url('./icons/face-frown.svg')
+        }
+
+        .icon-face-grin-beam::after {
+            background-image: url('./icons/face-grin-beam.svg')
+        }
+
+        .icon-face-grin-wink::after {
+            background-image: url('./icons/face-grin-wink.svg')
+        }
+
+        .icon-face-grin::after {
+            background-image: url('./icons/face-grin.svg')
+        }
+
+        .icon-face-kiss-wink-heart::after {
+            background-image: url('./icons/face-kiss-wink-heart.svg')
+        }
+
+        .icon-face-kiss::after {
+            background-image: url('./icons/face-kiss.svg')
+        }
+
+        .icon-face-laugh::after {
+            background-image: url('./icons/face-laugh.svg')
+        }
+
+        .icon-face-meh::after {
+            background-image: url('./icons/face-meh.svg')
+        }
+
+        .icon-face-rolling-eyes::after {
+            background-image: url('./icons/face-rolling-eyes.svg')
+        }
+
+        .icon-face-sad-tear::after {
+            background-image: url('./icons/face-sad-tear.svg')
+        }
+
+        .icon-face-smile::after {
+            background-image: url('./icons/face-smile.svg')
+        }
+
+        .icon-face-surprise::after {
+            background-image: url('./icons/face-surprise.svg')
+        }
+
+        .icon-face-tired::after {
+            background-image: url('./icons/face-tired.svg')
+        }
+
+        .icon-facebook-f::after {
+            background-image: url('./icons/facebook-f.svg')
+        }
+
+        .icon-facebook-messenger::after {
+            background-image: url('./icons/facebook-messenger.svg')
+        }
+
+        .icon-facebook::after {
+            background-image: url('./icons/facebook.svg')
+        }
+
+        .icon-fantasy-flight-games::after {
+            background-image: url('./icons/fantasy-flight-games.svg')
+        }
+
+        .icon-fax::after {
+            background-image: url('./icons/fax.svg')
+        }
+
+        .icon-feather-pointed::after {
+            background-image: url('./icons/feather-pointed.svg')
+        }
+
+        .icon-feather::after {
+            background-image: url('./icons/feather.svg')
+        }
+
+        .icon-fedex::after {
+            background-image: url('./icons/fedex.svg')
+        }
+
+        .icon-fediverse::after {
+            background-image: url('./icons/fediverse.svg')
+        }
+
+        .icon-fedora::after {
+            background-image: url('./icons/fedora.svg')
+        }
+
+        .icon-ferry::after {
+            background-image: url('./icons/ferry.svg')
+        }
+
+        .icon-figma::after {
+            background-image: url('./icons/figma.svg')
+        }
+
+        .icon-file-audio::after {
+            background-image: url('./icons/file-audio.svg')
+        }
+
+        .icon-file-code::after {
+            background-image: url('./icons/file-code.svg')
+        }
+
+        .icon-file-excel::after {
+            background-image: url('./icons/file-excel.svg')
+        }
+
+        .icon-file-image::after {
+            background-image: url('./icons/file-image.svg')
+        }
+
+        .icon-file-lines::after {
+            background-image: url('./icons/file-lines.svg')
+        }
+
+        .icon-file-pdf::after {
+            background-image: url('./icons/file-pdf.svg')
+        }
+
+        .icon-file-video::after {
+            background-image: url('./icons/file-video.svg')
+        }
+
+        .icon-file-word::after {
+            background-image: url('./icons/file-word.svg')
+        }
+
+        .icon-file-zipper::after {
+            background-image: url('./icons/file-zipper.svg')
+        }
+
+        .icon-file::after {
+            background-image: url('./icons/file.svg')
+        }
+
+        .icon-files-pinwheel::after {
+            background-image: url('./icons/files-pinwheel.svg')
+        }
+
+        .icon-film::after {
+            background-image: url('./icons/film.svg')
+        }
+
+        .icon-fire-burner::after {
+            background-image: url('./icons/fire-burner.svg')
+        }
+
+        .icon-fire-extinguisher::after {
+            background-image: url('./icons/fire-extinguisher.svg')
+        }
+
+        .icon-fire-flame-curved::after {
+            background-image: url('./icons/fire-flame-curved.svg')
+        }
+
+        .icon-fire-flame-simple::after {
+            background-image: url('./icons/fire-flame-simple.svg')
+        }
+
+        .icon-fire-flame::after {
+            background-image: url('./icons/fire-flame.svg')
+        }
+
+        .icon-fire::after {
+            background-image: url('./icons/fire.svg')
+        }
+
+        .icon-firefox-browser::after {
+            background-image: url('./icons/firefox-browser.svg')
+        }
+
+        .icon-firefox::after {
+            background-image: url('./icons/firefox-browser.svg')
+        }
+
+        .icon-first-order-alt::after {
+            background-image: url('./icons/first-order-alt.svg')
+        }
+
+        .icon-first-order::after {
+            background-image: url('./icons/first-order.svg')
+        }
+
+        .icon-firstdraft::after {
+            background-image: url('./icons/firstdraft.svg')
+        }
+
+        .icon-fish-fins::after {
+            background-image: url('./icons/fish-fins.svg')
+        }
+
+        .icon-fish::after {
+            background-image: url('./icons/fish.svg')
+        }
+
+        .icon-flag-checkered::after {
+            background-image: url('./icons/flag-checkered.svg')
+        }
+
+        .icon-flag-usa::after {
+            background-image: url('./icons/flag-usa.svg')
+        }
+
+        .icon-flag::after {
+            background-image: url('./icons/flag.svg')
+        }
+
+        .icon-flask-vial::after {
+            background-image: url('./icons/flask-vial.svg')
+        }
+
+        .icon-flask::after {
+            background-image: url('./icons/flask.svg')
+        }
+
+        .icon-flickr::after {
+            background-image: url('./icons/flickr.svg')
+        }
+
+        .icon-flipboard::after {
+            background-image: url('./icons/flipboard.svg')
+        }
+
+        .icon-floppy-disk::after {
+            background-image: url('./icons/floppy-disk.svg')
+        }
+
+        .icon-flower::after {
+            background-image: url('./icons/flower.svg')
+        }
+
+        .icon-flutter::after {
+            background-image: url('./icons/flutter.svg')
+        }
+
+        .icon-fly::after {
+            background-image: url('./icons/fly.svg')
+        }
+
+        .icon-folder-open::after {
+            background-image: url('./icons/folder-open.svg')
+        }
+
+        .icon-folder::after {
+            background-image: url('./icons/folder.svg')
+        }
+
+        .icon-font-awesome::after {
+            background-image: url('./icons/font-awesome.svg')
+        }
+
+        .icon-fonticons-fi::after {
+            background-image: url('./icons/fonticons-fi.svg')
+        }
+
+        .icon-fonticons::after {
+            background-image: url('./icons/fonticons.svg')
+        }
+
+        .icon-forgejo::after {
+            background-image: url('./icons/forgejo.svg')
+        }
+
+        .icon-fork-knife::after {
+            background-image: url('./icons/fork-knife.svg')
+        }
+
+        .icon-fork::after {
+            background-image: url('./icons/fork.svg')
+        }
+
+        .icon-forklift::after {
+            background-image: url('./icons/forklift.svg')
+        }
+
+        .icon-fort-awesome-alt::after {
+            background-image: url('./icons/fort-awesome-alt.svg')
+        }
+
+        .icon-fort-awesome::after {
+            background-image: url('./icons/fort-awesome.svg')
+        }
+
+        .icon-forumbee::after {
+            background-image: url('./icons/forumbee.svg')
+        }
+
+        .icon-forward::after {
+            background-image: url('./icons/forward.svg')
+        }
+
+        .icon-foursquare::after {
+            background-image: url('./icons/foursquare.svg')
+        }
+
+        .icon-free-code-camp::after {
+            background-image: url('./icons/free-code-camp.svg')
+        }
+
+        .icon-freebsd::after {
+            background-image: url('./icons/freebsd.svg')
+        }
+
+        .icon-frog::after {
+            background-image: url('./icons/frog.svg')
+        }
+
+        .icon-fulcrum::after {
+            background-image: url('./icons/fulcrum.svg')
+        }
+
+        .icon-galactic-republic::after {
+            background-image: url('./icons/galactic-republic.svg')
+        }
+
+        .icon-galactic-senate::after {
+            background-image: url('./icons/galactic-senate.svg')
+        }
+
+        .icon-gas-pump::after {
+            background-image: url('./icons/gas-pump.svg')
+        }
+
+        .icon-gauge-high::after {
+            background-image: url('./icons/gauge-high.svg')
+        }
+
+        .icon-gauge-simple-high::after {
+            background-image: url('./icons/gauge-simple-high.svg')
+        }
+
+        .icon-gauge-simple::after {
+            background-image: url('./icons/gauge-simple.svg')
+        }
+
+        .icon-gauge::after {
+            background-image: url('./icons/gauge.svg')
+        }
+
+        .icon-gavel::after {
+            background-image: url('./icons/gavel.svg')
+        }
+
+        .icon-gear::after {
+            background-image: url('./icons/gear.svg')
+        }
+
+        .icon-gears::after {
+            background-image: url('./icons/gears.svg')
+        }
+
+        .icon-get-pocket::after {
+            background-image: url('./icons/get-pocket.svg')
+        }
+
+        .icon-gg-circle::after {
+            background-image: url('./icons/gg-circle.svg')
+        }
+
+        .icon-gg::after {
+            background-image: url('./icons/gg.svg')
+        }
+
+        .icon-ghost::after {
+            background-image: url('./icons/ghost.svg')
+        }
+
+        .icon-git-alt::after {
+            background-image: url('./icons/git-alt.svg')
+        }
+
+        .icon-git::after {
+            background-image: url('./icons/git.svg')
+        }
+
+        .icon-gitee::after {
+            background-image: url('./icons/gitee.svg')
+        }
+
+        .icon-github-alt::after {
+            background-image: url('./icons/github-alt.svg')
+        }
+
+        .icon-github::after {
+            background-image: url('./icons/github.svg')
+        }
+
+        .icon-gitkraken::after {
+            background-image: url('./icons/gitkraken.svg')
+        }
+
+        .icon-gitlab::after {
+            background-image: url('./icons/gitlab.svg')
+        }
+
+        .icon-gitter::after {
+            background-image: url('./icons/gitter.svg')
+        }
+
+        .icon-glide-g::after {
+            background-image: url('./icons/glide-g.svg')
+        }
+
+        .icon-glide::after {
+            background-image: url('./icons/glide.svg')
+        }
+
+        .icon-globaleaks::after {
+            background-image: url('./icons/globaleaks.svg')
+        }
+
+        .icon-globe-americas::after {
+            background-image: url('./icons/globe-americas.svg')
+        }
+
+        .icon-globe-asia::after {
+            background-image: url('./icons/globe-asia.svg')
+        }
+
+        .icon-globe-europe::after {
+            background-image: url('./icons/globe-europe.svg')
+        }
+
+        .icon-globe::after {
+            background-image: url('./icons/globe.svg')
+        }
+
+        .icon-gofore::after {
+            background-image: url('./icons/gofore.svg')
+        }
+
+        .icon-golang::after {
+            background-image: url('./icons/golang.svg')
+        }
+
+        .icon-goodreads-g::after {
+            background-image: url('./icons/goodreads-g.svg')
+        }
+
+        .icon-goodreads::after {
+            background-image: url('./icons/goodreads.svg')
+        }
+
+        .icon-google-drive::after {
+            background-image: url('./icons/google-drive.svg')
+        }
+
+        .icon-google-pay::after {
+            background-image: url('./icons/google-pay.svg')
+        }
+
+        .icon-google-play::after {
+            background-image: url('./icons/google-play.svg')
+        }
+
+        .icon-google-plus-g::after {
+            background-image: url('./icons/google-plus-g.svg')
+        }
+
+        .icon-google-plus::after {
+            background-image: url('./icons/google-plus.svg')
+        }
+
+        .icon-google-scholar::after {
+            background-image: url('./icons/google-scholar.svg')
+        }
+
+        .icon-google-wallet::after {
+            background-image: url('./icons/google-wallet.svg')
+        }
+
+        .icon-google::after {
+            background-image: url('./icons/google.svg')
+        }
+
+        .icon-graduation-cap::after {
+            background-image: url('./icons/graduation-cap.svg')
+        }
+
+        .icon-grapes::after {
+            background-image: url('./icons/grapes.svg')
+        }
+
+        .icon-gratipay::after {
+            background-image: url('./icons/gratipay.svg')
+        }
+
+        .icon-grav::after {
+            background-image: url('./icons/grav.svg')
+        }
+
+        .icon-grill::after {
+            background-image: url('./icons/grill.svg')
+        }
+
+        .icon-gripfire::after {
+            background-image: url('./icons/gripfire.svg')
+        }
+
+        .icon-grunt::after {
+            background-image: url('./icons/grunt.svg')
+        }
+
+        .icon-guilded::after {
+            background-image: url('./icons/guilded.svg')
+        }
+
+        .icon-gulp::after {
+            background-image: url('./icons/gulp.svg')
+        }
+
+        .icon-hacker-news::after {
+            background-image: url('./icons/hacker-news.svg')
+        }
+
+        .icon-hackerrank::after {
+            background-image: url('./icons/hackerrank.svg')
+        }
+
+        .icon-hamburger::after {
+            background-image: url('./icons/hamburger.svg')
+        }
+
+        .icon-hammer::after {
+            background-image: url('./icons/hammer.svg')
+        }
+
+        .icon-hand-back-fist::after {
+            background-image: url('./icons/hand-back-fist.svg')
+        }
+
+        .icon-hand-holding-box::after {
+            background-image: url('./icons/hand-holding-box.svg')
+        }
+
+        .icon-hand-holding-dollar::after {
+            background-image: url('./icons/hand-holding-dollar.svg')
+        }
+
+        .icon-hand-holding-droplet::after {
+            background-image: url('./icons/hand-holding-droplet.svg')
+        }
+
+        .icon-hand-holding-hand::after {
+            background-image: url('./icons/hand-holding-hand.svg')
+        }
+
+        .icon-hand-holding-heart::after {
+            background-image: url('./icons/hand-holding-heart.svg')
+        }
+
+        .icon-hand-holding-medical::after {
+            background-image: url('./icons/hand-holding-medical.svg')
+        }
+
+        .icon-hand-holding-skull::after {
+            background-image: url('./icons/hand-holding-skull.svg')
+        }
+
+        .icon-hand-holding::after {
+            background-image: url('./icons/hand-holding.svg')
+        }
+
+        .icon-hand-point-down::after {
+            background-image: url('./icons/hand-point-down.svg')
+        }
+
+        .icon-hand-point-left::after {
+            background-image: url('./icons/hand-point-left.svg')
+        }
+
+        .icon-hand-point-right::after {
+            background-image: url('./icons/hand-point-right.svg')
+        }
+
+        .icon-hand-point-up::after {
+            background-image: url('./icons/hand-point-up.svg')
+        }
+
+        .icon-hand-pointer::after {
+            background-image: url('./icons/hand-pointer.svg')
+        }
+
+        .icon-hand-soap::after {
+            background-image: url('./icons/hand-soap.svg')
+        }
+
+        .icon-hand-sparkles::after {
+            background-image: url('./icons/hand-sparkles.svg')
+        }
+
+        .icon-hand::after {
+            background-image: url('./icons/hand.svg')
+        }
+
+        .icon-handcuffs::after {
+            background-image: url('./icons/handcuffs.svg')
+        }
+
+        .icon-hands-helping::after {
+            background-image: url('./icons/hands-helping.svg')
+        }
+
+        .icon-hands-praying::after {
+            background-image: url('./icons/hands-praying.svg')
+        }
+
+        .icon-hands::after {
+            background-image: url('./icons/hands.svg')
+        }
+
+        .icon-handshake::after {
+            background-image: url('./icons/handshake.svg')
+        }
+
+        .icon-hard-drive::after {
+            background-image: url('./icons/hard-drive.svg')
+        }
+
+        .icon-hashnode::after {
+            background-image: url('./icons/hashnode.svg')
+        }
+
+        .icon-headphones::after {
+            background-image: url('./icons/headphones.svg')
+        }
+
+        .icon-heart-pulse::after {
+            background-image: url('./icons/heart-pulse.svg')
+        }
+
+        .icon-heart::after {
+            background-image: url('./icons/heart.svg')
+        }
+
+        .icon-heartbeat::after {
+            background-image: url('./icons/heartbeat.svg')
+        }
+
+        .icon-helicopter-symbol::after {
+            background-image: url('./icons/helicopter-symbol.svg')
+        }
+
+        .icon-helicopter::after {
+            background-image: url('./icons/helicopter.svg')
+        }
+
+        .icon-hexagon::after {
+            background-image: url('./icons/hexagon.svg')
+        }
+
+        .icon-hippo::after {
+            background-image: url('./icons/hippo.svg')
+        }
+
+        .icon-hips::after {
+            background-image: url('./icons/hips.svg')
+        }
+
+        .icon-hire-a-helper::after {
+            background-image: url('./icons/hire-a-helper.svg')
+        }
+
+        .icon-hive::after {
+            background-image: url('./icons/hive.svg')
+        }
+
+        .icon-home::after {
+            background-image: url('./icons/home.svg')
+        }
+
+        .icon-hooli::after {
+            background-image: url('./icons/hooli.svg')
+        }
+
+        .icon-hornbill::after {
+            background-image: url('./icons/hornbill.svg')
+        }
+
+        .icon-horse-head::after {
+            background-image: url('./icons/horse-head.svg')
+        }
+
+        .icon-horse::after {
+            background-image: url('./icons/horse.svg')
+        }
+
+        .icon-hospital::after {
+            background-image: url('./icons/hospital.svg')
+        }
+
+        .icon-hotel::after {
+            background-image: url('./icons/hotel.svg')
+        }
+
+        .icon-hotjar::after {
+            background-image: url('./icons/hotjar.svg')
+        }
+
+        .icon-hourglass-end::after {
+            background-image: url('./icons/hourglass-end.svg')
+        }
+
+        .icon-hourglass-half::after {
+            background-image: url('./icons/hourglass-half.svg')
+        }
+
+        .icon-hourglass-start::after {
+            background-image: url('./icons/hourglass-start.svg')
+        }
+
+        .icon-hourglass::after {
+            background-image: url('./icons/hourglass.svg')
+        }
+
+        .icon-house-chimney::after {
+            background-image: url('./icons/house-chimney.svg')
+        }
+
+        .icon-house::after {
+            background-image: url('./icons/house.svg')
+        }
+
+        .icon-houzz::after {
+            background-image: url('./icons/houzz.svg')
+        }
+
+        .icon-html5::after {
+            background-image: url('./icons/html5.svg')
+        }
+
+        .icon-hubspot::after {
+            background-image: url('./icons/hubspot.svg')
+        }
+
+        .icon-hugging-face::after {
+            background-image: url('./icons/hugging-face.svg')
+        }
+
+        .icon-ideal::after {
+            background-image: url('./icons/ideal.svg')
+        }
+
+        .icon-igloo::after {
+            background-image: url('./icons/igloo.svg')
+        }
+
+        .icon-image::after {
+            background-image: url('./icons/image.svg')
+        }
+
+        .icon-images::after {
+            background-image: url('./icons/images.svg')
+        }
+
+        .icon-imdb::after {
+            background-image: url('./icons/imdb.svg')
+        }
+
+        .icon-inbox::after {
+            background-image: url('./icons/inbox.svg')
+        }
+
+        .icon-industry::after {
+            background-image: url('./icons/industry.svg')
+        }
+
+        .icon-instagram::after {
+            background-image: url('./icons/instagram.svg')
+        }
+
+        .icon-instalod::after {
+            background-image: url('./icons/instalod.svg')
+        }
+
+        .icon-intercom::after {
+            background-image: url('./icons/intercom.svg')
+        }
+
+        .icon-internet-archive::after {
+            background-image: url('./icons/internet-archive.svg')
+        }
+
+        .icon-internet-explorer::after {
+            background-image: url('./icons/internet-explorer.svg')
+        }
+
+        .icon-invision::after {
+            background-image: url('./icons/invision.svg')
+        }
+
+        .icon-ioxhost::after {
+            background-image: url('./icons/ioxhost.svg')
+        }
+
+        .icon-island-tropical::after {
+            background-image: url('./icons/island-tropical.svg')
+        }
+
+        .icon-itch-io::after {
+            background-image: url('./icons/itch-io.svg')
+        }
+
+        .icon-itunes-note::after {
+            background-image: url('./icons/itunes-note.svg')
+        }
+
+        .icon-itunes::after {
+            background-image: url('./icons/itunes.svg')
+        }
+
+        .icon-jar-wheat::after {
+            background-image: url('./icons/jar-wheat.svg')
+        }
+
+        .icon-jar::after {
+            background-image: url('./icons/jar.svg')
+        }
+
+        .icon-java::after {
+            background-image: url('./icons/java.svg')
+        }
+
+        .icon-jedi-order::after {
+            background-image: url('./icons/jedi-order.svg')
+        }
+
+        .icon-jenkins::after {
+            background-image: url('./icons/jenkins.svg')
+        }
+
+        .icon-jet-fighter-up::after {
+            background-image: url('./icons/jet-fighter-up.svg')
+        }
+
+        .icon-jet-fighter::after {
+            background-image: url('./icons/jet-fighter.svg')
+        }
+
+        .icon-jira::after {
+            background-image: url('./icons/jira.svg')
+        }
+
+        .icon-joget::after {
+            background-image: url('./icons/joget.svg')
+        }
+
+        .icon-joomla::after {
+            background-image: url('./icons/joomla.svg')
+        }
+
+        .icon-journal::after {
+            background-image: url('./icons/journal.svg')
+        }
+
+        .icon-js::after {
+            background-image: url('./icons/js.svg')
+        }
+
+        .icon-jsfiddle::after {
+            background-image: url('./icons/jsfiddle.svg')
+        }
+
+        .icon-julia::after {
+            background-image: url('./icons/julia.svg')
+        }
+
+        .icon-jxl::after {
+            background-image: url('./icons/jxl.svg')
+        }
+
+        .icon-kaggle::after {
+            background-image: url('./icons/kaggle.svg')
+        }
+
+        .icon-kakao-talk::after {
+            background-image: url('./icons/kakao-talk.svg')
+        }
+
+        .icon-key::after {
+            background-image: url('./icons/key.svg')
+        }
+
+        .icon-keybase::after {
+            background-image: url('./icons/keybase.svg')
+        }
+
+        .icon-keycdn::after {
+            background-image: url('./icons/keycdn.svg')
+        }
+
+        .icon-kickstarter-k::after {
+            background-image: url('./icons/kickstarter-k.svg')
+        }
+
+        .icon-kickstarter::after {
+            background-image: url('./icons/kickstarter.svg')
+        }
+
+        .icon-kitchen-set::after {
+            background-image: url('./icons/kitchen-set.svg')
+        }
+
+        .icon-kiwi-bird::after {
+            background-image: url('./icons/kiwi-bird.svg')
+        }
+
+        .icon-knife::after {
+            background-image: url('./icons/knife.svg')
+        }
+
+        .icon-ko-fi::after {
+            background-image: url('./icons/ko-fi.svg')
+        }
+
+        .icon-korvue::after {
+            background-image: url('./icons/korvue.svg')
+        }
+
+        .icon-kubernetes::after {
+            background-image: url('./icons/kubernetes.svg')
+        }
+
+        .icon-lake::after {
+            background-image: url('./icons/lake.svg')
+        }
+
+        .icon-landmark::after {
+            background-image: url('./icons/landmark.svg')
+        }
+
+        .icon-laravel::after {
+            background-image: url('./icons/laravel.svg')
+        }
+
+        .icon-lastfm::after {
+            background-image: url('./icons/lastfm.svg')
+        }
+
+        .icon-leaf::after {
+            background-image: url('./icons/leaf.svg')
+        }
+
+        .icon-leanpub::after {
+            background-image: url('./icons/leanpub.svg')
+        }
+
+        .icon-leetcode::after {
+            background-image: url('./icons/leetcode.svg')
+        }
+
+        .icon-lemon::after {
+            background-image: url('./icons/lemon.svg')
+        }
+
+        .icon-less::after {
+            background-image: url('./icons/less.svg')
+        }
+
+        .icon-lets-encrypt::after {
+            background-image: url('./icons/lets-encrypt.svg')
+        }
+
+        .icon-letterboxd::after {
+            background-image: url('./icons/letterboxd.svg')
+        }
+
+        .icon-lightbulb::after {
+            background-image: url('./icons/lightbulb.svg')
+        }
+
+        .icon-ligthbulb::after {
+            background-image: url('./icons/ligthbulb.svg')
+        }
+
+        .icon-lime::after {
+            background-image: url('./icons/lime.svg')
+        }
+
+        .icon-line::after {
+            background-image: url('./icons/line.svg')
+        }
+
+        .icon-link::after {
+            background-image: url('./icons/link.svg')
+        }
+
+        .icon-linkedin-in::after {
+            background-image: url('./icons/linkedin-in.svg')
+        }
+
+        .icon-linkedin::after {
+            background-image: url('./icons/linkedin.svg')
+        }
+
+        .icon-linktree::after {
+            background-image: url('./icons/linktree.svg')
+        }
+
+        .icon-linode::after {
+            background-image: url('./icons/linode.svg')
+        }
+
+        .icon-linux::after {
+            background-image: url('./icons/linux.svg')
+        }
+
+        .icon-list-check::after {
+            background-image: url('./icons/list-check.svg')
+        }
+
+        .icon-list-ol::after {
+            background-image: url('./icons/list-ol.svg')
+        }
+
+        .icon-list::after {
+            background-image: url('./icons/list.svg')
+        }
+
+        .icon-location-arrow::after {
+            background-image: url('./icons/location-arrow.svg')
+        }
+
+        .icon-location-dot::after {
+            background-image: url('./icons/location-dot.svg')
+        }
+
+        .icon-lock::after {
+            background-image: url('./icons/lock.svg')
+        }
+
+        .icon-lumon-drop::after {
+            background-image: url('./icons/lumon-drop.svg')
+        }
+
+        .icon-lumon::after {
+            background-image: url('./icons/lumon.svg')
+        }
+
+        .icon-lungs::after {
+            background-image: url('./icons/lungs.svg')
+        }
+
+        .icon-lyft::after {
+            background-image: url('./icons/lyft.svg')
+        }
+
+        .icon-magento::after {
+            background-image: url('./icons/magento.svg')
+        }
+
+        .icon-magnifying-glass-arrow-right::after {
+            background-image: url('./icons/magnifying-glass-arrow-right.svg')
+        }
+
+        .icon-magnifying-glass-chart::after {
+            background-image: url('./icons/magnifying-glass-chart.svg')
+        }
+
+        .icon-magnifying-glass-dollar::after {
+            background-image: url('./icons/magnifying-glass-dollar.svg')
+        }
+
+        .icon-magnifying-glass-location::after {
+            background-image: url('./icons/magnifying-glass-location.svg')
+        }
+
+        .icon-magnifying-glass-minus::after {
+            background-image: url('./icons/magnifying-glass-minus.svg')
+        }
+
+        .icon-magnifying-glass-plus::after {
+            background-image: url('./icons/magnifying-glass-plus.svg')
+        }
+
+        .icon-magnifying-glass::after {
+            background-image: url('./icons/magnifying-glass.svg')
+        }
+
+        .icon-mailchimp::after {
+            background-image: url('./icons/mailchimp.svg')
+        }
+
+        .icon-mandalorian::after {
+            background-image: url('./icons/mandalorian.svg')
+        }
+
+        .icon-map-location-dot::after {
+            background-image: url('./icons/map-location-dot.svg')
+        }
+
+        .icon-map-location::after {
+            background-image: url('./icons/map-location.svg')
+        }
+
+        .icon-map::after {
+            background-image: url('./icons/map.svg')
+        }
+
+        .icon-markdown::after {
+            background-image: url('./icons/markdown.svg')
+        }
+    </style>
+
+    <!-- ============================================================
+     PAGE STYLES
+     ============================================================ -->
+    <style>
+        :root {
+            --bg-deep: #f8f6f6;
+            --bg: #f8f5f8;
+            --bg-surface: #F8F8F6;
+            --bg-card: #F8F8F6;
+            --bg-hover: ##F8F8F6;
+            --bg-active: #F8F8F6;
+            --fg: #D97757;
+            --fg-sec: #a0a0aa;
+            --fg-muted: #5c5c66;
+            --accent: #D97757;
+            --accent-h: #D97757;
+            --accent-soft: #F8F8F6;
+            --accent-glow: #F8F8F6;
+            --success: #22c55e;
+            --border: #222228;
+            --border-h: #333340;
+            --radius: 10px;
+            --radius-sm: 7px;
+            --tr: .2s cubic-bezier(.4, 0, .2, 1);
+            --sidebar-w: 230px;
+            --navbar-h: 60px;
+            --panel-w: 380px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-h) transparent
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--fg);
+            line-height: 1.5;
+            overflow: hidden;
+            height: 100vh
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--navbar-h);
+            background: var(--bg-deep);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 16px;
+            z-index: 100
+        }
+
+        .navbar::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+            pointer-events: none
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0
+        }
+
+        .nav-logo-box {
+            width: 34px;
+            height: 34px;
+            background: linear-gradient(135deg, var(--accent), #fb923c);
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .nav-logo-box svg {
+            width: 18px;
+            height: 18px;
+            color: #fff
+        }
+
+        .nav-logo-text {
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: -.03em;
+            color: var(--fg)
+        }
+
+        .nav-logo-text span {
+            color: var(--accent)
+        }
+
+        .nav-search {
+            flex: 1;
+            max-width: 480px;
+            position: relative
+        }
+
+        .nav-search input {
+            width: 100%;
+            padding: 9px 14px 9px 38px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--fg);
+            font-family: inherit;
+            font-size: .875rem;
+            outline: none;
+            transition: all var(--tr)
+        }
+
+        .nav-search input::placeholder {
+            color: var(--fg-muted)
+        }
+
+        .nav-search input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft)
+        }
+
+        .nav-search svg {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            color: var(--fg-muted);
+            pointer-events: none
+        }
+
+        .nav-badge {
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: .75rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(249, 115, 22, .15);
+            white-space: nowrap;
+            font-family: 'JetBrains Mono', monospace
+        }
+
+        .nav-ver {
+            font-size: .7rem;
+            color: var(--fg-muted);
+            margin-left: auto;
+            flex-shrink: 0
+        }
+
+        /* ===== LAYOUT ===== */
+        .layout {
+            display: flex;
+            height: 100vh;
+            padding-top: var(--navbar-h)
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            width: var(--sidebar-w);
+            flex-shrink: 0;
+            background: var(--bg-deep);
+            border-right: 1px solid var(--border);
+            overflow-y: auto;
+            padding: 16px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-h) transparent
+        }
+
+        .sidebar-label {
+            font-size: .65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--fg-muted);
+            padding: 12px 20px 8px
+        }
+
+        .sb-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 20px;
+            cursor: pointer;
+            transition: all var(--tr);
+            border-left: 3px solid transparent;
+            color: var(--fg-sec);
+            font-size: .85rem;
+            font-weight: 500
+        }
+
+        .sb-item:hover {
+            background: var(--bg-surface);
+            color: var(--fg)
+        }
+
+        .sb-item.active {
+            background: var(--accent-soft);
+            color: var(--accent);
+            border-left-color: var(--accent)
+        }
+
+        .sb-count {
+            font-size: .7rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--fg-muted);
+            background: var(--bg-surface);
+            padding: 1px 7px;
+            border-radius: 10px
+        }
+
+        .sb-item.active .sb-count {
+            background: rgba(249, 115, 22, .12);
+            color: var(--accent)
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            scroll-behavior: smooth
+        }
+
+        .main-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px
+        }
+
+        .main-title {
+            font-size: 1.1rem;
+            font-weight: 600
+        }
+
+        .main-title b {
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700
+        }
+
+        /* ===== ICON GRID ===== */
+        .ic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+            gap: 8px
+        }
+
+        .ic-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 8px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all var(--tr);
+            position: relative;
+            content-visibility: auto;
+            contain-intrinsic-size: 0 90px
+        }
+
+        .ic-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at 50% 30%, var(--accent-soft), transparent 70%);
+            opacity: 0;
+            transition: opacity var(--tr);
+            pointer-events: none
+        }
+
+        .ic-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .3)
+        }
+
+        .ic-card:hover::before {
+            opacity: 1
+        }
+
+        .ic-card:active {
+            transform: scale(.96)
+        }
+
+        .ic-card.selected {
+            border-color: var(--accent);
+            background: var(--accent-soft)
+        }
+
+        .ic-card icon-ic {
+            font-size: 1.6rem;
+            color: var(--fg-sec);
+            transition: color var(--tr);
+            line-height: 1
+        }
+
+        .ic-card:hover icon-ic {
+            color: var(--fg)
+        }
+
+        .ic-name {
+            font-size: .58rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--fg-muted);
+            text-align: center;
+            line-height: 1.25;
+            word-break: break-all;
+            max-height: 2.5em;
+            overflow: hidden;
+            transition: color var(--tr)
+        }
+
+        .ic-card:hover .ic-name {
+            color: var(--fg-sec)
+        }
+
+        /* ===== EMPTY STATE ===== */
+        .empty {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--fg-muted)
+        }
+
+        .empty svg {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 12px;
+            opacity: .3
+        }
+
+        .empty h3 {
+            font-size: 1rem;
+            color: var(--fg-sec);
+            font-weight: 500;
+            margin-bottom: 4px
+        }
+
+        /* ===== DETAIL PANEL ===== */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .5);
+            z-index: 200;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s ease
+        }
+
+        .overlay.show {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: var(--panel-w);
+            background: var(--bg-deep);
+            border-left: 1px solid var(--border);
+            z-index: 201;
+            transform: translateX(100%);
+            transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border-h) transparent
+        }
+
+        .panel.show {
+            transform: translateX(0)
+        }
+
+        .pn-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--fg-muted);
+            transition: all var(--tr);
+            z-index: 5
+        }
+
+        .pn-close:hover {
+            background: var(--bg-hover);
+            color: var(--fg);
+            border-color: var(--border-h)
+        }
+
+        .pn-close svg {
+            width: 16px;
+            height: 16px
+        }
+
+        .pn-body {
+            padding: 28px 24px 40px
+        }
+
+        .pn-preview {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 120px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 20px
+        }
+
+        .pn-preview icon-ic {
+            font-size: 4rem;
+            line-height: 1
+        }
+
+        .pn-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            margin-bottom: 24px;
+            color: var(--fg);
+            word-break: break-all
+        }
+
+        .pn-section {
+            margin-bottom: 24px
+        }
+
+        .pn-label {
+            font-size: .7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--fg-muted);
+            margin-bottom: 10px
+        }
+
+        .pn-code {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            overflow: hidden
+        }
+
+        .pn-code-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 14px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border)
+        }
+
+        .pn-code-lang {
+            font-size: .68rem;
+            color: var(--fg-muted);
+            font-family: 'JetBrains Mono', monospace
+        }
+
+        .pn-copy {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--fg-muted);
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: .68rem;
+            cursor: pointer;
+            transition: all var(--tr)
+        }
+
+        .pn-copy:hover {
+            border-color: var(--accent);
+            color: var(--accent)
+        }
+
+        .pn-code pre {
+            padding: 14px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: .78rem;
+            line-height: 1.7;
+            color: var(--fg-sec);
+            overflow-x: auto;
+            white-space: pre;
+            margin: 0
+        }
+
+        .pn-code pre .t {
+            color: #fb923c
+        }
+
+        .pn-code pre .a {
+            color: #fbbf24
+        }
+
+        .pn-code pre .s {
+            color: #4ade80
+        }
+
+        .pn-code pre .c {
+            color: #52525b;
+            font-style: italic
+        }
+
+        /* Size/Anim/Transform demo rows in panel */
+        .pn-demo-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            padding: 14px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm)
+        }
+
+        .pn-demo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px
+        }
+
+        .pn-demo-item icon-ic {
+            line-height: 1
+        }
+
+        .pn-demo-tag {
+            font-size: .58rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--fg-muted);
+            background: var(--bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--border)
+        }
+
+        /* ===== TOAST ===== */
+        .toast-wrap {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+            pointer-events: none
+        }
+
+        .toast-msg {
+            background: var(--bg-card);
+            border: 1px solid var(--success);
+            color: var(--success);
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-size: .82rem;
+            font-weight: 500;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .4);
+            animation: toastIn .3s ease, toastOut .3s ease 1.5s forwards;
+            pointer-events: auto;
+            white-space: nowrap
+        }
+
+        @keyframes toastIn {
+            from {
+                opacity: 0;
+                transform: translateY(12px) scale(.95)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1)
+            }
+        }
+
+        @keyframes toastOut {
+            to {
+                opacity: 0;
+                transform: translateY(-8px) scale(.95)
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:900px) {
+            :root {
+                --sidebar-w: 0px;
+                --panel-w: 100vw
+            }
+
+            .sidebar {
+                display: none
+            }
+
+            .nav-ver {
+                display: none
+            }
+        }
+
+        @media(max-width:600px) {
+            .ic-grid {
+                grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+                gap: 6px
+            }
+
+            .ic-card {
+                padding: 12px 6px 10px
+            }
+
+            .ic-card icon-ic {
+                font-size: 1.3rem
+            }
+
+            .ic-name {
+                font-size: .52rem
+            }
+
+            .main {
+                padding: 16px 12px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <div class="nav-logo-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+            </div>
+            <div class="nav-logo-text">ICONIC<span>.</span></div>
+        </div>
+        <div class="nav-search">
+            <input type="text" id="searchInput" placeholder="Search 1385+ icons..." aria-label="Search icons">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+        </div>
+        <div class="nav-badge" id="navBadge">0 icons</div>
+        <div class="nav-ver">v1.0.0</div>
+    </nav>
+
+    <!-- LAYOUT -->
+    <div class="layout">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-label">Categories</div>
+            <div id="sidebarList"></div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main" id="mainArea">
+            <div class="main-head">
+                <div class="main-title" id="mainTitle">All Icons <b id="countInline">0</b></div>
+            </div>
+            <div class="ic-grid" id="icGrid"></div>
+        </main>
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- DETAIL PANEL -->
+    <div class="panel" id="panel">
+        <button class="pn-close" id="panelClose" aria-label="Close panel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+        </button>
+        <div class="pn-body" id="panelBody"></div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast-wrap" id="toastWrap"></div>
+
+    <!-- ============================================================
+     ICONIC LIBRARY JS
+     Production: remove this <script> block, uncomment:
+     <script src="script.js"></script>
+     ============================================================ -->
+    <script>
+        (function () {
+            'use strict';
+
+            // ===== Parse icon names from the library CSS =====
+            const cssText = document.getElementById('iconic-css').textContent;
+            const iconNames = [];
+            const rx = /\.icon-([a-z0-9-]+)::after/g;
+            let m;
+            while ((m = rx.exec(cssText)) !== null) iconNames.push(m[1]);
+
+            // ===== Category detection =====
+            const catKW = {
+                'Brands': ['google', 'facebook', 'github', 'gitlab', 'discord', 'dribbble', 'behance', 'figma', 'amazon', 'apple', 'android', 'chrome', 'firefox', 'edge', 'linux', 'docker', 'aws', 'angular', 'flutter', 'bandcamp', 'bitbucket', 'bootstrap', 'codepen', 'deviantart', 'dropbox', 'elementor', 'envira', 'erlang', 'etsy', 'font-awesome', 'forgejo', 'fort-awesome', 'forumbee', 'foursquare', 'free-code-camp', 'freebsd', 'fulcrum', 'galactic', 'gofore', 'golang', 'goodreads', 'grav', 'grunt', 'gulp', 'hacker-news', 'hackerrank', 'hooli', 'hotjar', 'hubspot', 'imdb', 'instagram', 'itunes', 'jira', 'joget', 'joomla', 'js', 'jsfiddle', 'julia', 'kaggle', 'keybase', 'kickstarter', 'lastfm', 'leanpub', 'leetcode', 'less', 'letterboxd', 'line', 'linkedin', 'linode', 'laravel', 'mailchimp', 'mandalorian', 'markdown', '500px', 'adn', 'algolia', 'angellist', 'artstation', 'asymmetrik', 'atlassian', 'audible', 'autoprefixer', 'avianex', 'aviato', 'battle-net', 'bilibili', 'bimobject', 'blender', 'blogger', 'bluesky', 'bluetooth', 'board-game', 'btc', 'buffer', 'buromobelexperte', 'buy-n-large', 'buysellads', 'canadian', 'cash-app', 'centercode', 'centos', 'chromecast', 'cloudflare', 'cloudscale', 'cloudsmith', 'cloudversify', 'cmplid', 'codiepie', 'confluence', 'connectdevelop', 'contao', 'cotton-bureau', 'cpanel', 'creative-commons', 'critical-role', 'css', 'css3', 'cuttlefish', 'd-and-d', 'dailymotion', 'dashcube', 'debian', 'deezer', 'delicious', 'deploydog', 'deskpro', 'dev', 'devpost', 'dharmachakra', 'dhl', 'diaspora', 'digg', 'digital-ocean', 'discourse', 'disqus', 'draft2digital', 'earlybirds', 'ebay', 'edge-legacy', 'eleventy', 'ello', 'ember', 'empire', 'expeditedssl', 'fantasy-flight', 'fedex', 'fediverse', 'fedora', 'ferry', 'first-order', 'firstdraft', 'fish-fins', 'flask', 'flickr', 'flipboard', 'floppy-disk', 'fonticons', 'gripfire', 'guilded', 'hire-a-helper', 'hive', 'hornbill', 'houzz', 'html5', 'hugging-face', 'ideal', 'instalod', 'intercom', 'internet-archive', 'internet-explorer', 'invision', 'ioxhost', 'island-tropical', 'itch-io', 'itunes-note', 'jar-wheat', 'java', 'jedi-order', 'jenkins', 'jet-fighter', 'jxl', 'kakao-talk', 'keycdn', 'kickstarter-k', 'kitchen-set', 'ko-fi', 'korvue', 'kubernetes', 'lake', 'lets-encrypt', 'lightbulb', 'lumon', 'lyft', 'magento'],
+                'Arrows': ['arrow', 'angle', 'chevron', 'caret', 'location-arrow'],
+                'Calendar': ['calendar'],
+                'Charts': ['chart', 'gauge'],
+                'Chat': ['comment', 'comments'],
+                'Cloud': ['cloud'],
+                'Code': ['code', 'file-code', 'markdown'],
+                'Currency': ['dollar', 'euro', 'cent', 'bitcoin', 'ethereum', 'btc', 'credit-card', 'cc-', 'cash-app', 'google-pay', 'apple-pay', 'amazon-pay'],
+                'Files': ['file', 'folder', 'archive', 'copy', 'clipboard', 'clone', 'download'],
+                'Hands': ['hand', 'hands', 'handshake'],
+                'Faces': ['face-'],
+                'Animals': ['cat', 'dog', 'fish', 'frog', 'crow', 'hippo', 'horse', 'kiwi-bird', 'dragon', 'dove', 'bone', 'feather'],
+                'Food & Drink': ['carrot', 'bowl', 'bottle', 'beer', 'hamburger', 'lemon', 'apple-whole', 'grapes', 'kitchen', 'fork-knife', 'flask'],
+                'Health': ['heart', 'heartbeat', 'heart-pulse', 'lungs', 'capsules', 'bandage', 'dna'],
+                'Buildings': ['home', 'house', 'building', 'hotel', 'hospital', 'church', 'igloo', 'campground', 'island-tropical', 'landmark'],
+                'Media': ['film', 'compact-disc', 'backward', 'forward'],
+                'Nature': ['leaf', 'clover', 'lake', 'cannabis', 'fire', 'flower'],
+                'Security': ['lock', 'key', 'shield', 'eye', 'eye-slash'],
+                'Shopping': ['cart', 'basket'],
+                'Transport': ['car', 'bus', 'ferry', 'helicopter', 'jet-fighter', 'forklift'],
+                'Weather': ['cloud-sun', 'cloud-rain', 'cloud-showers', 'cloud-meatball', 'cloud-arrow'],
+                'Objects': ['bell', 'book', 'bomb', 'box', 'brain', 'calculator', 'camera', 'chair', 'clock', 'compass', 'cross', 'diamond', 'door', 'droplet', 'ear', 'eraser', 'fax', 'flag', 'gavel', 'gear', 'gears', 'ghost', 'globe', 'graduation', 'hammer', 'hard-drive', 'headphones', 'hexagon', 'hourglass', 'image', 'images', 'inbox', 'industry', 'jar', 'journal', 'knife', 'link', 'list', 'location-dot', 'map', 'magnifying'],
+            };
+
+            function categorize(n) {
+                for (const [c, kws] of Object.entries(catKW))
+                    for (const kw of kws) if (n.includes(kw)) return c;
+                return 'Other';
+            }
+
+            // Build category map
+            const cats = {};
+            iconNames.forEach(n => { const c = categorize(n); if (!cats[c]) cats[c] = []; cats[c].push(n) });
+            const sortedCats = Object.entries(cats).sort((a, b) => b[1].length - a[1].length);
+
+            // ===== DOM refs =====
+            const searchInput = document.getElementById('searchInput');
+            const navBadge = document.getElementById('navBadge');
+            const sidebarList = document.getElementById('sidebarList');
+            const mainTitle = document.getElementById('mainTitle');
+            const countInline = document.getElementById('countInline');
+            const icGrid = document.getElementById('icGrid');
+            const overlay = document.getElementById('overlay');
+            const panel = document.getElementById('panel');
+            const panelClose = document.getElementById('panelClose');
+            const panelBody = document.getElementById('panelBody');
+            const toastWrap = document.getElementById('toastWrap');
+
+            let activeCat = 'All';
+            let selectedIcon = null;
+
+            // ===== Init badge =====
+            navBadge.textContent = iconNames.length + ' icons';
+
+            // ===== Build sidebar =====
+            function buildSidebar() {
+                let html = `<div class="sb-item active" data-cat="All">All<span class="sb-count">${iconNames.length}</span></div>`;
+                sortedCats.forEach(([c, arr]) => {
+                    html += `<div class="sb-item" data-cat="${c}">${c}<span class="sb-count">${arr.length}</span></div>`;
+                });
+                sidebarList.innerHTML = html;
+            }
+            buildSidebar();
+
+            // ===== Render grid =====
+            function renderGrid(filter = '', cat = 'All') {
+                icGrid.innerHTML = '';
+                const fl = filter.toLowerCase();
+                let count = 0;
+                const frag = document.createDocumentFragment();
+
+                for (const name of iconNames) {
+                    const ms = !fl || name.includes(fl);
+                    const mc = cat === 'All' || categorize(name) === cat;
+                    if (!ms || !mc) continue;
+                    count++;
+                    const card = document.createElement('div');
+                    card.className = 'ic-card';
+                    card.dataset.name = name;
+                    if (name === selectedIcon) card.classList.add('selected');
+                    card.innerHTML = `<icon-ic class="icon-${name}"></icon-ic><span class="ic-name">icon-${name}</span>`;
+                    card.addEventListener('click', () => openPanel(name));
+                    frag.appendChild(card);
+                }
+
+                if (count === 0) {
+                    const empty = document.createElement('div');
+                    empty.className = 'empty';
+                    empty.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg><h3>No icons found</h3><p>Try a different search or category</p>`;
+                    frag.appendChild(empty);
+                }
+
+                icGrid.appendChild(frag);
+                countInline.textContent = count;
+                const catLabel = cat === 'All' ? 'All Icons' : cat;
+                mainTitle.innerHTML = `${catLabel} <b>${count}</b>`;
+            }
+            renderGrid();
+
+            // ===== Sidebar click =====
+            sidebarList.addEventListener('click', e => {
+                const item = e.target.closest('.sb-item');
+                if (!item) return;
+                activeCat = item.dataset.cat;
+                sidebarList.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+                renderGrid(searchInput.value.trim(), activeCat);
+            });
+
+            // ===== Search =====
+            searchInput.addEventListener('input', () => renderGrid(searchInput.value.trim(), activeCat));
+
+            // ===== Detail Panel =====
+            function openPanel(name) {
+                selectedIcon = name;
+                // Update card selection
+                icGrid.querySelectorAll('.ic-card').forEach(c => {
+                    c.classList.toggle('selected', c.dataset.name === name);
+                });
+
+                const code = `<icon-ic class="icon-${name}"></icon-ic>`;
+                const cdnCode = `<link rel="stylesheet"\n  href="https://your-cdn.com/iconic/iconic.css">`;
+
+                panelBody.innerHTML = `
+      <div class="pn-preview"><icon-ic class="icon-${name}"></icon-ic></div>
+      <div class="pn-name">icon-${name}</div>
+
+      <div class="pn-section">
+        <div class="pn-label">Usage</div>
+        <div class="pn-code">
+          <div class="pn-code-head"><span class="pn-code-lang">HTML</span><button class="pn-copy" data-text="${code}">Copy</button></div>
+          <pre><span class="t">&lt;icon-ic</span> <span class="a">class</span>=<span class="s">"icon-${name}"</span><span class="t">&gt;&lt;/icon-ic&gt;</span></pre>
+        </div>
+      </div>
+
+      <div class="pn-section">
+        <div class="pn-label">CDN</div>
+        <div class="pn-code">
+          <div class="pn-code-head"><span class="pn-code-lang">HTML</span><button class="pn-copy" data-text='${cdnCode}'>Copy</button></div>
+          <pre><span class="c">&lt;!-- Add to &lt;head&gt; --&gt;</span>
+<span class="t">&lt;link</span> <span class="a">rel</span>=<span class="s">"stylesheet"</span>
+  <span class="a">href</span>=<span class="s">"https://your-cdn.com/iconic/iconic.css"</span><span class="t">&gt;</span></pre>
+        </div>
+      </div>
+
+      <div class="pn-section">
+        <div class="pn-label">Sizes</div>
+        <div class="pn-demo-row">
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-xs"></icon-ic><span class="pn-demo-tag">xs</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-sm"></icon-ic><span class="pn-demo-tag">sm</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-md"></icon-ic><span class="pn-demo-tag">md</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-lg"></icon-ic><span class="pn-demo-tag">lg</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-xl"></icon-ic><span class="pn-demo-tag">xl</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-2x"></icon-ic><span class="pn-demo-tag">2x</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-3x"></icon-ic><span class="pn-demo-tag">3x</span></div>
+        </div>
+      </div>
+
+      <div class="pn-section">
+        <div class="pn-label">Animations</div>
+        <div class="pn-demo-row">
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-spin" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">spin</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-pulse" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">pulse</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-bounce" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">bounce</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-beat" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">beat</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-fade" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">fade</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-shake" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">shake</span></div>
+        </div>
+      </div>
+
+      <div class="pn-section">
+        <div class="pn-label">Transforms</div>
+        <div class="pn-demo-row">
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-rotate-90" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">90</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-rotate-180" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">180</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-rotate-270" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">270</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-flip-horizontal" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">flipH</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-flip-vertical" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">flipV</span></div>
+          <div class="pn-demo-item"><icon-ic class="icon-${name} icon-flip-both" style="font-size:1.4rem"></icon-ic><span class="pn-demo-tag">flipB</span></div>
+        </div>
+      </div>
+    `;
+
+                // Wire copy buttons inside panel
+                panelBody.querySelectorAll('.pn-copy').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const txt = btn.dataset.text;
+                        navigator.clipboard.writeText(txt).then(() => {
+                            btn.textContent = 'Copied!';
+                            toast('Copied to clipboard');
+                            setTimeout(() => btn.textContent = 'Copy', 1200);
+                        }).catch(() => {
+                            const ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+                            toast('Copied to clipboard');
+                        });
+                    });
+                });
+
+                panel.classList.add('show');
+                overlay.classList.add('show');
+            }
+
+            function closePanel() {
+                panel.classList.remove('show');
+                overlay.classList.remove('show');
+                selectedIcon = null;
+                icGrid.querySelectorAll('.ic-card.selected').forEach(c => c.classList.remove('selected'));
+            }
+
+            panelClose.addEventListener('click', closePanel);
+            overlay.addEventListener('click', closePanel);
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel() });
+
+            // ===== Toast =====
+            function toast(msg) {
+                const t = document.createElement('div');
+                t.className = 'toast-msg'; t.textContent = msg;
+                toastWrap.appendChild(t);
+                setTimeout(() => t.remove(), 2000);
+            }
+
+        })();
+    </script>
+
+</body>
+
+</html>
