@@ -87,10 +87,11 @@
     --ic-base: ".";
 }
 
+
 /* Per-scope override hook */
 i-ic{
     --ic-size: 1em;
-    --ic-color: currentColor;
+    --ic-color: inherit;
     --ic-duration: .25s;
     --ic-opacity: 1;
 }
@@ -116,7 +117,7 @@ i-ic{
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    color: var(--ic-color);
+    color: var(--ic-color, inherit);
     cursor: default;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
