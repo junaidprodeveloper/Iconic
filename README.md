@@ -1,4 +1,11 @@
 ![image](logo.svg)
+## Request an Icon
+
+Can't find the icon you need?
+
+Please **open a GitHub Issue** with the icon name or a reference image/link. I'll add it **within 24 hours** or within the time mentioned in my reply.
+
+Your suggestions help make **Iconic** better for everyone. Thank you! 🚀
 # Iconic
 
 **A clean, consistent, dependency-free icon library — 17,000+ icons, multiple sizes, one simple class prefix.**
