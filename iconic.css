@@ -1,22 +1,28 @@
 ﻿/*! Iconic 1.0.0 by Iconic - https://iconic.dev */
 /*! License - https://iconic.dev/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) */
 /*! Copyright 2026 Iconic */
-i-ic,[class^="ic-"],[class*=" ic-"]{--ic-size:1em;--ic-url:none;display:inline-block;width:var(--ic-size);height:var(--ic-size);vertical-align:-.125em;line-height:1;color:inherit;position:relative;box-sizing:border-box}
-i-ic::before,[class^="ic-"]::before,[class*=" ic-"]::before{content:"";display:block;width:100%;height:100%;background-color:currentColor;-webkit-mask:var(--ic-url) center/contain no-repeat;mask:var(--ic-url) center/contain no-repeat}
+:where(i-ic,[class^="ic-"],[class*=" ic-"]){--ic-size:1em;--ic-url:none;--ic-color:currentColor;--ic-opacity:1;--ic-rotate:0deg;--ic-flip-x:1;--ic-flip-y:1;--ic-speed:1s;--ic-shadow:none;display:inline-block;width:var(--ic-size);height:var(--ic-size);line-height:1;vertical-align:-.125em;position:relative;box-sizing:border-box;color:var(--ic-color);opacity:var(--ic-opacity);transform:rotate(var(--ic-rotate)) scale(var(--ic-flip-x),var(--ic-flip-y));transform-origin:center;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+:where(i-ic,[class^="ic-"],[class*=" ic-"])::before{content:"";display:block;width:100%;height:100%;background:currentColor;-webkit-mask:var(--ic-url) center/contain no-repeat;mask:var(--ic-url) center/contain no-repeat;filter:var(--ic-shadow)}
 .ic-1x{--ic-size:1em}.ic-2x{--ic-size:2em}.ic-3x{--ic-size:3em}.ic-4x{--ic-size:4em}.ic-5x{--ic-size:5em}.ic-6x{--ic-size:6em}.ic-7x{--ic-size:7em}.ic-8x{--ic-size:8em}.ic-9x{--ic-size:9em}.ic-10x{--ic-size:10em}
+.ic-2xs{--ic-size:.625em;vertical-align:.225em}.ic-xs{--ic-size:.75em;vertical-align:.125em}.ic-sm{--ic-size:.875em;vertical-align:.05357em}.ic-lg{--ic-size:1.25em;vertical-align:-.075em}.ic-xl{--ic-size:1.5em;vertical-align:-.125em}.ic-2xl{--ic-size:2em;vertical-align:-.1875em}
+.ic-fw{width:1.25em}.ic-width-auto{width:auto}
+.ic-color-primary{--ic-color:var(--ic-primary,#2563eb)}.ic-color-success{--ic-color:var(--ic-success,#16a34a)}.ic-color-warning{--ic-color:var(--ic-warning,#d97706)}.ic-color-danger{--ic-color:var(--ic-danger,#dc2626)}.ic-color-muted{--ic-color:var(--ic-muted,#6b7280)}
+.ic-spin{animation:ic-spin var(--ic-speed,2s) linear infinite}.ic-pulse{animation:ic-pulse var(--ic-speed,1s) steps(8) infinite}.ic-bounce{animation:ic-bounce var(--ic-speed,1s) cubic-bezier(.28,.84,.42,1) infinite}.ic-fade{animation:ic-fade var(--ic-speed,1s) ease-in-out infinite}.ic-beat{animation:ic-beat var(--ic-speed,1s) ease-in-out infinite}.ic-flip{animation:ic-flip var(--ic-speed,1s) ease-in-out infinite}.ic-shake{animation:ic-shake var(--ic-speed,1s) linear infinite}
+.ic-spin-reverse{animation-direction:reverse}.ic-spin-slow{--ic-speed:3s}.ic-spin-fast{--ic-speed:.75s}
+.ic-rotate-90{--ic-rotate:90deg}.ic-rotate-180{--ic-rotate:180deg}.ic-rotate-270{--ic-rotate:270deg}.ic-rotate-by{--ic-rotate:var(--ic-rotate-angle,0deg)}.ic-flip-x{--ic-flip-x:-1}.ic-flip-y{--ic-flip-y:-1}.ic-flip-both{--ic-flip-x:-1;--ic-flip-y:-1}
+.ic-shadow{--ic-shadow:drop-shadow(0 .08em .14em rgba(0,0,0,.2))}.ic-glow{--ic-shadow:drop-shadow(0 0 .45em currentColor)}.ic-dim{--ic-opacity:.65}.ic-reduced{--ic-opacity:.4}
+.ic-hover-grow{transition:transform .2s ease,opacity .2s ease}.ic-hover-grow:hover{transform:scale(1.12)}.ic-hover-rotate{transition:transform .2s ease}.ic-hover-rotate:hover{transform:rotate(12deg)}.ic-hover-bounce:hover{animation:ic-bounce .7s cubic-bezier(.28,.84,.42,1)}
+.ic-stack{display:inline-block;position:relative;width:2.5em;height:2em;line-height:2em;vertical-align:middle}.ic-stack-1x,.ic-stack-2x{position:absolute;inset:0;width:100%;height:100%;display:block}.ic-stack-1x{--ic-size:1em}.ic-stack-2x{--ic-size:2em}
+.ic-ul{list-style:none;margin-inline-start:2.5em;padding-inline-start:0}.ic-ul>li{position:relative}.ic-li{position:absolute;inset-inline-start:-2em;width:2em;text-align:center;line-height:inherit}
 .ic-google{--ic-url:url("./icons/google.svg")}.ic-github{--ic-url:url("./icons/github.svg")}.ic-linkedin{--ic-url:url("./icons/linkedin.svg")}.ic-x{--ic-url:url("./icons/x.svg")}.ic-instagram{--ic-url:url("./icons/instagram.svg")}.ic-youtube{--ic-url:url("./icons/youtube.svg")}.ic-logo{--ic-url:url("./logo.svg")}.ic-0-circle-fill{--ic-url:url("./icons/0-circle-fill.svg")}
-.ic-spin{animation:ic-spin 1s linear infinite}.ic-bounce{animation:ic-bounce 1s cubic-bezier(.28,.84,.42,1) infinite}.ic-fade{animation:ic-fade 1s ease-in-out infinite}.ic-beat{animation:ic-beat 1s ease-in-out infinite}.ic-shake{animation:ic-shake 1s linear infinite}
-.ic-rotate-90{transform:rotate(90deg)}.ic-rotate-180{transform:rotate(180deg)}.ic-rotate-270{transform:rotate(270deg)}.ic-flip-x{transform:scaleX(-1)}.ic-flip-y{transform:scaleY(-1)}.ic-flip-both{transform:scale(-1)}
-.ic-color-primary{color:var(--ic-primary,#2563eb)}.ic-color-success{color:var(--ic-success,#16a34a)}.ic-color-warning{color:var(--ic-warning,#d97706)}.ic-color-danger{color:var(--ic-danger,#dc2626)}.ic-color-muted{color:var(--ic-muted,#6b7280)}
-.ic-shadow{filter:drop-shadow(0 .08em .14em rgba(0,0,0,.2))}.ic-glow{filter:drop-shadow(0 0 .45em currentColor)}.ic-dim{opacity:.65}.ic-reduced{opacity:.4}
-.ic-hover-grow{transition:transform .2s ease,opacity .2s ease}.ic-hover-grow:hover{transform:scale(1.12)}.ic-hover-rotate{transition:transform .2s ease}.ic-hover-rotate:hover{transform:rotate(12deg)}
-@media (prefers-reduced-motion:reduce){.ic-spin,.ic-bounce,.ic-fade,.ic-beat,.ic-shake{animation:none!important;transition:none!important}}
+@media (prefers-reduced-motion:reduce){:where(i-ic,[class^="ic-"],[class*=" ic-"]).ic-spin,:where(i-ic,[class^="ic-"],[class*=" ic-"]).ic-pulse,:where(i-ic,[class^="ic-"],[class*=" ic-"]).ic-bounce,:where(i-ic,[class^="ic-"],[class*=" ic-"]).ic-fade,:where(i-ic,[class^="ic-"],[class*=" ic-"]).ic-beat,:where(i-ic,[class^="ic-"],[class*=" ic-"]).ic-flip,:where(i-ic,[class^="ic-"],[class*=" ic-"]).ic-shake,:where(i-ic,[class^="ic-"],[class*=" ic-"]).ic-hover-bounce:hover{animation:none!important;transition:none!important}}
 @keyframes ic-spin{to{transform:rotate(1turn)}}
-@keyframes ic-bounce{0%{transform:translateY(0) scale(1)}10%{transform:translateY(0) scale(1.08,.92)}30%{transform:translateY(-.45em) scale(.92,1.08)}50%{transform:translateY(0) scale(1.04,.96)}60%{transform:translateY(-.1em) scale(1)}100%{transform:translateY(0) scale(1)}}
-@keyframes ic-fade{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes ic-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
 @keyframes ic-beat{0%,90%{transform:scale(1)}45%{transform:scale(1.22)}}
+@keyframes ic-fade{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes ic-flip{50%{transform:rotate3d(0,1,0,-180deg)}}
 @keyframes ic-shake{0%{transform:rotate(0)}10%{transform:rotate(-12deg)}20%{transform:rotate(12deg)}30%{transform:rotate(-15deg)}40%{transform:rotate(15deg)}50%{transform:rotate(-10deg)}60%{transform:rotate(10deg)}70%{transform:rotate(-6deg)}80%{transform:rotate(6deg)}90%,100%{transform:rotate(0)}}
-
+@keyframes ic-bounce{0%{transform:translateY(0) scale(1)}10%{transform:translateY(0) scale(1.08,.92)}30%{transform:translateY(-.45em) scale(.92,1.08)}50%{transform:translateY(0) scale(1.04,.96)}60%{transform:translateY(-.1em) scale(1)}100%{transform:translateY(0) scale(1)}}
 
 
 .ic-logo::after{content:url("./logo.svg");}
