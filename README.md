@@ -1,4 +1,5 @@
 ![image](logo.svg)
+
 # Iconic - Premium CSS Icon Library
 
 [![GitHub Release](https://img.shields.io/github/v/release/junaidprodeveloper/Iconic?label=latest)](https://github.com/junaidprodeveloper/Iconic/releases)
@@ -8,6 +9,12 @@
 [![Bugs](https://img.shields.io/github/issues/junaidprodeveloper/Iconic/bug?label=bugs)](https://github.com/junaidprodeveloper/Iconic/issues?q=is%3Aopen+label%3Abug)
 [![jsDelivr CDN](https://img.shields.io/badge/CDN-jsDelivr-blue)](https://cdn.jsdelivr.net/gh/junaidprodeveloper/Iconic@2.0.0/iconic.min.css)
 [![License](https://img.shields.io/github/license/junaidprodeveloper/Iconic)](https://github.com/junaidprodeveloper/Iconic/blob/main/LICENSE)
+[![](https://data.jsdelivr.com/v1/package/gh/junaidprodeveloper/Iconic/badge)](https://www.jsdelivr.com/package/gh/junaidprodeveloper/Iconic)
+
+> **Iconic** is a clean, consistent, dependency-free icon library for developers who want a large, well-organized icon set without the overhead of JavaScript frameworks, build steps, or bloated bundles.
+
+---
+
 ## Request an Icon
 
 Can't find the icon you need?
@@ -15,64 +22,81 @@ Can't find the icon you need?
 Please **open a GitHub Issue** with the icon name or a reference image/link. I'll add it **within 24 hours** or within the time mentioned in my reply.
 
 Your suggestions help make **Iconic** better for everyone. Thank you! 🚀
-# Iconic
-
-**A clean, consistent, dependency-free icon library — 17,000+ icons, multiple sizes, one simple class prefix.**
-
-Iconic is a lightweight icon system built for developers who want a large, well-organized icon set without the overhead of a JavaScript framework, a build step, or a bloated bundle. Every icon shares the same visual language — consistent stroke width, consistent grid, consistent optical sizing — so your UI never looks like it was assembled from five different icon packs.
-
-Version 2.0 introduces the new `ic-` prefix (e.g., `ic-google`, `ic-search`), a streamlined CDN (`iconic.min.css`), and a complete refresh of the entire library with over `17,000 icons`.
 
 ---
 
-## Table of Contents
+## Hero
 
-- [Features](#features)
-- [Preview](#preview)
-- [Installation](#installation)
-  - [Option 1 — CDN (fastest)](#option-1--cdn-fastest)
-  - [Option 2 — Self-hosted](#option-2--self-hosted)
-- [Basic Usage](#basic-usage)
-- [Class Naming Convention](#class-naming-convention)
-- [Sizes](#sizes)
-- [Colors](#colors)
-- [Icon Categories](#icon-categories)
-- [Searching for an Icon](#searching-for-an-icon)
-- [Accessibility](#accessibility)
-- [Framework Usage](#framework-usage)
-  - [React](#react)
-  - [Vue](#vue)
-  - [Plain HTML](#plain-html)
-- [Browser Support](#browser-support)
-- [File Formats](#file-formats)
-- [Performance Notes](#performance-notes)
-- [Versioning](#versioning)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
-- [Credits](#credits)
-- [Quick Start Example](#quick-start-example)
+Iconic is built to feel simple at the point of use and powerful at scale.
+
+- `17,000+` icons.
+- One predictable prefix: `ic-`.
+- No JavaScript required.
+- Works in plain HTML, React, Vue, and more.
+- Fast CDN delivery or full self-hosting support.
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/junaidprodeveloper/Iconic@2.0.0/iconic.min.css">
+<i-ic class="ic ic-home"></i-ic>
+```
+
+---
+
+## Why Iconic
+
+Iconic is designed for teams that want a stable icon system that feels lightweight but still complete.
+
+- You do not need a component library just to render icons.
+- You do not need a build step to start using it.
+- You do not need to learn a different API per framework.
+- You get a single naming system across the entire library.
+- You can use the same icons in static sites, SPAs, and server-rendered apps.
+
+If your project needs a scalable icon system with low integration overhead, Iconic is built for that.
 
 ---
 
 ## Features
 
-- **17,000+ icons** covering UI, navigation, communication, commerce, media, weather, files, devices, brands, and more.
-- **Single class prefix (`ic`)** — no naming inconsistency, no guessing (e.g., `ic-home`, `ic-google`, `ic-arrow-left`).
-- **Multiple sizes** out of the box, from small inline glyphs to large hero icons.
-- **Consistent 24×24 base grid** with uniform stroke width across the entire set, so mixed icons never look mismatched.
-- **No JavaScript required.** Icons render with pure CSS classes — no icon components, no runtime, no hydration.
-- **Framework agnostic.** Works in plain HTML, React, Vue, Svelte, Angular, or any templating system.
-- **Tree-shakeable / self-hostable.** Use the full stylesheet, or generate a subset containing only the icons you use.
-- **Accessible by default**, with guidance for decorative vs. meaningful icon usage.
-- **Retina-ready**, vector-based (SVG), scales cleanly at any size without blurring.
-- **Brand icons included** — popular services and platforms (e.g., `ic-google`, `ic-github`, `ic-twitter`).
+### Large icon set
+
+Iconic includes more than `17,000 icons` across UI, navigation, communication, commerce, media, weather, files, devices, brands, and more.
+
+### Consistent visual language
+
+Every icon is designed on a consistent `24×24` base grid with uniform stroke width and optical sizing, so mixed icons do not look mismatched.
+
+### Zero runtime overhead
+
+Icons render through CSS classes with no JavaScript runtime, no hydration cost, and no framework dependency.
+
+### Framework agnostic
+
+Iconic works in:
+- Plain HTML.
+- React.
+- Vue.
+- Svelte.
+- Angular.
+- Server-rendered templates.
+
+### Self-hostable and CDN-ready
+
+Use the hosted CDN for speed, or self-host for full control over caching and deployment.
+
+### Accessible by default
+
+Iconic includes guidance for decorative and meaningful icons so your UI stays accessible.
+
+### Retina-ready and scalable
+
+The icon system is vector-based, so it stays crisp at any size.
 
 ---
 
 ## Preview
 
-Below is a small sample of the set. The full, searchable gallery lives at **[iconic.example.com](https://iconic.example.com)** (replace with your actual hosted gallery URL).
+Below is a small sample of the set. The full, searchable gallery lives at **[Iconic Gallery](https://junaidprodeveloper.github.io/Iconic/)**.
 
 | Icon | Class | Icon | Class | Icon | Class |
 |------|-------|------|-------|------|-------|
@@ -82,7 +106,7 @@ Below is a small sample of the set. The full, searchable gallery lives at **[ico
 | Folder | `ic-folder` | Trash | `ic-trash` | Download | `ic-download` |
 | Google | `ic-google` | GitHub | `ic-github` | Twitter | `ic-twitter` |
 
-> Tip: the gallery site supports live search across all 17,000+ icons and lets you copy the exact class name with one click.
+> Tip: the gallery site supports live search across all icons and lets you copy the exact class name quickly.
 
 ---
 
@@ -96,23 +120,24 @@ Add the stylesheet to the `<head>` of your HTML file. No build step, no download
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/junaidprodeveloper/Iconic@2.0.0/iconic.min.css">
 ```
 
-That's it — every `ic-*` class is now available anywhere in your document.
-
 ### Option 2 — Self-hosted
 
-Download the repository and link the CSS file locally:
+Download the repository and link the CSS file locally.
 
 ```html
 <link rel="stylesheet" href="https://junaidprodeveloper.github.io/Iconic/iconic.min.css">
 ```
 
-Self-hosting is recommended for production apps that want full control over caching and don't want a third-party CDN dependency.
+Self-hosting is recommended for production apps that want full control over caching and do not want a third-party CDN dependency.
 
 ---
 
 ## Basic Usage
 
-Every icon is applied with two classes: the base class `ic` and a modifier class for the specific icon, in the form `ic-{icon-name}`.
+Every icon uses two classes:
+
+- `ic` — base class.
+- `ic-{icon-name}` — specific icon class.
 
 ```html
 <i-ic class="ic ic-home"></i-ic>
@@ -121,35 +146,34 @@ Every icon is applied with two classes: the base class `ic` and a modifier class
 <i-ic class="ic ic-google"></i-ic>
 ```
 
-That's the entire API. No wrapper components, no props, no configuration required for the default case.
+That is the entire API. No wrapper components, no props, and no configuration for the default case.
 
 ---
 
 ## Class Naming Convention
 
-All classes follow a single, predictable pattern:
-ic → base class, required on every icon element
-ic-{name} → the specific icon (e.g. ic-arrow-left, ic-shopping-cart, ic-google)
-ic-{size} → optional size modifier (see Sizes below)
-ic-{color} → optional color/utility modifier, if using the utility stylesheet
+Iconic follows one predictable pattern.
 
-text
+- `ic` — base class, required on every icon element.
+- `ic-{name}` — the specific icon, such as `ic-arrow-left` or `ic-shopping-cart`.
+- `ic-{size}` — optional size modifier.
+- `ic-{color}` — optional color utility class, if you use the utility stylesheet.
 
-Icon names are always lowercase, words separated by a single hyphen, and named after the object or action they represent rather than an abstract code — for example `ic-trash`, `ic-arrow-up-right`, `ic-credit-card`, `ic-zip-file`. This means you can usually guess an icon's class name correctly on the first try.
+Icon names are lowercase, words are separated by a single hyphen, and names describe the object or action they represent. That means you can usually guess an icon’s class name on the first try.
 
-Brand icons use recognizable short names (e.g., `ic-google`, `ic-github`, `ic-figma`, `ic-discord`).
+Brand icons use recognizable short names such as `ic-google`, `ic-github`, `ic-figma`, and `ic-discord`.
 
 ---
 
 ## Sizes
 
-Iconic ships with six preset sizes. By default, icons inherit `font-size` from their parent element (so they scale naturally with surrounding text), but explicit size classes are available when you need a fixed size regardless of context.
+Iconic ships with six preset sizes. By default, icons inherit `font-size` from their parent element, so they scale naturally with surrounding text. Explicit size classes are available when you need a fixed size.
 
 | Class | Pixel size | Typical use |
 |-------|------------|-------------|
 | `ic-xs` | 12px | Dense inline text, small badges |
 | `ic-sm` | 16px | Inline with body text, form fields |
-| `ic-md` | 20px | Default UI size — buttons, nav items |
+| `ic-md` | 20px | Default UI size, buttons, nav items |
 | `ic-lg` | 24px | Section headers, list leading icons |
 | `ic-xl` | 32px | Feature callouts, empty states |
 | `ic-2xl` | 48px | Hero sections, marketing pages |
@@ -163,7 +187,7 @@ Iconic ships with six preset sizes. By default, icons inherit `font-size` from t
 <i-ic class="ic ic-bell ic-2xl"></i-ic>
 ```
 
-You can also set a fully custom size at any time using plain CSS, since every icon is font-size driven:
+You can also set a fully custom size with plain CSS.
 
 ```css
 .my-custom-icon {
@@ -179,7 +203,7 @@ You can also set a fully custom size at any time using plain CSS, since every ic
 
 ## Colors
 
-Icons inherit `color` from their parent by default, so they follow your existing text/theme color without any extra work:
+Icons inherit `color` from their parent by default, so they follow your existing text or theme color without extra work.
 
 ```html
 <p style="color: #2563eb;">
@@ -187,15 +211,15 @@ Icons inherit `color` from their parent by default, so they follow your existing
 </p>
 ```
 
-If you're using the optional utility stylesheet, a small set of semantic color helpers is also included:
+If you are using the optional utility stylesheet, a small set of semantic color helpers is also included.
 
 | Class | Meaning |
 |-------|---------|
 | `ic-color-muted` | Low-emphasis, secondary icons |
-| `ic-color-accent` | Brand/accent-colored icons |
-| `ic-color-success` | Positive/confirmation states |
+| `ic-color-accent` | Brand or accent-colored icons |
+| `ic-color-success` | Positive or confirmation states |
 | `ic-color-warning` | Caution states |
-| `ic-color-danger` | Destructive/error states |
+| `ic-color-danger` | Destructive or error states |
 
 ```html
 <i-ic class="ic ic-check ic-color-success"></i-ic>
@@ -207,23 +231,23 @@ If you're using the optional utility stylesheet, a small set of semantic color h
 
 ## Icon Categories
 
-The 17,000+ icons are organized into the following categories. The full, filterable index is generated automatically from `icons.json` in this repository (see [`/data/icons.json`](./data/icons.json)) and is also browsable on the gallery site.
+The icon set is organized into broad categories so you can find the right symbol faster.
 
-- **Navigation & arrows** — chevrons, arrows, directional and layout controls (~1,200 icons)
-- **UI & interface** — buttons, toggles, menus, layout, sliders (~1,600 icons)
-- **Communication** — mail, chat, phone, notifications (~900 icons)
-- **Files & folders** — documents, file types, archives, cloud storage (~1,400 icons)
-- **Media & devices** — audio, video, playback, cameras, screens, devices (~1,300 icons)
-- **Commerce & finance** — shopping, payments, currency, invoices (~1,100 icons)
-- **People & account** — users, profiles, teams, authentication (~900 icons)
-- **Time & calendar** — clocks, dates, scheduling, reminders (~600 icons)
-- **Weather & nature** — climate, seasons, environment, astronomy (~700 icons)
-- **Maps & location** — pins, routes, transport, geography (~800 icons)
-- **Charts & data** — graphs, analytics, dashboards, metrics (~700 icons)
-- **Editing & text** — formatting, writing tools, markup (~900 icons)
-- **Security & privacy** — locks, shields, verification, permissions (~600 icons)
-- **Social & brand** — popular platforms and services (Google, GitHub, Twitter, etc.) (~1,500+ icons)
-- **Miscellaneous & objects** — everyday objects and general-purpose icons (~1,400 icons)
+- **Navigation & arrows** — chevrons, arrows, directional and layout controls.
+- **UI & interface** — buttons, toggles, menus, layout, sliders.
+- **Communication** — mail, chat, phone, notifications.
+- **Files & folders** — documents, file types, archives, cloud storage.
+- **Media & devices** — audio, video, playback, cameras, screens, devices.
+- **Commerce & finance** — shopping, payments, currency, invoices.
+- **People & account** — users, profiles, teams, authentication.
+- **Time & calendar** — clocks, dates, scheduling, reminders.
+- **Weather & nature** — climate, seasons, environment, astronomy.
+- **Maps & location** — pins, routes, transport, geography.
+- **Charts & data** — graphs, analytics, dashboards, metrics.
+- **Editing & text** — formatting, writing tools, markup.
+- **Security & privacy** — locks, shields, verification, permissions.
+- **Social & brand** — popular platforms and services.
+- **Miscellaneous & objects** — everyday objects and general-purpose icons.
 
 > Category counts are approximate and will drift slightly as icons are added; `icons.json` is always the source of truth.
 
@@ -231,19 +255,21 @@ The 17,000+ icons are organized into the following categories. The full, filtera
 
 ## Searching for an Icon
 
-Three ways to find the right icon:
+There are three easy ways to find the right icon:
 
-1. **Gallery site** — [ICONIC `web`](https://junaidprodeveloper.github.io/Iconic) has a live search across all icon names and tags, with one-click copy of the class name.
-2. **`icons.json`** — every icon's name, category, and search tags are listed in [css-class](https://junaidprodeveloper.github.io/Iconic/iconic.css); useful for scripting or building your own picker.
-3. **Repo search** — search this repository's `/svg` folder directly by filename; each SVG file is named identically to its class suffix (e.g., `arrow-left.svg` → `ic-arrow-left`).
+1. **Gallery site** — search across names and tags, then copy the class name instantly.
+2. **`icons.json`** — useful if you want to script your own picker or build a custom search tool.
+3. **Repo search** — search the `/svg` folder directly by filename; each SVG file matches the class suffix.
 
 ---
 
 ## Accessibility
 
-Icons are visual elements and need explicit handling to be accessible:
+Icons are visual elements, so they need explicit accessibility handling.
 
-**Decorative icons** (icon sits next to visible text that already conveys the meaning) — hide from assistive technology:
+### Decorative icons
+
+If the icon sits next to visible text that already explains the meaning, hide it from assistive technology.
 
 ```html
 <button>
@@ -252,7 +278,9 @@ Icons are visual elements and need explicit handling to be accessible:
 </button>
 ```
 
-**Meaningful icons** (icon is the only content, e.g. an icon-only button) — provide an accessible label:
+### Meaningful icons
+
+If the icon is the only content, provide an accessible label.
 
 ```html
 <button aria-label="Delete item">
@@ -260,15 +288,13 @@ Icons are visual elements and need explicit handling to be accessible:
 </button>
 ```
 
-Never rely on an icon alone to convey status or meaning without a text alternative somewhere (visible label, `aria-label`, or `title`).
+Never rely on an icon alone to convey status or meaning without a text alternative somewhere.
 
 ---
 
 ## Framework Usage
 
 ### React
-
-Iconic works with plain class names, so no separate React package is required:
 
 ```jsx
 function DeleteButton() {
@@ -302,16 +328,16 @@ function DeleteButton() {
 
 ## Browser Support
 
-Iconic supports all evergreen browsers (Chrome, Firefox, Safari, Edge) on desktop and mobile, plus the last two major versions of each. The icon set is delivered as an icon font and/or SVG sprite (see [File Formats](#file-formats)); both approaches are supported in browsers released in the last ~6 years.
+Iconic supports all evergreen browsers on desktop and mobile, plus the last two major versions of each. The icon set is delivered as an icon font and/or SVG sprite, and both approaches are supported in modern browsers.
 
 ---
 
 ## File Formats
 
-Iconic ships in two distributable formats — use whichever fits your project:
+Iconic ships in two distributable formats.
 
-- **Icon font (`iconic.woff2` + `iconic.min.css`)** — smallest total download, simplest integration, used in all examples above via the `ic ic-{name}` class pattern.
-- **SVG sprite (`iconic-sprite.svg`)** — for projects that prefer inline SVG for styling flexibility (per-path coloring, animation, etc.):
+- **Icon font (`iconic.woff2` + `iconic.min.css`)** — smallest total download and simplest integration.
+- **SVG sprite (`iconic-sprite.svg`)** — useful when you want inline SVG flexibility, such as per-path coloring or animation.
 
 ```html
 <svg class="ic ic-lg" aria-hidden="true">
@@ -319,39 +345,40 @@ Iconic ships in two distributable formats — use whichever fits your project:
 </svg>
 ```
 
-Both formats are generated from the same master SVG source files in `/svg`, so they stay in sync automatically via the build script.
+Both formats are generated from the same master SVG source files, so they stay in sync automatically.
 
 ---
 
 ## Performance Notes
 
-- The full stylesheet (all 17,000+ icons) is a single small, cacheable file — typically well under 150KB gzipped for the font-based build.
-- For performance-sensitive builds, use the subsetting script (`npm run subset -- --icons=home,search,settings`) to generate a minimal CSS/font file containing only the icons your project actually uses.
-- Icons are vector-based and render crisply at any resolution, including high-DPI/Retina displays, with no additional `@2x` assets needed.
+- The full stylesheet is a single cacheable file.
+- For performance-sensitive builds, use the subsetting script to generate a minimal CSS/font file containing only the icons you actually use.
+- Icons are vector-based and render crisply at any resolution, including high-DPI and Retina displays.
+- No extra `@2x` assets are needed.
 
 ---
 
 ## Versioning
 
-This project follows [Semantic Versioning](https://semver.org/):
+This project follows [Semantic Versioning](https://semver.org/).
 
-- **Patch** (`2.0.x`) — bug fixes, individual icon corrections.
+- **Patch** (`2.0.x`) — bug fixes and individual icon corrections.
 - **Minor** (`2.x.0`) — new icons added, fully backward compatible.
-- **Major** (`x.0.0`) — breaking changes (renamed classes, changed base grid, removed icons).
+- **Major** (`x.0.0`) — breaking changes such as renamed classes, changed base grid, or removed icons.
 
-Version 2.0 introduces breaking changes: the `icon-` prefix is replaced with `ic-` (e.g., `icon-home` → `ic-home`). See [`CHANGELOG.md`](./CHANGELOG.md) for a full history of releases.
+Version 2.0 introduces the breaking change from `icon-` to `ic-`, for example `icon-home` becomes `ic-home`.
 
 ---
 
 ## Roadmap
 
-- [ ] Expand set past 17,000 icons with community-requested additions
-- [ ] Filled/solid icon variant alongside the current outline style
-- [ ] Duotone variant
-- [ ] Official Figma library
-- [ ] Official React component package (optional wrapper, framework-agnostic core stays as-is)
-- [ ] RTL-aware directional icon variants
-- [ ] Animated icon set (loading, success, error states)
+- [ ] Expand the set beyond `17,000` icons with community-requested additions.
+- [ ] Add a filled/solid icon variant.
+- [ ] Add a duotone variant.
+- [ ] Release an official Figma library.
+- [ ] Release an optional React component package.
+- [ ] Add RTL-aware directional icon variants.
+- [ ] Add animated icons for loading, success, and error states.
 
 ---
 
@@ -360,24 +387,22 @@ Version 2.0 introduces breaking changes: the `icon-` prefix is replaced with `ic
 Contributions are welcome, especially new icon requests and corrections to existing icons.
 
 1. Fork the repository and create a new branch.
-2. New icons go in `/svg` as a single-color, 24×24 viewBox SVG following the existing stroke-width and corner-radius conventions (see [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full icon design spec).
-3. Add the icon's metadata (name, category, tags) to `/data/icons.json`.
-4. Run `npm run build` to regenerate the font and CSS from source.
-5. Open a pull request with a short description and a preview screenshot of the new icon(s).
-
-
+2. Add new icons in `/svg` as a single-color, 24×24 viewBox SVG following the existing stroke-width and corner-radius conventions.
+3. Add the icon metadata to `/data/icons.json`.
+4. Run `npm run build` to regenerate the font and CSS.
+5. Open a pull request with a short description and a preview screenshot.
 
 ---
 
 ## License
 
-Iconic is released under the [MIT License](./LICENSE). Free for personal and commercial use, with attribution appreciated but not required.
+Iconic is released under the [MIT License](./LICENSE). It is free for personal and commercial use, and attribution is appreciated but not required.
 
 ---
 
 ## Credits
 
-Built and maintained by the Iconic contributors. If you use Iconic in your project, a link back or a star on this repository is always appreciated. ⭐
+Built and maintained by the Iconic contributors. If you use Iconic in your project, a link back or a star on the repository is appreciated. ⭐
 
 ---
 
@@ -397,11 +422,27 @@ Built and maintained by the Iconic contributors. If you use Iconic in your proje
       padding: 2rem;
       line-height: 1.6;
     }
+    .hero {
+      padding: 2rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 1rem;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,.04);
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      margin: 0 0 .5rem;
+      font-size: 2rem;
+    }
+    .hero p {
+      margin: 0;
+      color: #4b5563;
+    }
     .icon-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
       gap: 1rem;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
     }
     .icon-item {
       display: flex;
@@ -409,7 +450,7 @@ Built and maintained by the Iconic contributors. If you use Iconic in your proje
       align-items: center;
       padding: 1rem;
       border: 1px solid #e5e7eb;
-      border-radius: 0.5rem;
+      border-radius: 0.75rem;
       text-align: center;
     }
     .icon-item i-ic {
@@ -424,8 +465,10 @@ Built and maintained by the Iconic contributors. If you use Iconic in your proje
   </style>
 </head>
 <body>
-  <h1>Iconic v2.0</h1>
-  <p>17,000+ icons with the new <code>ic-</code> prefix</p>
+  <div class="hero">
+    <h1>Iconic v2.0</h1>
+    <p>17,000+ icons with the new <code>ic-</code> prefix</p>
+  </div>
 
   <div class="icon-grid">
     <div class="icon-item">
@@ -458,3 +501,28 @@ Built and maintained by the Iconic contributors. If you use Iconic in your proje
 ```
 
 Copy this example to get started immediately with Iconic v2.0.
+
+---
+
+## GitHub Pages Layout
+
+If you want the site to feel more like Bootstrap’s docs, use this structure:
+
+- `index.html` — homepage and docs landing page.
+- `README.md` — repository-facing documentation.
+- `assets/` — logo, screenshots, CSS, gallery assets.
+- `data/` — icon metadata and search index.
+- `docs/` — optional long-form docs pages.
+
+A Bootstrap-style layout usually works best with:
+- A clear hero section.
+- A compact sidebar or anchor-based table of contents.
+- Section-based documentation with examples.
+- Repeated code snippets and tables.
+- Strong visual hierarchy with callout blocks.
+
+---
+
+## License Summary
+
+Iconic is MIT licensed, which makes it suitable for personal, commercial, and open-source use.
