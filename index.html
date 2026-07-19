@@ -1,139 +1,590 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Iconic</title>
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="shortcut icon" href="logo.svg" type="image/svg+xml">
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/junaidprodeveloper/Iconic@2.0.0/iconic.min.css">
-<link id="iconic-css" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/junaidprodeveloper/Iconic@2.0.0/iconic.min.css">
-<style>
-:root{--bg:#FAF5EE;--surface:#FFFFFF;--surface-2:#FFFCF6;--border:#E9DDCC;--border-strong:#D9C6AE;--text:#3D2A1E;--text-soft:#8C7560;--text-faint:#B8A69A;--accent:#D07A5A;--accent-bg:#F9EFE6;--radius:14px;--panel-w:380px}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:"Merriweather",serif;-webkit-font-smoothing:antialiased;line-height:1.6}
-.page-header{position:sticky;top:0;z-index:20;background:rgba(250,245,238,.97);border-bottom:1px solid var(--border);padding:16px 22px}
-.header-inner{max-width:1440px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
-.brand{font-size:26px;font-weight:900;letter-spacing:-.02em;margin:0}
-.search-wrap{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 6px 6px 14px;width:100%;max-width:460px;transition:.18s}
-.search-wrap:focus-within{border-color:var(--border-strong);box-shadow:0 0 0 3px var(--accent-bg)}
-.search-field{display:flex;align-items:center;gap:8px;flex:1}
-.search-field span{color:var(--text-faint)}
-.search-field input{border:none;outline:none;background:transparent;width:100%;font-family:"Merriweather",serif;font-size:13px;color:var(--text)}
-.search-field input::placeholder{color:var(--text-faint)}
-.search-trigger{border:none;background:var(--text);color:var(--bg);width:28px;height:28px;border-radius:999px;cursor:pointer;display:grid;place-items:center;font-size:12px}
-.main-col{max-width:1440px;margin:0 auto;padding:18px 22px 60px}
-.count-line{font-size:11.5px;color:var(--text-soft);margin:6px 2px 12px}
-#status{color:var(--text-soft);font-size:12px;padding:12px 2px}
-.icon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:10px;content-visibility:auto;contain-intrinsic-size:800px}
-.icon-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px 8px 10px;display:flex;flex-direction:column;align-items:center;gap:10px;cursor:pointer;transition:.14s ease;contain:layout style paint}
-.icon-card:hover{border-color:var(--border-strong);transform:translateY(-2px);box-shadow:0 8px 18px rgba(61,42,30,.06);background:var(--surface-2)}
-.icon-card i-ic{font-size:26px;width:26px;height:26px;color:var(--text);--ic-color:currentColor}
-.icon-name{font-size:10.5px;font-weight:700;color:var(--text-soft);text-align:center;line-height:1.25;word-break:break-word}
-.empty{grid-column:1/-1;background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius);padding:30px;text-align:center;color:var(--text-soft);font-size:13px}
-.load-more{grid-column:1/-1;display:flex;justify-content:center;padding:8px}
-.load-more button{border:1px solid var(--border);background:var(--surface);padding:8px 14px;border-radius:999px;cursor:pointer;font-size:11px;font-weight:700;color:var(--text-soft);font-family:"Merriweather",serif}
-.detail-overlay{position:fixed;inset:0;background:transparent !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;opacity:0;visibility:hidden;transition:.2s;z-index:50}
-.detail-overlay.open{opacity:1;visibility:visible;background:transparent !important}
-.detail-panel{position:fixed;top:0;right:calc(-1 * var(--panel-w));width:var(--panel-w);max-width:94vw;height:100%;background:var(--surface);border-left:1px solid var(--border);z-index:60;overflow:auto;transition:right .33s cubic-bezier(.32,.72,0,1);box-shadow:-12px 0 40px rgba(61,42,30,.10);scrollbar-width:thin}
-.detail-panel.open{right:0}
-.detail-header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;z-index:2}
-.detail-title{margin:0;font-size:17px;font-weight:900;letter-spacing:-.01em;text-transform:lowercase}
-.detail-close{width:28px;height:28px;border-radius:999px;border:1px solid var(--border);background:var(--surface);cursor:pointer;display:grid;place-items:center;color:var(--text-soft);font-family:"Merriweather",serif}
-.detail-body{padding:14px 16px 0}
-.preview-box{height:132px;border:1px solid var(--border);background:var(--bg);border-radius:12px;display:grid;place-items:center;font-size:56px;margin-bottom:12px;position:relative;overflow:hidden}
-.preview-box i-ic{font-size:1em;width:1em;height:1em;color:var(--text)}
-.preview-hint{position:absolute;bottom:6px;right:8px;font-size:9px;color:var(--text-faint);letter-spacing:.04em;text-transform:uppercase}
-.live-code{position:relative;background:#2B211A;border:1px solid #3D2E22;border-radius:10px;overflow:hidden;margin-bottom:16px}
-.live-code pre{margin:0;padding:11px 44px 11px 11px;font-family:"JetBrains Mono",monospace;font-size:11px;line-height:1.5;color:#E9DDD0;white-space:pre-wrap;word-break:break-word}
-.copy-btn{position:absolute;top:6px;right:6px;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:5px 9px;border-radius:7px;font-size:10px;font-weight:700;cursor:pointer;font-family:"Merriweather",serif}
-.copy-btn.dark{background:#3D2E22;color:#E9DDD0;border-color:#4A3728}
-.detail-section{margin-bottom:16px;padding-bottom:12px;border-bottom:1px dashed var(--border)}
-.detail-section:last-child{border-bottom:none}
-.detail-section h3{font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--text-faint);margin:0 0 8px;display:flex;align-items:center;justify-content:space-between}
-.detail-section h3 small{font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-faint);font-size:10px}
-.util-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
-.util-grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.util-grid.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.util-pill{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:7px 4px;text-align:center;font-size:10px;font-weight:700;font-family:"JetBrains Mono",monospace;color:var(--text-soft);cursor:pointer;transition:.13s;user-select:none;line-height:1.2}
-.util-pill:hover{border-color:var(--border-strong);color:var(--text);transform:translateY(-1px)}
-.util-pill.active{background:var(--text);color:var(--bg);border-color:var(--text);box-shadow:0 2px 8px rgba(61,42,30,.18)}
-.var-row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
-.var-row label{flex:1;font-size:11px;font-weight:600;color:var(--text-soft);min-width:0}
-.var-row label code{font-family:"JetBrains Mono",monospace;font-size:10px;background:var(--bg);border:1px solid var(--border);padding:1px 5px;border-radius:5px;color:var(--text)}
-.var-row input[type="range"]{flex:1;max-width:120px;accent-color:var(--accent)}
-.var-row input[type="color"]{width:32px;height:26px;border-radius:6px;border:1px solid var(--border);padding:2px;background:var(--surface);cursor:pointer}
-.var-row input[type="text"]{flex:1;max-width:120px;border:1px solid var(--border);border-radius:7px;padding:4px 7px;font-size:11px;font-family:"JetBrains Mono",monospace;background:var(--surface)}
-.var-value{font-size:10px;color:var(--text-faint);font-family:"JetBrains Mono",monospace;min-width:34px;text-align:right}
-.instruct-small{font-size:11px;color:var(--text-soft);line-height:1.5;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:10px;margin-bottom:12px}
-.detail-footer{padding:12px 16px 18px;border-top:1px solid var(--border);text-align:center;color:var(--text-faint);font-size:10px}
-</style>
-</head>
-<body>
-<header class="page-header">
-<div class="header-inner">
-<h1 class="brand">Iconic</h1>
-<p>Use Iconic  Utilities <a href="cdn.html"><i-ic class="ic-external-link"></i-ic></a></p>
-<div class="search-wrap">
-<label class="search-field">
-<span>⌕</span>
-<input id="search-input" type="search" placeholder="Search 19,052 icons..." autocomplete="off" spellcheck="false" autofocus>
-</label>
-<button id="search-trigger" class="search-trigger" type="button">↗</button>
-</div>
-</div>
 
-</header>
-<main class="main-col">
-<div id="icon-count" class="count-line">Loading 19,052 icons...</div>
-<div id="status">Parsing official Iconic stylesheet…</div>
-<div id="icon-grid" class="icon-grid" aria-live="polite"></div>
-</main>
-<aside id="detail-panel" class="detail-panel" aria-hidden="true">
-<div id="detail-content"></div>
-</aside>
-<div id="detail-overlay" class="detail-overlay"></div>
-<script>
-if(!customElements.get('i-ic')){try{customElements.define('i-ic',class extends HTMLElement{connectedCallback(){if(!this.style.display)this.style.display='inline-block'}})}catch(e){}}
-const stylesheetUrl="https://cdn.jsdelivr.net/gh/junaidprodeveloper/Iconic@2.0.0/iconic.min.css";
-const grid=document.getElementById("icon-grid");
-const countEl=document.getElementById("icon-count");
-const statusEl=document.getElementById("status");
-const searchInput=document.getElementById("search-input");
-const searchTrigger=document.getElementById("search-trigger");
-const detailPanel=document.getElementById("detail-panel");
-const detailOverlay=document.getElementById("detail-overlay");
-const detailContent=document.getElementById("detail-content");
-let iconNames=[],iconMeta=[],filtered=[],searchCache=new Map(),renderLimit=280,lastQuery="",currentIconClass="ic-home",state;
-const defaultVars={"--ic-size":"3em","--ic-color":"currentColor","--ic-opacity":"1","--ic-duration":"0.25s","--ic-radius":"0px","--ic-blur":"0px","--ic-brightness":"1","--ic-contrast":"1","--ic-saturate":"1","--ic-hue-rotate":"0deg","--ic-shadow":"0 4px 12px rgba(0,0,0,.18)","--ic-glow-color":"rgba(64,160,255,.65)"};
-const GROUPS={size:["","ic-xs","ic-sm","ic-md","ic-lg","ic-xl","ic-2x","ic-3x","ic-4x","ic-5x","ic-6x"],animation:["ic-spin","ic-pulse","ic-paused"],transform:["ic-flip-x","ic-flip-y","ic-flip-h","ic-rotate-45","ic-rotate-90","ic-rotate-135","ic-rotate-180","ic-rotate-225","ic-rotate-270","ic-rotate-315"],layout:["ic-fw","ic-tile","ic-bordered"],decor:["ic-shadow","ic-round","ic-round-soft"],hover:["ic-hover-grow","ic-hover-shrink","ic-hover-rotate","ic-hover-float","ic-hover-bounce","ic-hover-glow","ic-hover-fade","ic-hover-color","ic-clickable"],color:["","ic-text-primary","ic-text-success","ic-text-danger","ic-text-warning","ic-text-info","ic-text-dark","ic-text-muted"]};
-function getIconNames(cssText){const set=new Set();const re=/\.ic-([a-z0-9]+(?:-[a-z0-9]+)*)/gi;let m;const banned=new Set(["2x","3x","4x","5x","6x","7x","8x","9x","10x","xs","sm","md","lg","xl","fw","spin","pulse","paused","flip-x","flip-y","flip-h","rotate-45","rotate-90","rotate-135","rotate-180","rotate-225","rotate-270","rotate-315","shadow","round","round-soft","tile","bordered","hover-bounce","hover-grow","hover-rotate","hover-shrink","hover-float","hover-glow","hover-fade","hover-color","clickable","text-primary","text-success","text-danger","text-warning","text-info","text-light","text-dark","text-muted"]);while((m=re.exec(cssText))){const n=m[1].toLowerCase();if(!banned.has(n))set.add(n)}return[...set].sort()}
-function scoreIcon(meta,q,toks){const name=meta.name;if(!q)return 1;let s=0;if(name===q)return 100000;if(name.startsWith(q))s+=8000-name.length*2;const idx=name.indexOf(q);if(idx!==-1)s+=5000-idx*10;let hits=0,pen=0;for(const t of toks){if(name.includes(t)){hits++;s+=1200;if(meta.tokens.includes(t))s+=700}else{let f=false;for(const seg of meta.tokens){if(Math.abs(seg.length-t.length)>2)continue;if(seg===t){f=true;break}}if(f){hits++;s+=250}else pen+=500}}if(toks.length>1&&hits===toks.length)s+=3000;s-=pen+meta.len*.4;return s>0?s:0}
-function ultraSearch(q){q=q.toLowerCase().trim();if(searchCache.has(q))return searchCache.get(q);if(!q){searchCache.set(q,iconMeta);return iconMeta}const toks=q.split(/[\s\-_]+/).filter(Boolean);const scored=[];for(const meta of iconMeta){const sc=scoreIcon(meta,q,toks);if(sc>0)scored.push([meta,sc])}scored.sort((a,b)=>b[1]-a[1]||a[0].len-b[0].len||a[0].name.localeCompare(b[0].name));const res=scored.map(x=>x[0]);if(searchCache.size>500)searchCache.clear();searchCache.set(q,res);return res}
-function createCard(meta){const btn=document.createElement("button");btn.className="icon-card";btn.type="button";btn.dataset.name=meta.name;const ic=document.createElement("i-ic");ic.className=`ic-${meta.name}`;ic.setAttribute("aria-hidden","true");const label=document.createElement("span");label.className="icon-name";label.textContent=meta.name;btn.appendChild(ic);btn.appendChild(label);return btn}
-function renderIcons(){const q=searchInput.value.toLowerCase().trim();filtered=ultraSearch(q);countEl.textContent=`${filtered.length} icons`;grid.textContent="";if(!filtered.length){const e=document.createElement("div");e.className="empty";e.textContent=`No icons for “${q}”`;grid.appendChild(e);return}const frag=document.createDocumentFragment();filtered.slice(0,renderLimit).forEach(m=>frag.appendChild(createCard(m)));grid.appendChild(frag);if(filtered.length>renderLimit){const more=document.createElement("div");more.className="load-more";const b=document.createElement("button");b.id="load-more-btn";b.textContent=`Show more (${filtered.length-renderLimit} left)`;more.appendChild(b);grid.appendChild(more)}}
-let raf=null;
-function scheduleRender(){if(raf)cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{const q=searchInput.value;if(q===lastQuery&&grid.children.length)return;lastQuery=q;renderLimit=280;renderIcons()})}
-async function loadIcons(){try{const cached=localStorage.getItem("iconic-names-v6");if(cached){try{const p=JSON.parse(cached);if(Array.isArray(p)&&p.length>200)iconNames=p}catch(e){}}if(!iconNames.length){const r=await fetch(stylesheetUrl,{cache:"force-cache"});const txt=await r.text();iconNames=getIconNames(txt);try{localStorage.setItem("iconic-names-v6",JSON.stringify(iconNames))}catch(e){}}iconMeta=iconNames.map(n=>({name:n,tokens:n.split("-"),len:n.length}));statusEl.remove();renderIcons()}catch(e){statusEl.textContent="Could not load icons."}}
-function closePanel(){detailPanel.classList.remove("open");detailOverlay.classList.remove("open");detailPanel.setAttribute("aria-hidden","true")}
-detailOverlay.addEventListener("click",closePanel);
-function openPanel(iconClass){currentIconClass=iconClass;state={size:"ic-3x",animation:new Set(),transform:new Set(),layout:new Set(),decor:new Set(),hover:new Set(["ic-hover-grow"]),color:"",vars:{...defaultVars}};buildPanel();detailPanel.classList.add("open");detailOverlay.classList.add("open");detailPanel.setAttribute("aria-hidden","false")}
-function createCopyBlock(title,code,dark=false){const s=document.createElement("div");s.style.marginBottom="8px";const hh=document.createElement("div");hh.style.fontSize="10px";hh.style.color="var(--text-faint)";hh.textContent=title;const wrap=document.createElement("div");wrap.className="live-code";if(!dark)wrap.style.background="var(--bg)",wrap.style.borderColor="var(--border)";const pre=document.createElement("pre");pre.textContent=code;if(!dark)pre.style.color="var(--text)";const btn=document.createElement("button");btn.className=dark?"copy-btn dark":"copy-btn";btn.textContent="Copy";btn.onclick=()=>{navigator.clipboard.writeText(code);btn.textContent="Copied!";setTimeout(()=>btn.textContent="Copy",900)};wrap.appendChild(pre);wrap.appendChild(btn);s.appendChild(hh);s.appendChild(wrap);return s}
-function createPill(key,name){const pill=document.createElement("div");pill.className="util-pill";pill.textContent=name||"(none)";const active=()=>{if(key==="size")return state.size===name;if(key==="color")return state.color===name;if(key==="animation")return state.animation.has(name);if(key==="transform")return state.transform.has(name);if(key==="layout")return state.layout.has(name);if(key==="decor")return state.decor.has(name);if(key==="hover")return state.hover.has(name)};if(active())pill.classList.add("active");pill.onclick=()=>{if(key==="size")state.size=state.size===name?"":name;else if(key==="color")state.color=state.color===name?"":name;else if(key==="animation")state.animation.has(name)?state.animation.delete(name):state.animation.add(name);else if(key==="transform")state.transform.has(name)?state.transform.delete(name):state.transform.add(name);else if(key==="layout")state.layout.has(name)?state.layout.delete(name):state.layout.add(name);else if(key==="decor")state.decor.has(name)?state.decor.delete(name):state.decor.add(name);else if(key==="hover")state.hover.has(name)?state.hover.delete(name):state.hover.add(name);buildPanel();const y=detailPanel.scrollTop;setTimeout(()=>detailPanel.scrollTop=y,0);updateLive()};return pill}
-function varRow(cssVar,type="text"){const row=document.createElement("div");row.className="var-row";const lab=document.createElement("label");lab.innerHTML=`<code>${cssVar}</code>`;row.appendChild(lab);let input=document.createElement("input");let valSpan=document.createElement("span");valSpan.className="var-value";valSpan.textContent=state.vars[cssVar];if(type==="color"){input.type="color";input.value="#3D2A1E";if(state.vars[cssVar]==="currentColor")input.value="#3D2A1E";input.oninput=()=>{state.vars[cssVar]=input.value;updateLive()};row.appendChild(input);row.appendChild(valSpan);return row}if(type==="range"){input.type="range";input.min=cssVar==="--ic-opacity"?"0.1":"0";input.max=cssVar==="--ic-size"?"6":cssVar==="--ic-duration"?"3":cssVar==="--ic-radius"?"32":"10";input.step=cssVar==="--ic-size"?"0.25":cssVar==="--ic-duration"?"0.1":cssVar==="--ic-radius"?"2":"0.1";input.value=parseFloat(state.vars[cssVar])||0;input.oninput=()=>{let v=input.value;if(cssVar==="--ic-size")v=v+"em";else if(cssVar==="--ic-duration")v=v+"s";else if(cssVar==="--ic-radius")v=v+"px";else if(cssVar==="--ic-blur")v=v+"px";state.vars[cssVar]=v;valSpan.textContent=v;updateLive()};row.appendChild(input);row.appendChild(valSpan);return row}input.type="text";input.value=state.vars[cssVar];input.oninput=()=>{state.vars[cssVar]=input.value;updateLive()};row.appendChild(input);row.appendChild(valSpan);return row}
-function buildPanel(){detailContent.textContent="";const header=document.createElement("div");header.className="detail-header";const title=document.createElement("h2");title.className="detail-title";title.textContent=currentIconClass.replace(/^ic-/,"");const closeBtn=document.createElement("button");closeBtn.className="detail-close";closeBtn.textContent="×";closeBtn.onclick=closePanel;header.appendChild(title);header.appendChild(closeBtn);const body=document.createElement("div");body.className="detail-body";const previewBox=document.createElement("div");previewBox.className="preview-box";const live=document.createElement("i-ic");live.id="live-preview";previewBox.appendChild(live);const hint=document.createElement("div");hint.className="preview-hint";hint.textContent="preview";previewBox.appendChild(hint);body.appendChild(previewBox);const liveSec=document.createElement("div");liveSec.className="detail-section";const liveH=document.createElement("h3");liveH.innerHTML='LIVE CODE <small>updates instantly</small>';liveSec.appendChild(liveH);const liveWrap=document.createElement("div");liveWrap.className="live-code";const livePre=document.createElement("pre");livePre.id="live-code-pre";liveWrap.appendChild(livePre);const copyLive=document.createElement("button");copyLive.className="copy-btn dark";copyLive.textContent="Copy";copyLive.onclick=()=>{navigator.clipboard.writeText(livePre.textContent);copyLive.textContent="Copied!";setTimeout(()=>copyLive.textContent="Copy",1000)};liveWrap.appendChild(copyLive);liveSec.appendChild(liveWrap);body.appendChild(liveSec);const baseSec=document.createElement("div");baseSec.className="detail-section";const baseH=document.createElement("h3");baseH.textContent="Base usage";baseSec.appendChild(baseH);baseSec.appendChild(createCopyBlock("Include in <head>",`<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/junaidprodeveloper/Iconic@2.0.0/iconic.min.css">`));baseSec.appendChild(createCopyBlock("Simple",`<i-ic class="${currentIconClass}"></i-ic>`));body.appendChild(baseSec);function group(title,key,cols=""){const sec=document.createElement("div");sec.className="detail-section";const h=document.createElement("h3");h.textContent=title;sec.appendChild(h);const g=document.createElement("div");g.className=`util-grid ${cols}`;GROUPS[key].forEach(name=>g.appendChild(createPill(key,name)));sec.appendChild(g);return sec}body.appendChild(group("Size modifiers", "size","cols-4"));body.appendChild(group("Animation", "animation","cols-2"));body.appendChild(group("Transform", "transform"));body.appendChild(group("Layout helpers", "layout","cols-2"));body.appendChild(group("Decorative", "decor","cols-2"));body.appendChild(group("Hover effects", "hover"));body.appendChild(group("Color utilities", "color","cols-2"));const varSec=document.createElement("div");varSec.className="detail-section";const varH=document.createElement("h3");varH.textContent="CSS Variables";varSec.appendChild(varH);const info=document.createElement("div");info.className="instruct-small";info.innerHTML=`Edit values live. <b>--ic-size</b>, <b>--ic-color</b>, <b>--ic-duration</b>, <b>--ic-opacity</b>, <b>--ic-radius</b>, and filters.`;varSec.appendChild(info);varSec.appendChild(varRow("--ic-size","range"));varSec.appendChild(varRow("--ic-color","color"));varSec.appendChild(varRow("--ic-opacity","range"));varSec.appendChild(varRow("--ic-duration","range"));varSec.appendChild(varRow("--ic-radius","range"));varSec.appendChild(varRow("--ic-blur","range"));varSec.appendChild(varRow("--ic-shadow","text"));varSec.appendChild(varRow("--ic-glow-color","text"));body.appendChild(varSec);const filtSec=document.createElement("div");filtSec.className="detail-section";filtSec.innerHTML=`<h3>Note</h3><div class="instruct-small">This preview is focused on the icon itself, with no extra right-panel functions.</div>`;body.appendChild(filtSec);detailContent.appendChild(header);detailContent.appendChild(body);const foot=document.createElement("div");foot.className="detail-footer";foot.innerHTML=`19,052 icons • Iconic preview`;detailContent.appendChild(foot);updateLive()}
-function updateLive(){const live=document.getElementById("live-preview");const pre=document.getElementById("live-code-pre");if(!live||!pre)return;const classes=[currentIconClass,state.size,...state.animation,...state.transform,...state.layout,...state.decor,...state.hover,state.color].filter(Boolean).join(" ").trim();live.className=classes;Object.entries(state.vars).forEach(([k,v])=>live.style.setProperty(k,v));const styleEntries=Object.entries(state.vars).filter(([k,v])=>v!==""&&v!==defaultVars[k]).map(([k,v])=>`${k}:${v}`).join("; ");pre.textContent=`<i-ic class="${classes}"${styleEntries?` style="${styleEntries}"`:""}></i-ic>`}
-grid.addEventListener("click",e=>{const more=e.target.closest("#load-more-btn");if(more){renderLimit+=300;renderIcons();return}const card=e.target.closest(".icon-card");if(card)openPanel(`ic-${card.dataset.name}`)});
-searchInput.addEventListener("input",scheduleRender,{passive:true});
-searchInput.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();scheduleRender()}});
-searchTrigger.addEventListener("click",e=>{e.preventDefault();searchInput.focus();scheduleRender()});
-document.addEventListener("keydown",e=>{if(e.key==="/"&&document.activeElement!==searchInput){e.preventDefault();searchInput.focus()}if(e.key==="Escape")closePanel()});
-new IntersectionObserver(entries=>{for(const en of entries){if(en.isIntersecting&&filtered.length>renderLimit){renderLimit+=220;renderIcons();break}}},{rootMargin:"500px"}).observe(grid);
-loadIcons();
-</script>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iconic</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="logo.svg" type="image/svg+xml">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/junaidprodeveloper/Iconic@2.0.0/iconic.min.css">
+    <link id="iconic-css" rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/junaidprodeveloper/Iconic@2.0.0/iconic.min.css">
+    <style>
+        :root {
+            --bg: #FAF5EE;
+            --surface: #FFFFFF;
+            --surface-2: #FFFCF6;
+            --border: #E9DDCC;
+            --border-strong: #D9C6AE;
+            --text: #3D2A1E;
+            --text-soft: #8C7560;
+            --text-faint: #B8A69A;
+            --accent: #D07A5A;
+            --accent-bg: #F9EFE6;
+            --radius: 14px;
+            --panel-w: 380px
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Merriweather", serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6
+        }
+
+        .page-header {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(250, 245, 238, .97);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 22px
+        }
+
+        .header-inner {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .brand {
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: -.02em;
+            margin: 0
+        }
+
+        .search-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 6px 6px 6px 14px;
+            width: 100%;
+            max-width: 460px;
+            transition: .18s
+        }
+
+        .search-wrap:focus-within {
+            border-color: var(--border-strong);
+            box-shadow: 0 0 0 3px var(--accent-bg)
+        }
+
+        .search-field {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1
+        }
+
+        .search-field span {
+            color: var(--text-faint)
+        }
+
+        .search-field input {
+            border: none;
+            outline: none;
+            background: transparent;
+            width: 100%;
+            font-family: "Merriweather", serif;
+            font-size: 13px;
+            color: var(--text)
+        }
+
+        .search-field input::placeholder {
+            color: var(--text-faint)
+        }
+
+        .search-trigger {
+            border: none;
+            background: var(--text);
+            color: var(--bg);
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            font-size: 12px
+        }
+
+        .main-col {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 18px 22px 60px
+        }
+
+        .count-line {
+            font-size: 11.5px;
+            color: var(--text-soft);
+            margin: 6px 2px 12px
+        }
+
+        #status {
+            color: var(--text-soft);
+            font-size: 12px;
+            padding: 12px 2px
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+            gap: 10px;
+            content-visibility: auto;
+            contain-intrinsic-size: 800px
+        }
+
+        .icon-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px 8px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: .14s ease;
+            contain: layout style paint
+        }
+
+        .icon-card:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(61, 42, 30, .06);
+            background: var(--surface-2)
+        }
+
+        .icon-card i-ic {
+            font-size: 26px;
+            width: 26px;
+            height: 26px;
+            color: var(--text);
+            --ic-color: currentColor
+        }
+
+        .icon-name {
+            font-size: 10.5px;
+            font-weight: 700;
+            color: var(--text-soft);
+            text-align: center;
+            line-height: 1.25;
+            word-break: break-word
+        }
+
+        .empty {
+            grid-column: 1/-1;
+            background: var(--surface);
+            border: 1px dashed var(--border);
+            border-radius: var(--radius);
+            padding: 30px;
+            text-align: center;
+            color: var(--text-soft);
+            font-size: 13px
+        }
+
+        .load-more {
+            grid-column: 1/-1;
+            display: flex;
+            justify-content: center;
+            padding: 8px
+        }
+
+        .load-more button {
+            border: 1px solid var(--border);
+            background: var(--surface);
+            padding: 8px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-soft);
+            font-family: "Merriweather", serif
+        }
+
+        .detail-overlay {
+            position: fixed;
+            inset: 0;
+            background: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            opacity: 0;
+            visibility: hidden;
+            transition: .2s;
+            z-index: 50
+        }
+
+        .detail-overlay.open {
+            opacity: 1;
+            visibility: visible;
+            background: transparent !important
+        }
+
+        .detail-panel {
+            position: fixed;
+            top: 0;
+            right: calc(-1 * var(--panel-w));
+            width: var(--panel-w);
+            max-width: 94vw;
+            height: 100%;
+            background: var(--surface);
+            border-left: 1px solid var(--border);
+            z-index: 60;
+            overflow: auto;
+            transition: right .33s cubic-bezier(.32, .72, 0, 1);
+            box-shadow: -12px 0 40px rgba(61, 42, 30, .10);
+            scrollbar-width: thin
+        }
+
+        .detail-panel.open {
+            right: 0
+        }
+
+        .detail-header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, .94);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 2
+        }
+
+        .detail-title {
+            margin: 0;
+            font-size: 17px;
+            font-weight: 900;
+            letter-spacing: -.01em;
+            text-transform: lowercase
+        }
+
+        .detail-close {
+            width: 28px;
+            height: 28px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            color: var(--text-soft);
+            font-family: "Merriweather", serif
+        }
+
+        .detail-body {
+            padding: 14px 16px 0
+        }
+
+        .preview-box {
+            height: 132px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            font-size: 56px;
+            margin-bottom: 12px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .preview-box i-ic {
+            font-size: 1em;
+            width: 1em;
+            height: 1em;
+            color: var(--text)
+        }
+
+        .preview-hint {
+            position: absolute;
+            bottom: 6px;
+            right: 8px;
+            font-size: 9px;
+            color: var(--text-faint);
+            letter-spacing: .04em;
+            text-transform: uppercase
+        }
+
+        .live-code {
+            position: relative;
+            background: #2B211A;
+            border: 1px solid #3D2E22;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 16px
+        }
+
+        .live-code pre {
+            margin: 0;
+            padding: 11px 44px 11px 11px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 11px;
+            line-height: 1.5;
+            color: #E9DDD0;
+            white-space: pre-wrap;
+            word-break: break-word
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            padding: 5px 9px;
+            border-radius: 7px;
+            font-size: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: "Merriweather", serif
+        }
+
+        .copy-btn.dark {
+            background: #3D2E22;
+            color: #E9DDD0;
+            border-color: #4A3728
+        }
+
+        .detail-section {
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed var(--border)
+        }
+
+        .detail-section:last-child {
+            border-bottom: none
+        }
+
+        .detail-section h3 {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            margin: 0 0 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .detail-section h3 small {
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            color: var(--text-faint);
+            font-size: 10px
+        }
+
+        .util-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 6px
+        }
+
+        .util-grid.cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr))
+        }
+
+        .util-grid.cols-4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr))
+        }
+
+        .util-pill {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 7px 4px;
+            text-align: center;
+            font-size: 10px;
+            font-weight: 700;
+            font-family: "JetBrains Mono", monospace;
+            color: var(--text-soft);
+            cursor: pointer;
+            transition: .13s;
+            user-select: none;
+            line-height: 1.2
+        }
+
+        .util-pill:hover {
+            border-color: var(--border-strong);
+            color: var(--text);
+            transform: translateY(-1px)
+        }
+
+        .util-pill.active {
+            background: var(--text);
+            color: var(--bg);
+            border-color: var(--text);
+            box-shadow: 0 2px 8px rgba(61, 42, 30, .18)
+        }
+
+        .var-row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 8px
+        }
+
+        .var-row label {
+            flex: 1;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-soft);
+            min-width: 0
+        }
+
+        .var-row label code {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 10px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 1px 5px;
+            border-radius: 5px;
+            color: var(--text)
+        }
+
+        .var-row input[type="range"] {
+            flex: 1;
+            max-width: 120px;
+            accent-color: var(--accent)
+        }
+
+        .var-row input[type="color"] {
+            width: 32px;
+            height: 26px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            padding: 2px;
+            background: var(--surface);
+            cursor: pointer
+        }
+
+        .var-row input[type="text"] {
+            flex: 1;
+            max-width: 120px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            padding: 4px 7px;
+            font-size: 11px;
+            font-family: "JetBrains Mono", monospace;
+            background: var(--surface)
+        }
+
+        .var-value {
+            font-size: 10px;
+            color: var(--text-faint);
+            font-family: "JetBrains Mono", monospace;
+            min-width: 34px;
+            text-align: right
+        }
+
+        .instruct-small {
+            font-size: 11px;
+            color: var(--text-soft);
+            line-height: 1.5;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 12px
+        }
+
+        .detail-footer {
+            padding: 12px 16px 18px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-faint);
+            font-size: 10px
+        }
+    </style>
+</head>
+
+<body>
+    <header class="page-header">
+        <div class="header-inner">
+            <h1 class="brand">Iconic</h1>
+            <p>Use Iconic Utilities <a href="cdn.html"><i-ic class="ic-external-link"></i-ic></a></p>
+            <p>Use Iconic CSS Framework <a href="framework.html"><i-ic class="ic-external-link"></i-ic></a></p>
+            <div class="search-wrap">
+                <label class="search-field">
+                    <span>⌕</span>
+                    <input id="search-input" type="search" placeholder="Search 19,052 icons..." autocomplete="off"
+                        spellcheck="false" autofocus>
+                </label>
+                <button id="search-trigger" class="search-trigger" type="button">↗</button>
+            </div>
+        </div>
+    </header>
+    <main class="main-col">
+        <div id="icon-count" class="count-line">Loading 19,052 icons...</div>
+        <div id="status">Parsing official Iconic stylesheet…</div>
+        <div id="icon-grid" class="icon-grid" aria-live="polite"></div>
+    </main>
+    <aside id="detail-panel" class="detail-panel" aria-hidden="true">
+        <div id="detail-content"></div>
+    </aside>
+    <div id="detail-overlay" class="detail-overlay"></div>
+    <script>
+        if (!customElements.get('i-ic')) { try { customElements.define('i-ic', class extends HTMLElement { connectedCallback() { if (!this.style.display) this.style.display = 'inline-block' } }) } catch (e) { } }
+        const stylesheetUrl = "https://cdn.jsdelivr.net/gh/junaidprodeveloper/Iconic@2.0.0/iconic.min.css";
+        const grid = document.getElementById("icon-grid");
+        const countEl = document.getElementById("icon-count");
+        const statusEl = document.getElementById("status");
+        const searchInput = document.getElementById("search-input");
+        const searchTrigger = document.getElementById("search-trigger");
+        const detailPanel = document.getElementById("detail-panel");
+        const detailOverlay = document.getElementById("detail-overlay");
+        const detailContent = document.getElementById("detail-content");
+        let iconNames = [], iconMeta = [], filtered = [], searchCache = new Map(), renderLimit = 280, lastQuery = "", currentIconClass = "ic-home", state;
+        const defaultVars = { "--ic-size": "3em", "--ic-color": "currentColor", "--ic-opacity": "1", "--ic-duration": "0.25s", "--ic-radius": "0px", "--ic-blur": "0px", "--ic-brightness": "1", "--ic-contrast": "1", "--ic-saturate": "1", "--ic-hue-rotate": "0deg", "--ic-shadow": "0 4px 12px rgba(0,0,0,.18)", "--ic-glow-color": "rgba(64,160,255,.65)" };
+        const GROUPS = { size: ["", "ic-xs", "ic-sm", "ic-md", "ic-lg", "ic-xl", "ic-2x", "ic-3x", "ic-4x", "ic-5x", "ic-6x"], animation: ["ic-spin", "ic-pulse", "ic-paused"], transform: ["ic-flip-x", "ic-flip-y", "ic-flip-h", "ic-rotate-45", "ic-rotate-90", "ic-rotate-135", "ic-rotate-180", "ic-rotate-225", "ic-rotate-270", "ic-rotate-315"], layout: ["ic-fw", "ic-tile", "ic-bordered"], decor: ["ic-shadow", "ic-round", "ic-round-soft"], hover: ["ic-hover-grow", "ic-hover-shrink", "ic-hover-rotate", "ic-hover-float", "ic-hover-bounce", "ic-hover-glow", "ic-hover-fade", "ic-hover-color", "ic-clickable"], color: ["", "ic-text-primary", "ic-text-success", "ic-text-danger", "ic-text-warning", "ic-text-info", "ic-text-dark", "ic-text-muted"] };
+        function getIconNames(cssText) { const set = new Set(); const re = /\.ic-([a-z0-9]+(?:-[a-z0-9]+)*)/gi; let m; const banned = new Set(["2x", "3x", "4x", "5x", "6x", "7x", "8x", "9x", "10x", "xs", "sm", "md", "lg", "xl", "fw", "spin", "pulse", "paused", "flip-x", "flip-y", "flip-h", "rotate-45", "rotate-90", "rotate-135", "rotate-180", "rotate-225", "rotate-270", "rotate-315", "shadow", "round", "round-soft", "tile", "bordered", "hover-bounce", "hover-grow", "hover-rotate", "hover-shrink", "hover-float", "hover-glow", "hover-fade", "hover-color", "clickable", "text-primary", "text-success", "text-danger", "text-warning", "text-info", "text-light", "text-dark", "text-muted"]); while ((m = re.exec(cssText))) { const n = m[1].toLowerCase(); if (!banned.has(n)) set.add(n) } return [...set].sort() }
+        function scoreIcon(meta, q, toks) { const name = meta.name; if (!q) return 1; let s = 0; if (name === q) return 100000; if (name.startsWith(q)) s += 8000 - name.length * 2; const idx = name.indexOf(q); if (idx !== -1) s += 5000 - idx * 10; let hits = 0, pen = 0; for (const t of toks) { if (name.includes(t)) { hits++; s += 1200; if (meta.tokens.includes(t)) s += 700 } else { let f = false; for (const seg of meta.tokens) { if (Math.abs(seg.length - t.length) > 2) continue; if (seg === t) { f = true; break } } if (f) { hits++; s += 250 } else pen += 500 } } if (toks.length > 1 && hits === toks.length) s += 3000; s -= pen + meta.len * .4; return s > 0 ? s : 0 }
+        function ultraSearch(q) { q = q.toLowerCase().trim(); if (searchCache.has(q)) return searchCache.get(q); if (!q) { searchCache.set(q, iconMeta); return iconMeta } const toks = q.split(/[\s\-_]+/).filter(Boolean); const scored = []; for (const meta of iconMeta) { const sc = scoreIcon(meta, q, toks); if (sc > 0) scored.push([meta, sc]) } scored.sort((a, b) => b[1] - a[1] || a[0].len - b[0].len || a[0].name.localeCompare(b[0].name)); const res = scored.map(x => x[0]); if (searchCache.size > 500) searchCache.clear(); searchCache.set(q, res); return res }
+        function createCard(meta) { const btn = document.createElement("button"); btn.className = "icon-card"; btn.type = "button"; btn.dataset.name = meta.name; const ic = document.createElement("i-ic"); ic.className = `ic-${meta.name}`; ic.setAttribute("aria-hidden", "true"); const label = document.createElement("span"); label.className = "icon-name"; label.textContent = meta.name; btn.appendChild(ic); btn.appendChild(label); return btn }
+        function renderIcons() { const q = searchInput.value.toLowerCase().trim(); filtered = ultraSearch(q); countEl.textContent = `${filtered.length} icons`; grid.textContent = ""; if (!filtered.length) { const e = document.createElement("div"); e.className = "empty"; e.textContent = `No icons for “${q}”`; grid.appendChild(e); return } const frag = document.createDocumentFragment(); filtered.slice(0, renderLimit).forEach(m => frag.appendChild(createCard(m))); grid.appendChild(frag); if (filtered.length > renderLimit) { const more = document.createElement("div"); more.className = "load-more"; const b = document.createElement("button"); b.id = "load-more-btn"; b.textContent = `Show more (${filtered.length - renderLimit} left)`; more.appendChild(b); grid.appendChild(more) } }
+        let raf = null;
+        function scheduleRender() { if (raf) cancelAnimationFrame(raf); raf = requestAnimationFrame(() => { const q = searchInput.value; if (q === lastQuery && grid.children.length) return; lastQuery = q; renderLimit = 280; renderIcons() }) }
+        async function loadIcons() { try { const cached = localStorage.getItem("iconic-names-v6"); if (cached) { try { const p = JSON.parse(cached); if (Array.isArray(p) && p.length > 200) iconNames = p } catch (e) { } } if (!iconNames.length) { const r = await fetch(stylesheetUrl, { cache: "force-cache" }); const txt = await r.text(); iconNames = getIconNames(txt); try { localStorage.setItem("iconic-names-v6", JSON.stringify(iconNames)) } catch (e) { } } iconMeta = iconNames.map(n => ({ name: n, tokens: n.split("-"), len: n.length })); statusEl.remove(); renderIcons() } catch (e) { statusEl.textContent = "Could not load icons." } }
+        function closePanel() { detailPanel.classList.remove("open"); detailOverlay.classList.remove("open"); detailPanel.setAttribute("aria-hidden", "true") }
+        detailOverlay.addEventListener("click", closePanel);
+        function openPanel(iconClass) { currentIconClass = iconClass; state = { size: "ic-3x", animation: new Set(), transform: new Set(), layout: new Set(), decor: new Set(), hover: new Set(["ic-hover-grow"]), color: "", vars: { ...defaultVars } }; buildPanel(); detailPanel.classList.add("open"); detailOverlay.classList.add("open"); detailPanel.setAttribute("aria-hidden", "false") }
+        function createCopyBlock(title, code, dark = false) { const s = document.createElement("div"); s.style.marginBottom = "8px"; const hh = document.createElement("div"); hh.style.fontSize = "10px"; hh.style.color = "var(--text-faint)"; hh.textContent = title; const wrap = document.createElement("div"); wrap.className = "live-code"; if (!dark) wrap.style.background = "var(--bg)", wrap.style.borderColor = "var(--border)"; const pre = document.createElement("pre"); pre.textContent = code; if (!dark) pre.style.color = "var(--text)"; const btn = document.createElement("button"); btn.className = dark ? "copy-btn dark" : "copy-btn"; btn.textContent = "Copy"; btn.onclick = () => { navigator.clipboard.writeText(code); btn.textContent = "Copied!"; setTimeout(() => btn.textContent = "Copy", 900) }; wrap.appendChild(pre); wrap.appendChild(btn); s.appendChild(hh); s.appendChild(wrap); return s }
+        function createPill(key, name) { const pill = document.createElement("div"); pill.className = "util-pill"; pill.textContent = name || "(none)"; const active = () => { if (key === "size") return state.size === name; if (key === "color") return state.color === name; if (key === "animation") return state.animation.has(name); if (key === "transform") return state.transform.has(name); if (key === "layout") return state.layout.has(name); if (key === "decor") return state.decor.has(name); if (key === "hover") return state.hover.has(name) }; if (active()) pill.classList.add("active"); pill.onclick = () => { if (key === "size") state.size = state.size === name ? "" : name; else if (key === "color") state.color = state.color === name ? "" : name; else if (key === "animation") state.animation.has(name) ? state.animation.delete(name) : state.animation.add(name); else if (key === "transform") state.transform.has(name) ? state.transform.delete(name) : state.transform.add(name); else if (key === "layout") state.layout.has(name) ? state.layout.delete(name) : state.layout.add(name); else if (key === "decor") state.decor.has(name) ? state.decor.delete(name) : state.decor.add(name); else if (key === "hover") state.hover.has(name) ? state.hover.delete(name) : state.hover.add(name); buildPanel(); const y = detailPanel.scrollTop; setTimeout(() => detailPanel.scrollTop = y, 0); updateLive() }; return pill }
+        function varRow(cssVar, type = "text") { const row = document.createElement("div"); row.className = "var-row"; const lab = document.createElement("label"); lab.innerHTML = `<code>${cssVar}</code>`; row.appendChild(lab); let input = document.createElement("input"); let valSpan = document.createElement("span"); valSpan.className = "var-value"; valSpan.textContent = state.vars[cssVar]; if (type === "color") { input.type = "color"; input.value = "#3D2A1E"; if (state.vars[cssVar] === "currentColor") input.value = "#3D2A1E"; input.oninput = () => { state.vars[cssVar] = input.value; updateLive() }; row.appendChild(input); row.appendChild(valSpan); return row } if (type === "range") { input.type = "range"; input.min = cssVar === "--ic-opacity" ? "0.1" : "0"; input.max = cssVar === "--ic-size" ? "6" : cssVar === "--ic-duration" ? "3" : cssVar === "--ic-radius" ? "32" : "10"; input.step = cssVar === "--ic-size" ? "0.25" : cssVar === "--ic-duration" ? "0.1" : cssVar === "--ic-radius" ? "2" : "0.1"; input.value = parseFloat(state.vars[cssVar]) || 0; input.oninput = () => { let v = input.value; if (cssVar === "--ic-size") v = v + "em"; else if (cssVar === "--ic-duration") v = v + "s"; else if (cssVar === "--ic-radius") v = v + "px"; else if (cssVar === "--ic-blur") v = v + "px"; state.vars[cssVar] = v; valSpan.textContent = v; updateLive() }; row.appendChild(input); row.appendChild(valSpan); return row } input.type = "text"; input.value = state.vars[cssVar]; input.oninput = () => { state.vars[cssVar] = input.value; updateLive() }; row.appendChild(input); row.appendChild(valSpan); return row }
+        function buildPanel() { detailContent.textContent = ""; const header = document.createElement("div"); header.className = "detail-header"; const title = document.createElement("h2"); title.className = "detail-title"; title.textContent = currentIconClass.replace(/^ic-/, ""); const closeBtn = document.createElement("button"); closeBtn.className = "detail-close"; closeBtn.textContent = "×"; closeBtn.onclick = closePanel; header.appendChild(title); header.appendChild(closeBtn); const body = document.createElement("div"); body.className = "detail-body"; const previewBox = document.createElement("div"); previewBox.className = "preview-box"; const live = document.createElement("i-ic"); live.id = "live-preview"; previewBox.appendChild(live); const hint = document.createElement("div"); hint.className = "preview-hint"; hint.textContent = "preview"; previewBox.appendChild(hint); body.appendChild(previewBox); const liveSec = document.createElement("div"); liveSec.className = "detail-section"; const liveH = document.createElement("h3"); liveH.innerHTML = 'LIVE CODE <small>updates instantly</small>'; liveSec.appendChild(liveH); const liveWrap = document.createElement("div"); liveWrap.className = "live-code"; const livePre = document.createElement("pre"); livePre.id = "live-code-pre"; liveWrap.appendChild(livePre); const copyLive = document.createElement("button"); copyLive.className = "copy-btn dark"; copyLive.textContent = "Copy"; copyLive.onclick = () => { navigator.clipboard.writeText(livePre.textContent); copyLive.textContent = "Copied!"; setTimeout(() => copyLive.textContent = "Copy", 1000) }; liveWrap.appendChild(copyLive); liveSec.appendChild(liveWrap); body.appendChild(liveSec); const baseSec = document.createElement("div"); baseSec.className = "detail-section"; const baseH = document.createElement("h3"); baseH.textContent = "Base usage"; baseSec.appendChild(baseH); baseSec.appendChild(createCopyBlock("Include in <head>", `<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/junaidprodeveloper/Iconic@2.0.0/iconic.min.css">`)); baseSec.appendChild(createCopyBlock("Simple", `<i-ic class="${currentIconClass}"></i-ic>`)); body.appendChild(baseSec); function group(title, key, cols = "") { const sec = document.createElement("div"); sec.className = "detail-section"; const h = document.createElement("h3"); h.textContent = title; sec.appendChild(h); const g = document.createElement("div"); g.className = `util-grid ${cols}`; GROUPS[key].forEach(name => g.appendChild(createPill(key, name))); sec.appendChild(g); return sec } body.appendChild(group("Size modifiers", "size", "cols-4")); body.appendChild(group("Animation", "animation", "cols-2")); body.appendChild(group("Transform", "transform")); body.appendChild(group("Layout helpers", "layout", "cols-2")); body.appendChild(group("Decorative", "decor", "cols-2")); body.appendChild(group("Hover effects", "hover")); body.appendChild(group("Color utilities", "color", "cols-2")); const varSec = document.createElement("div"); varSec.className = "detail-section"; const varH = document.createElement("h3"); varH.textContent = "CSS Variables"; varSec.appendChild(varH); const info = document.createElement("div"); info.className = "instruct-small"; info.innerHTML = `Edit values live. <b>--ic-size</b>, <b>--ic-color</b>, <b>--ic-duration</b>, <b>--ic-opacity</b>, <b>--ic-radius</b>, and filters.`; varSec.appendChild(info); varSec.appendChild(varRow("--ic-size", "range")); varSec.appendChild(varRow("--ic-color", "color")); varSec.appendChild(varRow("--ic-opacity", "range")); varSec.appendChild(varRow("--ic-duration", "range")); varSec.appendChild(varRow("--ic-radius", "range")); varSec.appendChild(varRow("--ic-blur", "range")); varSec.appendChild(varRow("--ic-shadow", "text")); varSec.appendChild(varRow("--ic-glow-color", "text")); body.appendChild(varSec); const filtSec = document.createElement("div"); filtSec.className = "detail-section"; filtSec.innerHTML = `<h3>Note</h3><div class="instruct-small">This preview is focused on the icon itself, with no extra right-panel functions.</div>`; body.appendChild(filtSec); detailContent.appendChild(header); detailContent.appendChild(body); const foot = document.createElement("div"); foot.className = "detail-footer"; foot.innerHTML = `19,052 icons • Iconic preview`; detailContent.appendChild(foot); updateLive() }
+        function updateLive() { const live = document.getElementById("live-preview"); const pre = document.getElementById("live-code-pre"); if (!live || !pre) return; const classes = [currentIconClass, state.size, ...state.animation, ...state.transform, ...state.layout, ...state.decor, ...state.hover, state.color].filter(Boolean).join(" ").trim(); live.className = classes; Object.entries(state.vars).forEach(([k, v]) => live.style.setProperty(k, v)); const styleEntries = Object.entries(state.vars).filter(([k, v]) => v !== "" && v !== defaultVars[k]).map(([k, v]) => `${k}:${v}`).join("; "); pre.textContent = `<i-ic class="${classes}"${styleEntries ? ` style="${styleEntries}"` : ""}></i-ic>` }
+        grid.addEventListener("click", e => { const more = e.target.closest("#load-more-btn"); if (more) { renderLimit += 300; renderIcons(); return } const card = e.target.closest(".icon-card"); if (card) openPanel(`ic-${card.dataset.name}`) });
+        searchInput.addEventListener("input", scheduleRender, { passive: true });
+        searchInput.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); scheduleRender() } });
+        searchTrigger.addEventListener("click", e => { e.preventDefault(); searchInput.focus(); scheduleRender() });
+        document.addEventListener("keydown", e => { if (e.key === "/" && document.activeElement !== searchInput) { e.preventDefault(); searchInput.focus() } if (e.key === "Escape") closePanel() });
+        new IntersectionObserver(entries => { for (const en of entries) { if (en.isIntersecting && filtered.length > renderLimit) { renderLimit += 220; renderIcons(); break } } }, { rootMargin: "500px" }).observe(grid);
+        loadIcons();
+    </script>
 </body>
+
 </html>

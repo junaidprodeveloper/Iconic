@@ -3,7 +3,7 @@
 # Iconic - Premium CSS Icon Library
 
 [![GitHub Release](https://img.shields.io/github/v/release/junaidprodeveloper/Iconic?label=latest)](https://github.com/junaidprodeveloper/Iconic/releases)
-[![Version](https://img.shields.io/badge/version-2.0.0-blue)](https://github.com/junaidprodeveloper/Iconic/releases/tag/v2.0.0)
+[![Version](https://img.shields.io/badge/version-2.0.0-blue)](https://github.com/junaidprodeveloper/Iconic/releases/tag/v2.0.0-alpha)
 [![Total Icons](https://img.shields.io/badge/icons-19%2C052-success)](https://github.com/junaidprodeveloper/Iconic)
 [![Feature Requests](https://img.shields.io/github/issues/junaidprodeveloper/Iconic/feature-request?label=feature%20requests)](https://github.com/junaidprodeveloper/Iconic/issues?q=is%3Aopen+label%3Afeature-request)
 [![Bugs](https://img.shields.io/github/issues/junaidprodeveloper/Iconic/bug?label=bugs)](https://github.com/junaidprodeveloper/Iconic/issues?q=is%3Aopen+label%3Abug)
