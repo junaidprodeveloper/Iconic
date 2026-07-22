@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iconic Framework - Complete Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-light: #ffffff;
+            --bg-light-secondary: #f8f9fa;
+            --bg-light-tertiary: #f1f3f5;
+            --text-light: #1a1a1a;
+            --text-light-secondary: #6c757d;
+            --border-light: #dee2e6;
+            
+            --bg-dark: #1a1a1a;
+            --bg-dark-secondary: #2d2d2d;
+            --bg-dark-tertiary: #3a3a3a;
+            --text-dark: #e9ecef;
+            --text-dark-secondary: #adb5bd;
+            --border-dark: #495057;
+            
+            --primary: #007bff;
+            --primary-light: #0d6efd;
+            --secondary: #6c757d;
+            --success: #198754;
+            --danger: #dc3545;
+            
+            --sidebar-width: 280px;
+            --header-height: 70px;
+        }
+
+        html[data-theme="dark"] {
+            --bg: var(--bg-dark);
+            --bg-secondary: var(--bg-dark-secondary);
+            --bg-tertiary: var(--bg-dark-tertiary);
+            --text: var(--text-dark);
+            --text-secondary: var(--text-dark-secondary);
+            --border: var(--border-dark);
+        }
+
+        html[data-theme="light"] {
+            --bg: var(--bg-light);
+            --bg-secondary: var(--bg-light-secondary);
+            --bg-tertiary: var(--bg-light-tertiary);
+            --text: var(--text-light);
+            --text-secondary: var(--text-light-secondary);
+            --border: var(--border-light);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            height: var(--header-height);
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .search-box {
+            position: relative;
+            width: 300px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg-tertiary);
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .search-box input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 6px 6px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            z-index: 1001;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .search-result-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.2s;
+        }
+
+        .search-result-item:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .search-result-item .result-name {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .search-result-item .result-category {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text);
+            transition: color 0.3s;
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary);
+        }
+
+        /* Main Layout */
+        .container-main {
+            display: flex;
+            margin-top: var(--header-height);
+            min-height: calc(100vh - var(--header-height));
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border);
+            padding: 1.5rem 0;
+            overflow-y: auto;
+            position: sticky;
+            top: var(--header-height);
+            height: calc(100vh - var(--header-height));
+        }
+
+        .sidebar-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-section-title {
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+        }
+
+        .sidebar-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background: var(--bg-tertiary);
+            color: var(--primary);
+            border-left-color: var(--primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+        }
+
+        .content {
+            flex: 1;
+            padding: 3rem;
+            max-width: 1000px;
+        }
+
+        .toc {
+            width: 250px;
+            padding: 2rem 1rem;
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            position: sticky;
+            top: var(--header-height);
+            height: calc(100vh - var(--header-height));
+            overflow-y: auto;
+        }
+
+        .toc-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            border-left: 2px solid transparent;
+            padding-left: 0.75rem;
+        }
+
+        .toc-link:hover,
+        .toc-link.active {
+            color: var(--primary);
+            border-left-color: var(--primary);
+        }
+
+        .toc-link.level-2 {
+            padding-left: 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .subsection-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Class Cards */
+        .class-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .class-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+        }
+
+        .class-name {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            word-break: break-all;
+        }
+
+        .class-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .class-content {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .class-section {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .class-section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+        }
+
+        .css-code {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            line-height: 1.4;
+        }
+
+        .html-code {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            line-height: 1.4;
+        }
+
+        .preview {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-content {
+            width: 100%;
+        }
+
+        /* Button Group */
+        .button-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .copy-btn {
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(13, 110, 253, 0.3);
+        }
+
+        .copy-btn.copied {
+            background: var(--success);
+        }
+
+        /* Grid for class cards */
+        .class-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .class-grid-2 {
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+        }
+
+        /* Intro Section */
+        .intro-section {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .intro-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro-section p {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .toc {
+                display: none;
+            }
+            .main-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                top: 0;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 1rem 0;
+            }
+
+            .container-main {
+                flex-direction: column;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            header {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .search-box {
+                width: 100%;
+            }
+
+            .sidebar-link {
+                display: inline-block;
+                padding: 0.25rem 0.75rem;
+                margin-right: 0.5rem;
+                background: var(--bg-tertiary);
+                border-radius: 4px;
+                border: none;
+            }
+
+            .class-grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-secondary);
+        }
+
+        /* Utilities */
+        .text-muted {
+            color: var(--text-secondary);
+        }
+
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+    </style>
+</head>
+<body data-theme="light">
+    <!-- Header -->
+    <header>
+        <div class="header-left">
+            <a href="#" class="logo">📚 Iconic Docs</a>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search classes...">
+                <div id="searchResults" class="search-results"></div>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="container-main">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-section-title">Documentation</div>
+                <a href="#intro" class="sidebar-link active" data-section="intro">Introduction</a>
+                <a href="#typography" class="sidebar-link" data-section="typography">Typography</a>
+                <a href="#sizing" class="sidebar-link" data-section="sizing">Font Sizing</a>
+                <a href="#colors" class="sidebar-link" data-section="colors">Colors</a>
+                <a href="#text-styles" class="sidebar-link" data-section="text-styles">Text Styles</a>
+                <a href="#text-decoration" class="sidebar-link" data-section="text-decoration">Decorations</a>
+                <a href="#letter-spacing" class="sidebar-link" data-section="letter-spacing">Letter Spacing</a>
+                <a href="#line-height" class="sidebar-link" data-section="line-height">Line Height</a>
+                <a href="#text-truncate" class="sidebar-link" data-section="text-truncate">Text Truncation</a>
+                <a href="#whitespace" class="sidebar-link" data-section="whitespace">Whitespace</a>
+                <a href="#word-break" class="sidebar-link" data-section="word-break">Word Break</a>
+                <a href="#vertical-align" class="sidebar-link" data-section="vertical-align">Vertical Align</a>
+                <a href="#layout" class="sidebar-link" data-section="layout">Layout</a>
+                <a href="#grid" class="sidebar-link" data-section="grid">Grid</a>
+                <a href="#flexbox" class="sidebar-link" data-section="flexbox">Flexbox</a>
+                <a href="#responsive" class="sidebar-link" data-section="responsive">Responsive</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <main class="content">
+                <!-- Introduction -->
+                <section id="intro" class="section">
+                    <h1 class="section-title">Iconic Framework Documentation</h1>
+                    <p class="section-subtitle">Complete reference for all utility classes and components</p>
+                    
+                    <div class="intro-section">
+                        <h2>Welcome to Iconic</h2>
+                        <p>Iconic is a comprehensive CSS framework packed with utility classes for typography, layout, colors, and responsive design. This documentation provides detailed information about every class available in the framework.</p>
+                        <p>All classes use the <code style="background: var(--bg-tertiary); padding: 0.2rem 0.4rem; border-radius: 3px;">.ic-</code> prefix for easy identification and to avoid naming conflicts.</p>
+                    </div>
+
+                    <h3 class="subsection-title">Statistics</h3>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <div class="stat-number" id="classCount">500+</div>
+                            <div class="stat-label">Utility Classes</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">70+</div>
+                            <div class="stat-label">Font Families</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100+</div>
+                            <div class="stat-label">Color Variants</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Fully</div>
+                            <div class="stat-label">Responsive</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Typography Section -->
+                <section id="typography" class="section">
+                    <h2 class="section-title">Typography</h2>
+                    <p class="section-subtitle">Font family utilities for semantic typography</p>
+                    <div id="fontFamilies" class="class-grid class-grid-2"></div>
+                </section>
+
+                <!-- Font Sizing Section -->
+                <section id="sizing" class="section">
+                    <h2 class="section-title">Font Sizing</h2>
+                    <p class="section-subtitle">Responsive font size utilities using CSS clamp</p>
+                    <div id="fontSizes" class="class-grid class-grid-2"></div>
+                </section>
+
+                <!-- Colors Section -->
+                <section id="colors" class="section">
+                    <h2 class="section-title">Selection Colors</h2>
+                    <p class="section-subtitle">Custom selection color utilities for text highlighting</p>
+                    <div id="selectionColors" class="class-grid class-grid-2"></div>
+                </section>
+
+                <!-- Text Styles Section -->
+                <section id="text-styles" class="section">
+                    <h2 class="section-title">Text Styles</h2>
+                    <p class="section-subtitle">Font weight and style utilities</p>
+                    <div id="textStyles" class="class-grid class-grid-2"></div>
+                </section>
+
+                <!-- Text Decoration Section -->
+                <section id="text-decoration" class="section">
+                    <h2 class="section-title">Text Decoration</h2>
+                    <p class="section-subtitle">Text decoration and styling utilities</p>
+                    <div id="textDecoration" class="class-grid class-grid-2"></div>
+                </section>
+
+                <!-- Letter Spacing Section -->
+                <section id="letter-spacing" class="section">
+                    <h2 class="section-title">Letter Spacing</h2>
+                    <p class="section-subtitle">Letter spacing (tracking) utilities</p>
+                    <div id="letterSpacing" class="class-grid class-grid-2"></div>
+                </section>
+
+                <!-- Line Height Section -->
+                <section id="line-height" class="section">
+                    <h2 class="section-title">Line Height</h2>
+                    <p class="section-subtitle">Line height (leading) utilities for text spacing</p>
+                    <div id="lineHeight" class="class-grid class-grid-2"></div>
+                </section>
+
+                <!-- Text Truncation Section -->
+                <section id="text-truncate" class="section">
+                    <h2 class="section-title">Text Truncation</h2>
+                    <p class="section-subtitle">Text truncation and line clamping utilities</p>
+                    <div id="textTruncate" class="class-grid class-grid-2"></div>
+                </section>
+
+                <!-- Whitespace Section -->
+                <section id="whitespace" class="section">
+                    <h2 class="section-title">Whitespace</h2>
+                    <p class="section-subtitle">Whitespace handling utilities</p>
+                    <div id="whitespace" class="class-grid class-grid-2"></div>
+                </section>
+
+                <!-- Word Break Section -->
+                <section id="word-break" class="section">
+                    <h2 class="section-title">Word Break</h2>
+                    <p class="section-subtitle">Word breaking and text wrapping utilities</p>
+                    <div id="wordBreak" class="class-grid class-grid-2"></div>
+                </section>
+
+                <!-- Vertical Align Section -->
+                <section id="vertical-align" class="section">
+                    <h2 class="section-title">Vertical Alignment</h2>
+                    <p class="section-subtitle">Vertical alignment utilities</p>
+                    <div id="verticalAlign" class="class-grid class-grid-2"></div>
+                </section>
+
+                <!-- Layout Section -->
+                <section id="layout" class="section">
+                    <h2 class="section-title">Layout Utilities</h2>
+                    <p class="section-subtitle">Layout and spacing utilities</p>
+                    <div id="layout" class="class-grid class-grid-2"></div>
+                </section>
+
+                <!-- Grid Section -->
+                <section id="grid" class="section">
+                    <h2 class="section-title">Grid Layout</h2>
+                    <p class="section-subtitle">CSS Grid utilities for advanced layouts</p>
+                    <div id="gridLayout" class="class-grid class-grid-2"></div>
+                </section>
+
+                <!-- Flexbox Section -->
+                <section id="flexbox" class="section">
+                    <h2 class="section-title">Flexbox Layout</h2>
+                    <p class="section-subtitle">Flexbox utilities for flexible layouts</p>
+                    <div id="flexboxLayout" class="class-grid class-grid-2"></div>
+                </section>
+
+                <!-- Responsive Section -->
+                <section id="responsive" class="section">
+                    <h2 class="section-title">Responsive Utilities</h2>
+                    <p class="section-subtitle">Media query utilities for responsive design</p>
+                    <div id="responsiveClasses" class="class-grid class-grid-2"></div>
+                </section>
+            </main>
+
+            <!-- Table of Contents (Right Sidebar) -->
+            <aside class="toc">
+                <div class="toc-title">On this page</div>
+                <a href="#intro" class="toc-link active">Introduction</a>
+                <a href="#typography" class="toc-link">Typography</a>
+                <a href="#sizing" class="toc-link">Font Sizing</a>
+                <a href="#colors" class="toc-link">Colors</a>
+                <a href="#text-styles" class="toc-link">Text Styles</a>
+                <a href="#text-decoration" class="toc-link">Decorations</a>
+                <a href="#letter-spacing" class="toc-link">Letter Spacing</a>
+                <a href="#line-height" class="toc-link">Line Height</a>
+                <a href="#text-truncate" class="toc-link">Text Truncation</a>
+                <a href="#whitespace" class="toc-link">Whitespace</a>
+                <a href="#word-break" class="toc-link">Word Break</a>
+                <a href="#vertical-align" class="toc-link">Vertical Align</a>
+                <a href="#layout" class="toc-link">Layout</a>
+                <a href="#grid" class="toc-link">Grid</a>
+                <a href="#flexbox" class="toc-link">Flexbox</a>
+                <a href="#responsive" class="toc-link">Responsive</a>
+            </aside>
+        </div>
+    </div>
+
+    <script>
+        // Documentation data
+        const classesData = {
+            typography: [
+                { name: 'ic-georgia', css: 'font-family: Georgia, serif', desc: 'Georgia serif font family' },
+                { name: 'ic-times', css: 'font-family: "Times New Roman", Times, serif', desc: 'Times New Roman serif font' },
+                { name: 'ic-palatino', css: 'font-family: Palatino, "Palatino Linotype", "Book Antiqua", serif', desc: 'Palatino serif font' },
+                { name: 'ic-garamond', css: 'font-family: Garamond, "Times New Roman", serif', desc: 'Garamond serif font' },
+                { name: 'ic-bookman', css: 'font-family: "Book Antiqua", Palatino, serif', desc: 'Book Antiqua serif font' },
+                { name: 'ic-baskerville', css: 'font-family: Baskerville, "Baskerville Old Face", serif', desc: 'Baskerville serif font' },
+                { name: 'ic-cambria', css: 'font-family: Cambria, Georgia, serif', desc: 'Cambria serif font' },
+                { name: 'ic-lucida-serif', css: 'font-family: "Lucida Bright", "Lucida Serif", serif', desc: 'Lucida serif font' },
+                { name: 'ic-arial', css: 'font-family: Arial, Helvetica, sans-serif', desc: 'Arial sans-serif font' },
+                { name: 'ic-helvetica', css: 'font-family: Helvetica, Arial, sans-serif', desc: 'Helvetica sans-serif font' },
+                { name: 'ic-verdana', css: 'font-family: Verdana, Geneva, sans-serif', desc: 'Verdana sans-serif font' },
+                { name: 'ic-tahoma', css: 'font-family: Tahoma, Geneva, sans-serif', desc: 'Tahoma sans-serif font' },
+                { name: 'ic-trebuchet', css: 'font-family: "Trebuchet MS", Helvetica, sans-serif', desc: 'Trebuchet MS sans-serif font' },
+                { name: 'ic-segoe', css: 'font-family: "Segoe UI", Verdana, sans-serif', desc: 'Segoe UI sans-serif font' },
+                { name: 'ic-gill-sans', css: 'font-family: "Gill Sans", "Gill Sans MT", sans-serif', desc: 'Gill Sans sans-serif font' },
+                { name: 'ic-lucida-sans', css: 'font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif', desc: 'Lucida Sans sans-serif font' },
+                { name: 'ic-candara', css: 'font-family: Candara, Calibri, Segoe, sans-serif', desc: 'Candara sans-serif font' },
+                { name: 'ic-calibri', css: 'font-family: Calibri, Candara, Segoe, sans-serif', desc: 'Calibri sans-serif font' },
+                { name: 'ic-futura', css: 'font-family: Futura, "Trebuchet MS", Arial, sans-serif', desc: 'Futura sans-serif font' },
+                { name: 'ic-optima', css: 'font-family: Optima, "Segoe UI", sans-serif', desc: 'Optima sans-serif font' },
+                { name: 'ic-arial-black', css: 'font-family: "Arial Black", Gadget, sans-serif', desc: 'Arial Black sans-serif font' },
+                { name: 'ic-impact', css: 'font-family: Impact, Haettenschweiler, sans-serif', desc: 'Impact sans-serif font' },
+                { name: 'ic-consolas', css: 'font-family: Consolas, "Courier New", monospace', desc: 'Consolas monospace font' },
+                { name: 'ic-courier', css: 'font-family: "Courier New", Courier, monospace', desc: 'Courier New monospace font' },
+                { name: 'ic-lucida-console', css: 'font-family: "Lucida Console", Monaco, monospace', desc: 'Lucida Console monospace font' },
+                { name: 'ic-monaco', css: 'font-family: Monaco, "Courier New", monospace', desc: 'Monaco monospace font' },
+                { name: 'ic-andale', css: 'font-family: "Andale Mono", Monaco, monospace', desc: 'Andale Mono monospace font' },
+                { name: 'ic-comic-sans', css: 'font-family: "Comic Sans MS", cursive', desc: 'Comic Sans MS cursive font' },
+                { name: 'ic-brush-script', css: 'font-family: "Brush Script MT", cursive', desc: 'Brush Script MT cursive font' },
+                { name: 'ic-cursive', css: 'font-family: cursive', desc: 'Generic cursive font family' },
+                { name: 'ic-merri', css: 'font-family: "Merriweather", serif', desc: 'Merriweather Google Font' },
+                { name: 'ic-roboto', css: 'font-family: "Roboto", sans-serif', desc: 'Roboto Google Font' },
+                { name: 'ic-opensans', css: 'font-family: "Open Sans", sans-serif', desc: 'Open Sans Google Font' },
+                { name: 'ic-lato', css: 'font-family: "Lato", sans-serif', desc: 'Lato Google Font' },
+                { name: 'ic-mont', css: 'font-family: "Montserrat", sans-serif', desc: 'Montserrat Google Font' },
+                { name: 'ic-poppi', css: 'font-family: "Poppins", sans-serif', desc: 'Poppins Google Font' },
+                { name: 'ic-inter', css: 'font-family: "Inter", sans-serif', desc: 'Inter Google Font' },
+                { name: 'ic-nunit', css: 'font-family: "Nunito", sans-serif', desc: 'Nunito Google Font' },
+                { name: 'ic-works', css: 'font-family: "Work Sans", sans-serif', desc: 'Work Sans Google Font' },
+                { name: 'ic-source', css: 'font-family: "Source Sans 3", sans-serif', desc: 'Source Sans 3 Google Font' },
+                { name: 'ic-soser', css: 'font-family: "Source Serif 4", serif', desc: 'Source Serif 4 Google Font' },
+                { name: 'ic-playf', css: 'font-family: "Playfair Display", serif', desc: 'Playfair Display Google Font' },
+                { name: 'ic-oswal', css: 'font-family: "Oswald", sans-serif', desc: 'Oswald Google Font' },
+                { name: 'ic-raleg', css: 'font-family: "Raleway", sans-serif', desc: 'Raleway Google Font' },
+                { name: 'ic-ptsan', css: 'font-family: "PT Sans", sans-serif', desc: 'PT Sans Google Font' },
+                { name: 'ic-pseri', css: 'font-family: "PT Serif", serif', desc: 'PT Serif Google Font' },
+                { name: 'ic-mulii', css: 'font-family: "Mulish", sans-serif', desc: 'Mulish Google Font' },
+                { name: 'ic-rubik', css: 'font-family: "Rubik", sans-serif', desc: 'Rubik Google Font' },
+                { name: 'ic-karla', css: 'font-family: "Karla", sans-serif', desc: 'Karla Google Font' },
+                { name: 'ic-inco', css: 'font-family: "Inconsolata", monospace', desc: 'Inconsolata Google Font' },
+                { name: 'ic-firas', css: 'font-family: "Fira Sans", sans-serif', desc: 'Fira Sans Google Font' },
+                { name: 'ic-firac', css: 'font-family: "Fira Code", monospace', desc: 'Fira Code Google Font' },
+                { name: 'ic-ibmps', css: 'font-family: "IBM Plex Sans", sans-serif', desc: 'IBM Plex Sans Google Font' },
+                { name: 'ic-ibmpe', css: 'font-family: "IBM Plex Serif", serif', desc: 'IBM Plex Serif Google Font' },
+                { name: 'ic-ibmpm', css: 'font-family: "IBM Plex Mono", monospace', desc: 'IBM Plex Mono Google Font' },
+                { name: 'ic-dmsan', css: 'font-family: "DM Sans", sans-serif', desc: 'DM Sans Google Font' },
+                { name: 'ic-dmser', css: 'font-family: "DM Serif Display", serif', desc: 'DM Serif Display Google Font' },
+                { name: 'ic-ubuntu', css: 'font-family: "Ubuntu", sans-serif', desc: 'Ubuntu Google Font' },
+                { name: 'ic-cabin', css: 'font-family: "Cabin", sans-serif', desc: 'Cabin Google Font' },
+                { name: 'ic-manro', css: 'font-family: "Manrope", sans-serif', desc: 'Manrope Google Font' },
+                { name: 'ic-quic', css: 'font-family: "Quicksand", sans-serif', desc: 'Quicksand Google Font' },
+                { name: 'ic-bitte', css: 'font-family: "Bitter", serif', desc: 'Bitter Google Font' },
+                { name: 'ic-crimt', css: 'font-family: "Crimson Text", serif', desc: 'Crimson Text Google Font' },
+                { name: 'ic-lora', css: 'font-family: "Lora", serif', desc: 'Lora Google Font' },
+                { name: 'ic-libra', css: 'font-family: "Libre Baskerville", serif', desc: 'Libre Baskerville Google Font' },
+                { name: 'ic-libfr', css: 'font-family: "Libre Franklin", sans-serif', desc: 'Libre Franklin Google Font' },
+                { name: 'ic-spaceg', css: 'font-family: "Space Grotesk", sans-serif', desc: 'Space Grotesk Google Font' },
+                { name: 'ic-spacm', css: 'font-family: "Space Mono", monospace', desc: 'Space Mono Google Font' },
+                { name: 'ic-notsa', css: 'font-family: "Noto Sans", sans-serif', desc: 'Noto Sans Google Font' },
+                { name: 'ic-notse', css: 'font-family: "Noto Serif", serif', desc: 'Noto Serif Google Font' },
+                { name: 'ic-notsd', css: 'font-family: "Noto Serif Display", serif', desc: 'Noto Serif Display Google Font' },
+                { name: 'ic-nunits', css: 'font-family: "Nunito Sans", sans-serif', desc: 'Nunito Sans Google Font' },
+                { name: 'ic-hind', css: 'font-family: "Hind", sans-serif', desc: 'Hind Google Font' },
+                { name: 'ic-hinds', css: 'font-family: "Hind Siliguri", sans-serif', desc: 'Hind Siliguri Google Font' },
+                { name: 'ic-asap', css: 'font-family: "Asap", sans-serif', desc: 'Asap Google Font' },
+                { name: 'ic-asapc', css: 'font-family: "Asap Condensed", sans-serif', desc: 'Asap Condensed Google Font' },
+                { name: 'ic-arvo', css: 'font-family: "Arvo", serif', desc: 'Arvo Google Font' },
+                { name: 'ic-alegr', css: 'font-family: "Alegreya", serif', desc: 'Alegreya Google Font' },
+                { name: 'ic-alegs', css: 'font-family: "Alegreya Sans", sans-serif', desc: 'Alegreya Sans Google Font' },
+                { name: 'ic-alegsc', css: 'font-family: "Alegreya Sans SC", sans-serif', desc: 'Alegreya Sans SC Google Font' },
+                { name: 'ic-aleo', css: 'font-family: "Aleo", serif', desc: 'Aleo Google Font' },
+                { name: 'ic-anton', css: 'font-family: "Anton", sans-serif', desc: 'Anton Google Font' },
+                { name: 'ic-archi', css: 'font-family: "Archivo", sans-serif', desc: 'Archivo Google Font' },
+                { name: 'ic-archn', css: 'font-family: "Archivo Narrow", sans-serif', desc: 'Archivo Narrow Google Font' },
+                { name: 'ic-barlow', css: 'font-family: "Barlow", sans-serif', desc: 'Barlow Google Font' },
+                { name: 'ic-barc', css: 'font-family: "Barlow Condensed", sans-serif', desc: 'Barlow Condensed Google Font' },
+                { name: 'ic-bebas', css: 'font-family: "Bebas Neue", sans-serif', desc: 'Bebas Neue Google Font' },
+                { name: 'ic-brees', css: 'font-family: "Bree Serif", serif', desc: 'Bree Serif Google Font' },
+                { name: 'ic-cairo', css: 'font-family: "Cairo", sans-serif', desc: 'Cairo Google Font' },
+                { name: 'ic-cata', css: 'font-family: "Catamaran", sans-serif', desc: 'Catamaran Google Font' },
+                { name: 'ic-cormor', css: 'font-family: "Cormorant", serif', desc: 'Cormorant Google Font' },
+                { name: 'ic-corga', css: 'font-family: "Cormorant Garamond", serif', desc: 'Cormorant Garamond Google Font' },
+                { name: 'ic-cori', css: 'font-family: "Cormorant Infant", serif', desc: 'Cormorant Infant Google Font' },
+                { name: 'ic-corsc', css: 'font-family: "Cormorant SC", serif', desc: 'Cormorant SC Google Font' },
+                { name: 'ic-crimsp', css: 'font-family: "Crimson Pro", serif', desc: 'Crimson Pro Google Font' },
+                { name: 'ic-exo2', css: 'font-family: "Exo 2", sans-serif', desc: 'Exo 2 Google Font' },
+                { name: 'ic-epilo', css: 'font-family: "Epilogue", sans-serif', desc: 'Epilogue Google Font' },
+                { name: 'ic-fraun', css: 'font-family: "Fraunces", serif', desc: 'Fraunces Google Font' },
+                { name: 'ic-gelas', css: 'font-family: "Gelasio", serif', desc: 'Gelasio Google Font' },
+                { name: 'ic-hankg', css: 'font-family: "Hanken Grotesk", sans-serif', desc: 'Hanken Grotesk Google Font' },
+                { name: 'ic-heebo', css: 'font-family: "Heebo", sans-serif', desc: 'Heebo Google Font' },
+                { name: 'ic-kanit', css: 'font-family: "Kanit", sans-serif', desc: 'Kanit Google Font' },
+                { name: 'ic-kalam', css: 'font-family: "Kalam", cursive', desc: 'Kalam Google Font' },
+                { name: 'ic-koho', css: 'font-family: "KoHo", sans-serif', desc: 'KoHo Google Font' },
+                { name: 'ic-lexend', css: 'font-family: "Lexend", sans-serif', desc: 'Lexend Google Font' },
+                { name: 'ic-mwsans', css: 'font-family: "Merriweather Sans", sans-serif', desc: 'Merriweather Sans Google Font' },
+                { name: 'ic-mukta', css: 'font-family: "Mukta", sans-serif', desc: 'Mukta Google Font' },
+                { name: 'ic-mplus1', css: 'font-family: "M PLUS 1", sans-serif', desc: 'M PLUS 1 Google Font' },
+                { name: 'ic-mplusr', css: 'font-family: "M PLUS Rounded 1c", sans-serif', desc: 'M PLUS Rounded 1c Google Font' },
+                { name: 'ic-mada', css: 'font-family: "Mada", sans-serif', desc: 'Mada Google Font' },
+                { name: 'ic-neuton', css: 'font-family: "Neuton", serif', desc: 'Neuton Google Font' },
+                { name: 'ic-nixie', css: 'font-family: "Nixie One", cursive', desc: 'Nixie One Google Font' },
+                { name: 'ic-stdtt', css: 'font-family: "Old Standard TT", serif', desc: 'Old Standard TT Google Font' },
+                { name: 'ic-overp', css: 'font-family: "Overpass", sans-serif', desc: 'Overpass Google Font' },
+                { name: 'ic-pacif', css: 'font-family: "Pacifico", cursive', desc: 'Pacifico Google Font' },
+                { name: 'ic-pathw', css: 'font-family: "Pathway Gothic One", sans-serif', desc: 'Pathway Gothic One Google Font' },
+                { name: 'ic-prata', css: 'font-family: "Prata", serif', desc: 'Prata Google Font' },
+                { name: 'ic-rajd', css: 'font-family: "Rajdhani", sans-serif', desc: 'Rajdhani Google Font' },
+                { name: 'ic-rasa', css: 'font-family: "Rasa", serif', desc: 'Rasa Google Font' },
+                { name: 'ic-robc', css: 'font-family: "Roboto Condensed", sans-serif', desc: 'Roboto Condensed Google Font' },
+                { name: 'ic-robos', css: 'font-family: "Roboto Slab", serif', desc: 'Roboto Slab Google Font' },
+                { name: 'ic-sarab', css: 'font-family: "Sarabun", sans-serif', desc: 'Sarabun Google Font' },
+                { name: 'ic-satis', css: 'font-family: "Satisfy", cursive', desc: 'Satisfy Google Font' },
+                { name: 'ic-spect', css: 'font-family: "Spectral", serif', desc: 'Spectral Google Font' },
+                { name: 'ic-titil', css: 'font-family: "Titillium Web", sans-serif', desc: 'Titillium Web Google Font' },
+                { name: 'ic-tinos', css: 'font-family: "Tinos", serif', desc: 'Tinos Google Font' },
+                { name: 'ic-tour', css: 'font-family: "Tourney", sans-serif', desc: 'Tourney Google Font' },
+                { name: 'ic-ubuntc', css: 'font-family: "Ubuntu Condensed", sans-serif', desc: 'Ubuntu Condensed Google Font' },
+                { name: 'ic-varel', css: 'font-family: "Varela Round", sans-serif', desc: 'Varela Round Google Font' },
+                { name: 'ic-vollk', css: 'font-family: "Vollkorn", serif', desc: 'Vollkorn Google Font' },
+                { name: 'ic-yanone', css: 'font-family: "Yanone Kaffeesatz", sans-serif', desc: 'Yanone Kaffeesatz Google Font' },
+                { name: 'ic-zilla', css: 'font-family: "Zilla Slab", serif', desc: 'Zilla Slab Google Font' },
+            ],
+            sizing: [
+                { name: 'ic-pico', css: 'font-size: clamp(0.5625rem, 0.53rem + 0.1vw, 0.625rem)', desc: 'Extra small responsive font size (9px-10px)' },
+                { name: 'ic-tiny', css: 'font-size: clamp(0.625rem, 0.58rem + 0.15vw, 0.6875rem)', desc: 'Tiny responsive font size (10px-11px)' },
+                { name: 'ic-nano', css: 'font-size: clamp(0.6875rem, 0.64rem + 0.14vw, 0.75rem)', desc: 'Nano responsive font size (11px-12px)' },
+                { name: 'ic-small', css: 'font-size: clamp(0.75rem, 0.7rem + 0.18vw, 0.875rem)', desc: 'Small responsive font size (12px-14px)' },
+                { name: 'ic-mini', css: 'font-size: clamp(0.8125rem, 0.76rem + 0.16vw, 0.875rem)', desc: 'Mini responsive font size (13px-14px)' },
+                { name: 'ic-smmed', css: 'font-size: clamp(0.8125rem, 0.76rem + 0.2vw, 0.9375rem)', desc: 'Small-medium responsive font size (13px-15px)' },
+                { name: 'ic-note', css: 'font-size: clamp(0.875rem, 0.82rem + 0.18vw, 0.9375rem)', desc: 'Note responsive font size (14px-15px)' },
+                { name: 'ic-medium', css: 'font-size: clamp(0.9375rem, 0.88rem + 0.22vw, 1rem)', desc: 'Medium responsive font size (15px-16px)' },
+                { name: 'ic-base', css: 'font-size: clamp(1rem, 0.94rem + 0.24vw, 1.0625rem)', desc: 'Base responsive font size (16px-17px)' },
+                { name: 'ic-copy', css: 'font-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem)', desc: 'Copy text responsive font size (16px-18px)' },
+                { name: 'ic-body', css: 'font-size: clamp(1.0625rem, 1rem + 0.22vw, 1.1875rem)', desc: 'Body responsive font size (17px-19px)' },
+                { name: 'ic-text', css: 'font-size: clamp(1.125rem, 1.05rem + 0.25vw, 1.25rem)', desc: 'Text responsive font size (18px-20px)' },
+                { name: 'ic-large', css: 'font-size: clamp(1.125rem, 1.05rem + 0.28vw, 1.25rem)', desc: 'Large responsive font size (18px-20px)' },
+                { name: 'ic-xlarge', css: 'font-size: clamp(1.25rem, 1.15rem + 0.35vw, 1.5rem)', desc: 'Extra large responsive font size (20px-24px)' },
+                { name: 'ic-display', css: 'font-size: clamp(1.75rem, 1.5rem + 0.8vw, 2.5rem)', desc: 'Display responsive font size (28px-40px)' },
+                { name: 'ic-title', css: 'font-size: clamp(2rem, 1.7rem + 0.95vw, 3rem)', desc: 'Title responsive font size (32px-48px)' },
+                { name: 'ic-xxlarge', css: 'font-size: clamp(1.5rem, 1.35rem + 0.5vw, 1.875rem)', desc: 'XXL responsive font size (24px-30px)' },
+                { name: 'ic-xxxlarge', css: 'font-size: clamp(1.875rem, 1.65rem + 0.7vw, 2.25rem)', desc: 'XXXL responsive font size (30px-36px)' },
+                { name: 'ic-jumbo', css: 'font-size: clamp(2.25rem, 1.95rem + 0.9vw, 3rem)', desc: 'Jumbo responsive font size (36px-48px)' },
+                { name: 'ic-heading', css: 'font-size: clamp(2.5rem, 2rem + 1.1vw, 3.5rem)', desc: 'Heading responsive font size (40px-56px)' },
+                { name: 'ic-hero', css: 'font-size: clamp(3rem, 2.5rem + 1.2vw, 3.75rem)', desc: 'Hero responsive font size (48px-60px)' },
+                { name: 'ic-mega', css: 'font-size: clamp(3.75rem, 3rem + 1.5vw, 4.5rem)', desc: 'Mega responsive font size (60px-72px)' },
+                { name: 'ic-ultra', css: 'font-size: clamp(4.5rem, 3.5rem + 1.8vw, 5.5rem)', desc: 'Ultra responsive font size (72px-88px)' },
+                { name: 'ic-giga', css: 'font-size: clamp(5.5rem, 4rem + 2.1vw, 6.5rem)', desc: 'Giga responsive font size (88px-104px)' },
+            ],
+            colors: [
+                { name: 'ic-brown-selection', css: '::selection { color: #fff; background-color: #795548 }', desc: 'Brown selection highlighting' },
+                { name: 'ic-amber-selection', css: '::selection { color: #000; background-color: #ffc107 }', desc: 'Amber selection highlighting' },
+                { name: 'ic-blue-selection', css: '::selection { color: #fff; background-color: #2196f3 }', desc: 'Blue selection highlighting' },
+                { name: 'ic-cyan-selection', css: '::selection { color: #000; background-color: #00bcd4 }', desc: 'Cyan selection highlighting' },
+                { name: 'ic-red-selection', css: '::selection { color: #fff; background-color: #f44336 }', desc: 'Red selection highlighting' },
+                { name: 'ic-green-selection', css: '::selection { color: #fff; background-color: #4caf50 }', desc: 'Green selection highlighting' },
+                { name: 'ic-orange-selection', css: '::selection { color: #fff; background-color: #ff9800 }', desc: 'Orange selection highlighting' },
+                { name: 'ic-purple-selection', css: '::selection { color: #fff; background-color: #9c27b0 }', desc: 'Purple selection highlighting' },
+                { name: 'ic-yellow-selection', css: '::selection { color: #000; background-color: #ffeb3b }', desc: 'Yellow selection highlighting' },
+                { name: 'ic-pink-selection', css: '::selection { color: #fff; background-color: #e91e63 }', desc: 'Pink selection highlighting' },
+                { name: 'ic-teal-selection', css: '::selection { color: #fff; background-color: #009688 }', desc: 'Teal selection highlighting' },
+                { name: 'ic-indigo-selection', css: '::selection { color: #fff; background-color: #3f51b5 }', desc: 'Indigo selection highlighting' },
+                { name: 'ic-lime-selection', css: '::selection { color: #000; background-color: #cddc39 }', desc: 'Lime selection highlighting' },
+                { name: 'ic-rose-selection', css: '::selection { color: #fff; background-color: #f06292 }', desc: 'Rose selection highlighting' },
+                { name: 'ic-gold-selection', css: '::selection { color: #000; background-color: #ffd700 }', desc: 'Gold selection highlighting' },
+            ],
+            textStyles: [
+                { name: 'ic-thin', css: 'font-weight: 100', desc: 'Thin font weight (100)' },
+                { name: 'ic-extra-light', css: 'font-weight: 200', desc: 'Extra light font weight (200)' },
+                { name: 'ic-light', css: 'font-weight: 300', desc: 'Light font weight (300)' },
+                { name: 'ic-normal-weight', css: 'font-weight: 400', desc: 'Normal font weight (400)' },
+                { name: 'ic-medium', css: 'font-weight: 500', desc: 'Medium font weight (500)' },
+                { name: 'ic-semi', css: 'font-weight: 600', desc: 'Semibold font weight (600)' },
+                { name: 'ic-bold', css: 'font-weight: 700', desc: 'Bold font weight (700)' },
+                { name: 'ic-extrabold', css: 'font-weight: 800', desc: 'Extra bold font weight (800)' },
+                { name: 'ic-black-weight', css: 'font-weight: 900', desc: 'Black font weight (900)' },
+                { name: 'ic-normal', css: 'font-style: normal', desc: 'Normal font style' },
+                { name: 'ic-italic', css: 'font-style: italic', desc: 'Italic font style' },
+                { name: 'ic-oblique', css: 'font-style: oblique', desc: 'Oblique font style' },
+                { name: 'ic-not-italic', css: 'font-style: normal', desc: 'Remove italic styling' },
+            ],
+            textDecoration: [
+                { name: 'ic-no-decoration', css: 'text-decoration: none', desc: 'Remove text decoration' },
+                { name: 'ic-underline', css: 'text-decoration: underline', desc: 'Underline text' },
+                { name: 'ic-overline', css: 'text-decoration: overline', desc: 'Add overline to text' },
+                { name: 'ic-line-through', css: 'text-decoration: line-through', desc: 'Strike through text' },
+                { name: 'ic-underline-overline', css: 'text-decoration: underline overline', desc: 'Both underline and overline' },
+                { name: 'ic-underline-line-through', css: 'text-decoration: underline line-through', desc: 'Underline and strikethrough' },
+                { name: 'ic-decoration-solid', css: 'text-decoration-style: solid', desc: 'Solid decoration style' },
+                { name: 'ic-decoration-double', css: 'text-decoration-style: double', desc: 'Double decoration style' },
+                { name: 'ic-decoration-dotted', css: 'text-decoration-style: dotted', desc: 'Dotted decoration style' },
+                { name: 'ic-decoration-dashed', css: 'text-decoration-style: dashed', desc: 'Dashed decoration style' },
+                { name: 'ic-decoration-wavy', css: 'text-decoration-style: wavy', desc: 'Wavy decoration style' },
+                { name: 'ic-decoration-1', css: 'text-decoration-thickness: 1px', desc: 'Decoration thickness 1px' },
+                { name: 'ic-decoration-2', css: 'text-decoration-thickness: 2px', desc: 'Decoration thickness 2px' },
+                { name: 'ic-decoration-4', css: 'text-decoration-thickness: 4px', desc: 'Decoration thickness 4px' },
+                { name: 'ic-decoration-8', css: 'text-decoration-thickness: 8px', desc: 'Decoration thickness 8px' },
+                { name: 'ic-underline-offset-0', css: 'text-underline-offset: 0', desc: 'No underline offset' },
+                { name: 'ic-underline-offset-1', css: 'text-underline-offset: 1px', desc: 'Underline offset 1px' },
+                { name: 'ic-underline-offset-2', css: 'text-underline-offset: 2px', desc: 'Underline offset 2px' },
+                { name: 'ic-underline-offset-4', css: 'text-underline-offset: 4px', desc: 'Underline offset 4px' },
+                { name: 'ic-underline-offset-8', css: 'text-underline-offset: 8px', desc: 'Underline offset 8px' },
+                { name: 'ic-underline-offset-12', css: 'text-underline-offset: 12px', desc: 'Underline offset 12px' },
+                { name: 'ic-underline-offset-16', css: 'text-underline-offset: 16px', desc: 'Underline offset 16px' },
+            ],
+            letterSpacing: [
+                { name: 'ic-tracking-tighter', css: 'letter-spacing: -0.075em', desc: 'Tight negative letter spacing' },
+                { name: 'ic-tracking-tight', css: 'letter-spacing: -0.05em', desc: 'Negative letter spacing' },
+                { name: 'ic-tracking-normal', css: 'letter-spacing: 0', desc: 'Normal letter spacing' },
+                { name: 'ic-tracking-wide', css: 'letter-spacing: 0.025em', desc: 'Wide letter spacing' },
+                { name: 'ic-tracking-wider', css: 'letter-spacing: 0.05em', desc: 'Wider letter spacing' },
+                { name: 'ic-tracking-widest', css: 'letter-spacing: 0.1em', desc: 'Widest letter spacing' },
+                { name: 'ic-tracking-extra', css: 'letter-spacing: 0.15em', desc: 'Extra letter spacing' },
+                { name: 'ic-tracking-ultra', css: 'letter-spacing: 0.2em', desc: 'Ultra letter spacing' },
+                { name: 'ic-tracking-auto', css: 'letter-spacing: normal', desc: 'Auto letter spacing' },
+            ],
+            lineHeight: [
+                { name: 'ic-leading-none', css: 'line-height: 1', desc: 'No line height (1)' },
+                { name: 'ic-leading-tighter', css: 'line-height: 1.1', desc: 'Tight line height (1.1)' },
+                { name: 'ic-leading-tight', css: 'line-height: 1.2', desc: 'Tight line height (1.2)' },
+                { name: 'ic-leading-snug', css: 'line-height: 1.375', desc: 'Snug line height (1.375)' },
+                { name: 'ic-leading-normal', css: 'line-height: 1.5', desc: 'Normal line height (1.5)' },
+                { name: 'ic-leading-relaxed', css: 'line-height: 1.625', desc: 'Relaxed line height (1.625)' },
+                { name: 'ic-leading-loose', css: 'line-height: 2', desc: 'Loose line height (2)' },
+                { name: 'ic-leading-3', css: 'line-height: 0.75rem', desc: 'Line height 0.75rem (12px)' },
+                { name: 'ic-leading-4', css: 'line-height: 1rem', desc: 'Line height 1rem (16px)' },
+                { name: 'ic-leading-5', css: 'line-height: 1.25rem', desc: 'Line height 1.25rem (20px)' },
+                { name: 'ic-leading-6', css: 'line-height: 1.5rem', desc: 'Line height 1.5rem (24px)' },
+                { name: 'ic-leading-7', css: 'line-height: 1.75rem', desc: 'Line height 1.75rem (28px)' },
+                { name: 'ic-leading-8', css: 'line-height: 2rem', desc: 'Line height 2rem (32px)' },
+                { name: 'ic-leading-9', css: 'line-height: 2.25rem', desc: 'Line height 2.25rem (36px)' },
+                { name: 'ic-leading-10', css: 'line-height: 2.5rem', desc: 'Line height 2.5rem (40px)' },
+            ],
+            textTruncate: [
+                { name: 'ic-truncate', css: 'overflow: hidden; text-overflow: ellipsis; white-space: nowrap', desc: 'Truncate text with ellipsis' },
+                { name: 'ic-text-ellipsis', css: 'overflow: hidden; text-overflow: ellipsis; white-space: nowrap', desc: 'Text ellipsis truncation' },
+                { name: 'ic-text-clip', css: 'overflow: hidden; text-overflow: clip; white-space: nowrap', desc: 'Clip text overflow' },
+                { name: 'ic-line-clamp-1', css: 'display: -webkit-box; -webkit-line-clamp: 1; overflow: hidden', desc: 'Clamp text to 1 line' },
+                { name: 'ic-line-clamp-2', css: 'display: -webkit-box; -webkit-line-clamp: 2; overflow: hidden', desc: 'Clamp text to 2 lines' },
+                { name: 'ic-line-clamp-3', css: 'display: -webkit-box; -webkit-line-clamp: 3; overflow: hidden', desc: 'Clamp text to 3 lines' },
+                { name: 'ic-line-clamp-4', css: 'display: -webkit-box; -webkit-line-clamp: 4; overflow: hidden', desc: 'Clamp text to 4 lines' },
+                { name: 'ic-line-clamp-5', css: 'display: -webkit-box; -webkit-line-clamp: 5; overflow: hidden', desc: 'Clamp text to 5 lines' },
+                { name: 'ic-line-clamp-6', css: 'display: -webkit-box; -webkit-line-clamp: 6; overflow: hidden', desc: 'Clamp text to 6 lines' },
+                { name: 'ic-line-clamp-7', css: 'display: -webkit-box; -webkit-line-clamp: 7; overflow: hidden', desc: 'Clamp text to 7 lines' },
+                { name: 'ic-line-clamp-8', css: 'display: -webkit-box; -webkit-line-clamp: 8; overflow: hidden', desc: 'Clamp text to 8 lines' },
+                { name: 'ic-line-clamp-9', css: 'display: -webkit-box; -webkit-line-clamp: 9; overflow: hidden', desc: 'Clamp text to 9 lines' },
+                { name: 'ic-line-clamp-10', css: 'display: -webkit-box; -webkit-line-clamp: 10; overflow: hidden', desc: 'Clamp text to 10 lines' },
+                { name: 'ic-line-clamp-none', css: 'display: block; -webkit-line-clamp: unset; overflow: visible', desc: 'Remove line clamping' },
+            ],
+            whitespace: [
+                { name: 'ic-whitespace-normal', css: 'white-space: normal', desc: 'Normal whitespace handling' },
+                { name: 'ic-whitespace-nowrap', css: 'white-space: nowrap', desc: 'Prevent text wrapping' },
+                { name: 'ic-whitespace-pre', css: 'white-space: pre', desc: 'Preserve whitespace and newlines' },
+                { name: 'ic-whitespace-pre-line', css: 'white-space: pre-line', desc: 'Preserve newlines only' },
+                { name: 'ic-whitespace-pre-wrap', css: 'white-space: pre-wrap', desc: 'Preserve whitespace and wrap text' },
+                { name: 'ic-whitespace-break-spaces', css: 'white-space: break-spaces', desc: 'Break on spaces' },
+            ],
+            wordBreak: [
+                { name: 'ic-break-normal', css: 'overflow-wrap: normal; word-break: normal', desc: 'Normal word breaking' },
+                { name: 'ic-break-words', css: 'overflow-wrap: break-word', desc: 'Break words if needed' },
+                { name: 'ic-break-anywhere', css: 'overflow-wrap: anywhere', desc: 'Break anywhere needed' },
+                { name: 'ic-break-all', css: 'word-break: break-all', desc: 'Break all words' },
+                { name: 'ic-break-keep', css: 'word-break: keep-all', desc: 'Keep words together' },
+                { name: 'ic-word-normal', css: 'word-break: normal', desc: 'Normal word breaking' },
+                { name: 'ic-word-break', css: 'word-break: break-word', desc: 'Word break on boundaries' },
+                { name: 'ic-word-auto', css: 'word-break: auto-phrase', desc: 'Auto phrase breaking' },
+            ],
+            verticalAlign: [
+                { name: 'ic-align-baseline', css: 'vertical-align: baseline', desc: 'Align to baseline' },
+                { name: 'ic-align-top', css: 'vertical-align: top', desc: 'Align to top' },
+                { name: 'ic-align-middle', css: 'vertical-align: middle', desc: 'Align to middle' },
+                { name: 'ic-align-bottom', css: 'vertical-align: bottom', desc: 'Align to bottom' },
+                { name: 'ic-align-text-top', css: 'vertical-align: text-top', desc: 'Align to text top' },
+                { name: 'ic-align-text-bottom', css: 'vertical-align: text-bottom', desc: 'Align to text bottom' },
+                { name: 'ic-align-sub', css: 'vertical-align: sub', desc: 'Align as subscript' },
+                { name: 'ic-align-super', css: 'vertical-align: super', desc: 'Align as superscript' },
+            ],
+            layout: [
+                { name: 'ic-container', css: 'width: 100%; max-width: 100%; padding: clamp(0.5rem, 2vw, 1.5rem)', desc: 'Full-width container' },
+                { name: 'ic-container-xs', css: 'width: 100%; max-width: 20rem', desc: 'Extra small container (320px)' },
+                { name: 'ic-container-sm', css: 'width: 100%; max-width: 40rem', desc: 'Small container (640px)' },
+                { name: 'ic-container-md', css: 'width: 100%; max-width: 48rem', desc: 'Medium container (768px)' },
+                { name: 'ic-container-lg', css: 'width: 100%; max-width: 64rem', desc: 'Large container (1024px)' },
+                { name: 'ic-container-xl', css: 'width: 100%; max-width: 80rem', desc: 'Extra large container (1280px)' },
+                { name: 'ic-container-2xl', css: 'width: 100%; max-width: 96rem', desc: 'XXL container (1536px)' },
+                { name: 'ic-panel', css: 'padding: clamp(0.5rem, 2vw, 1rem); margin: 1rem 0', desc: 'Padded panel' },
+                { name: 'ic-panel-sm', css: 'padding: clamp(0.5rem, 1.5vw, 0.75rem)', desc: 'Small padded panel' },
+                { name: 'ic-panel-lg', css: 'padding: clamp(1rem, 3vw, 2rem)', desc: 'Large padded panel' },
+                { name: 'ic-content', css: 'width: 100%; max-width: 61.25rem; margin: 0 auto', desc: 'Content width container' },
+                { name: 'ic-content-sm', css: 'max-width: 40rem', desc: 'Small content width' },
+                { name: 'ic-content-md', css: 'max-width: 48rem', desc: 'Medium content width' },
+                { name: 'ic-content-lg', css: 'max-width: 64rem', desc: 'Large content width' },
+                { name: 'ic-content-xl', css: 'max-width: 80rem', desc: 'Extra large content width' },
+                { name: 'ic-fluid', css: 'width: 100%', desc: 'Full width' },
+                { name: 'ic-centered', css: 'margin-left: auto; margin-right: auto', desc: 'Center element' },
+                { name: 'ic-section', css: 'margin-top: 1rem; margin-bottom: 1rem', desc: 'Section spacing' },
+                { name: 'ic-section-lg', css: 'margin-top: clamp(2rem, 5vw, 5rem); margin-bottom: clamp(2rem, 5vw, 5rem)', desc: 'Large section spacing' },
+                { name: 'ic-hide', css: 'display: none', desc: 'Hide element' },
+                { name: 'ic-show', css: 'display: block', desc: 'Show element' },
+            ],
+            grid: [
+                { name: 'ic-grid', css: 'display: grid', desc: 'Create grid container' },
+                { name: 'ic-inline-grid', css: 'display: inline-grid', desc: 'Inline grid container' },
+                { name: 'ic-grid-1', css: 'display: grid; grid-template-columns: repeat(1, 1fr)', desc: '1 column grid' },
+                { name: 'ic-grid-2', css: 'display: grid; grid-template-columns: repeat(2, 1fr)', desc: '2 column grid' },
+                { name: 'ic-grid-3', css: 'display: grid; grid-template-columns: repeat(3, 1fr)', desc: '3 column grid' },
+                { name: 'ic-grid-4', css: 'display: grid; grid-template-columns: repeat(4, 1fr)', desc: '4 column grid' },
+                { name: 'ic-grid-5', css: 'display: grid; grid-template-columns: repeat(5, 1fr)', desc: '5 column grid' },
+                { name: 'ic-grid-6', css: 'display: grid; grid-template-columns: repeat(6, 1fr)', desc: '6 column grid' },
+                { name: 'ic-grid-12', css: 'display: grid; grid-template-columns: repeat(12, 1fr)', desc: '12 column grid' },
+                { name: 'ic-grid-auto', css: 'display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))', desc: 'Auto-fill grid' },
+                { name: 'ic-grid-gap-0', css: 'gap: 0', desc: 'No grid gap' },
+                { name: 'ic-grid-gap-4', css: 'gap: 1rem', desc: 'Grid gap 1rem (16px)' },
+                { name: 'ic-grid-gap-8', css: 'gap: 2rem', desc: 'Grid gap 2rem (32px)' },
+                { name: 'ic-row-gap-4', css: 'row-gap: 1rem', desc: 'Row gap 1rem' },
+                { name: 'ic-column-gap-4', css: 'column-gap: 1rem', desc: 'Column gap 1rem' },
+                { name: 'ic-col-span-1', css: 'grid-column: span 1', desc: 'Span 1 column' },
+                { name: 'ic-col-span-2', css: 'grid-column: span 2', desc: 'Span 2 columns' },
+                { name: 'ic-col-span-full', css: 'grid-column: 1 / -1', desc: 'Span all columns' },
+                { name: 'ic-row-span-1', css: 'grid-row: span 1', desc: 'Span 1 row' },
+                { name: 'ic-row-span-2', css: 'grid-row: span 2', desc: 'Span 2 rows' },
+                { name: 'ic-place-items-center', css: 'place-items: center', desc: 'Center all grid items' },
+                { name: 'ic-place-content-center', css: 'place-content: center', desc: 'Center grid content' },
+            ],
+            flexbox: [
+                { name: 'ic-flex', css: 'display: flex', desc: 'Create flex container' },
+                { name: 'ic-inline-flex', css: 'display: inline-flex', desc: 'Inline flex container' },
+                { name: 'ic-flex-row', css: 'flex-direction: row', desc: 'Flex row direction' },
+                { name: 'ic-flex-col', css: 'flex-direction: column', desc: 'Flex column direction' },
+                { name: 'ic-flex-wrap', css: 'flex-wrap: wrap', desc: 'Flex wrap enabled' },
+                { name: 'ic-flex-nowrap', css: 'flex-wrap: nowrap', desc: 'Flex wrap disabled' },
+                { name: 'ic-flex-1', css: 'flex: 1 1 0%', desc: 'Flex grow and shrink' },
+                { name: 'ic-flex-auto', css: 'flex: 1 1 auto', desc: 'Flex auto' },
+                { name: 'ic-flex-none', css: 'flex: none', desc: 'Flex none' },
+                { name: 'ic-flex-grow', css: 'flex-grow: 1', desc: 'Flex grow' },
+                { name: 'ic-flex-grow-0', css: 'flex-grow: 0', desc: 'Flex no grow' },
+                { name: 'ic-flex-shrink', css: 'flex-shrink: 1', desc: 'Flex shrink' },
+                { name: 'ic-flex-shrink-0', css: 'flex-shrink: 0', desc: 'Flex no shrink' },
+                { name: 'ic-justify-start', css: 'justify-content: flex-start', desc: 'Justify content start' },
+                { name: 'ic-justify-center', css: 'justify-content: center', desc: 'Justify content center' },
+                { name: 'ic-justify-end', css: 'justify-content: flex-end', desc: 'Justify content end' },
+                { name: 'ic-justify-between', css: 'justify-content: space-between', desc: 'Justify content space-between' },
+                { name: 'ic-justify-around', css: 'justify-content: space-around', desc: 'Justify content space-around' },
+                { name: 'ic-items-start', css: 'align-items: flex-start', desc: 'Align items start' },
+                { name: 'ic-items-center', css: 'align-items: center', desc: 'Align items center' },
+                { name: 'ic-items-end', css: 'align-items: flex-end', desc: 'Align items end' },
+                { name: 'ic-items-stretch', css: 'align-items: stretch', desc: 'Align items stretch' },
+                { name: 'ic-self-center', css: 'align-self: center', desc: 'Self align center' },
+                { name: 'ic-order-first', css: 'order: -9999', desc: 'Order first' },
+                { name: 'ic-order-last', css: 'order: 9999', desc: 'Order last' },
+                { name: 'ic-gap-4', css: 'gap: 1rem', desc: 'Flex gap 1rem' },
+            ],
+            responsive: [
+                { name: 'ic-mobile-full', css: '@media(max-width: 600px) { width: 100% }', desc: 'Full width on mobile' },
+                { name: 'ic-mobile-half', css: '@media(max-width: 600px) { width: 50% }', desc: 'Half width on mobile' },
+                { name: 'ic-mobile-hide', css: '@media(max-width: 600px) { display: none }', desc: 'Hide on mobile' },
+                { name: 'ic-tablet-half', css: '@media(min-width: 601px) { width: 50% }', desc: 'Half width on tablet' },
+                { name: 'ic-tablet-third', css: '@media(min-width: 601px) { width: 33.333333% }', desc: 'One third width on tablet' },
+                { name: 'ic-desktop-half', css: '@media(min-width: 993px) { width: 50% }', desc: 'Half width on desktop' },
+                { name: 'ic-desktop-third', css: '@media(min-width: 993px) { width: 33.333333% }', desc: 'One third width on desktop' },
+                { name: 'ic-col.s1', css: '@media(min-width: 0) { width: 8.333333% }', desc: 'Small breakpoint 1/12 width' },
+                { name: 'ic-col.m6', css: '@media(min-width: 601px) { width: 50% }', desc: 'Medium breakpoint 6/12 width' },
+                { name: 'ic-col.l6', css: '@media(min-width: 993px) { width: 50% }', desc: 'Large breakpoint 6/12 width' },
+            ],
+        };
+
+        // Render functions
+        function createClassCard(item, category) {
+            const htmlExample = `&lt;div class="${item.name}"&gt;\n  Content here\n&lt;/div&gt;`;
+            
+            return `
+                <div class="class-card">
+                    <div class="class-name">${item.name}</div>
+                    <div class="class-description">${item.desc}</div>
+                    
+                    <div class="class-content">
+                        <div class="class-section">
+                            <div class="class-section-label">CSS</div>
+                            <div class="css-code">${item.css}</div>
+                        </div>
+                        
+                        <div class="class-section">
+                            <div class="class-section-label">HTML Usage</div>
+                            <div class="html-code">${htmlExample}</div>
+                        </div>
+                        
+                        <div class="class-section">
+                            <div class="class-section-label">Preview</div>
+                            <div class="preview">
+                                <div class="preview-content ${item.name}">The quick brown fox jumps over the lazy dog</div>
+                            </div>
+                        </div>
+                        
+                        <div class="button-group">
+                            <button class="copy-btn" onclick="copyToClipboard('${item.name}')">📋 Copy Class</button>
+                            <button class="copy-btn" onclick="copyToClipboard('${htmlExample.replace(/&lt;/g, '<').replace(/&gt;/g, '>')}')">📋 Copy HTML</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderSection(containerId, items) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.innerHTML = items.map((item, idx) => createClassCard(item, containerId)).join('');
+            }
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard!');
+            }).catch(err => console.error('Copy failed:', err));
+        }
+
+        function initializeTheme() {
+            const theme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+            updateThemeToggle(theme);
+        }
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateThemeToggle(next);
+        }
+
+        function updateThemeToggle(theme) {
+            const toggle = document.getElementById('themeToggle');
+            toggle.textContent = theme === 'light' ? '☀️' : '🌙';
+        }
+
+        function initializeSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                
+                if (query.length < 1) {
+                    searchResults.classList.remove('active');
+                    return;
+                }
+                
+                const results = [];
+                for (const [category, items] of Object.entries(classesData)) {
+                    items.forEach(item => {
+                        if (item.name.includes(query) || item.desc.toLowerCase().includes(query)) {
+                            results.push({ ...item, category });
+                        }
+                    });
+                }
+                
+                if (results.length > 0) {
+                    searchResults.innerHTML = results.slice(0, 8).map(result => `
+                        <div class="search-result-item" onclick="jumpToSection('${result.category}')">
+                            <div class="result-name">${result.name}</div>
+                            <div class="result-category">${result.category}</div>
+                        </div>
+                    `).join('');
+                    searchResults.classList.add('active');
+                } else {
+                    searchResults.classList.remove('active');
+                }
+            });
+            
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.search-box')) {
+                    searchResults.classList.remove('active');
+                }
+            });
+        }
+
+        function jumpToSection(section) {
+            const element = document.getElementById(section);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function initializeSidebar() {
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
+        }
+
+        function initializeTOC() {
+            const tocLinks = document.querySelectorAll('.toc-link');
+            window.addEventListener('scroll', () => {
+                tocLinks.forEach(link => {
+                    const section = document.querySelector(link.getAttribute('href'));
+                    if (section) {
+                        const rect = section.getBoundingClientRect();
+                        if (rect.top <= 100 && rect.bottom >= 100) {
+                            tocLinks.forEach(l => l.classList.remove('active'));
+                            link.classList.add('active');
+                        }
+                    }
+                });
+            });
+        }
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeTheme();
+            initializeSearch();
+            initializeSidebar();
+            initializeTOC();
+            
+            // Render all sections
+            renderSection('fontFamilies', classesData.typography);
+            renderSection('fontSizes', classesData.sizing);
+            renderSection('selectionColors', classesData.colors);
+            renderSection('textStyles', classesData.textStyles);
+            renderSection('textDecoration', classesData.textDecoration);
+            renderSection('letterSpacing', classesData.letterSpacing);
+            renderSection('lineHeight', classesData.lineHeight);
+            renderSection('textTruncate', classesData.textTruncate);
+            renderSection('whitespace', classesData.whitespace);
+            renderSection('wordBreak', classesData.wordBreak);
+            renderSection('verticalAlign', classesData.verticalAlign);
+            renderSection('layout', classesData.layout);
+            renderSection('gridLayout', classesData.grid);
+            renderSection('flexboxLayout', classesData.flexbox);
+            renderSection('responsiveClasses', classesData.responsive);
+            
+            // Update class count
+            let totalClasses = Object.values(classesData).reduce((sum, arr) => sum + arr.length, 0);
+            document.getElementById('classCount').textContent = totalClasses + '+';
+            
+            // Attach theme toggle
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+        });
+
+        // Global copy function
+        window.copyToClipboard = copyToClipboard;
+        window.jumpToSection = jumpToSection;
+    </script>
+</body>
+</html>
