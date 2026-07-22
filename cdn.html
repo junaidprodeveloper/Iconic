@@ -1,469 +1,506 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Iconic Preview</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iconic Preview</title>
+    <link id="dynamic-favicon" rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap"
+      rel="stylesheet">
 
-  <link rel="stylesheet" href="iconic.css" />
-  <link rel="stylesheet" href="iconic-utility.css" />
+    <link rel="stylesheet" href="iconic.css" />
+    <link rel="stylesheet" href="iconic-utility.css" />
 
-  <style>
-    :root {
-      --bg-1: #09090f;
-      --bg-2: #120b25;
-      --bg-3: #1b1238;
-      --card: rgba(17, 15, 32, 0.62);
-      --card-2: rgba(255, 255, 255, 0.04);
-      --line: rgba(255, 255, 255, 0.10);
-      --text: #f8fafc;
-      --muted: #b7bfd6;
-      --accent: #8b5cf6;
-      --accent-2: #c084fc;
-      --accent-3: #22d3ee;
-      --good: #22c55e;
-      --danger: #ef4444;
-      --warn: #f59e0b;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
-    }
+    <style>
+      :root {
+        --bg-1: #09090f;
+        --bg-2: #120b25;
+        --bg-3: #1b1238;
+        --card: rgba(17, 15, 32, 0.62);
+        --card-2: rgba(255, 255, 255, 0.04);
+        --line: rgba(255, 255, 255, 0.10);
+        --text: #f8fafc;
+        --muted: #b7bfd6;
+        --accent: #8b5cf6;
+        --accent-2: #c084fc;
+        --accent-3: #22d3ee;
+        --good: #22c55e;
+        --danger: #ef4444;
+        --warn: #f59e0b;
+        --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+      }
 
-    * { box-sizing: border-box; }
-    html, body { min-height: 100%; }
-    body {
-      margin: 0;
-      font-family: "Merriweather", serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top, rgba(139, 92, 246, 0.35), transparent 30%),
-        radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.12), transparent 22%),
-        linear-gradient(180deg, var(--bg-1), var(--bg-2) 48%, var(--bg-3));
-      background-attachment: fixed;
-    }
+      * {
+        box-sizing: border-box;
+      }
 
-    .wrap {
-      max-width: 1380px;
-      margin: 0 auto;
-      padding: 24px;
-    }
+      html,
+      body {
+        min-height: 100%;
+      }
 
-    .hero {
-      text-align: center;
-      padding: 26px 0 18px;
-    }
+      body {
+        margin: 0;
+        font-family: "Merriweather", serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top, rgba(139, 92, 246, 0.35), transparent 30%),
+          radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.12), transparent 22%),
+          linear-gradient(180deg, var(--bg-1), var(--bg-2) 48%, var(--bg-3));
+        background-attachment: fixed;
+      }
 
-    .hero h1 {
-      margin: 0;
-      font-size: clamp(3rem, 9vw, 6rem);
-      letter-spacing: -0.08em;
-      line-height: 0.95;
-      text-shadow: 0 12px 30px rgba(0,0,0,.25);
-    }
+      .wrap {
+        max-width: 1380px;
+        margin: 0 auto;
+        padding: 24px;
+      }
 
-    .tagline {
-      margin: 10px 0 0;
-      font-size: 0.72rem;
-      letter-spacing: 0.34em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
+      .hero {
+        text-align: center;
+        padding: 26px 0 18px;
+      }
 
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.14fr) minmax(340px, 0.86fr);
-      gap: 18px;
-      align-items: start;
-    }
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(3rem, 9vw, 6rem);
+        letter-spacing: -0.08em;
+        line-height: 0.95;
+        text-shadow: 0 12px 30px rgba(0, 0, 0, .25);
+      }
 
-    .card {
-      background: var(--card);
-      backdrop-filter: blur(20px) saturate(170%);
-      -webkit-backdrop-filter: blur(20px) saturate(170%);
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      box-shadow: var(--shadow);
-    }
+      .tagline {
+        margin: 10px 0 0;
+        font-size: 0.72rem;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
 
-    .panel {
-      padding: 20px;
-    }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.14fr) minmax(340px, 0.86fr);
+        gap: 18px;
+        align-items: start;
+      }
 
-    .panel-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+      .card {
+        background: var(--card);
+        backdrop-filter: blur(20px) saturate(170%);
+        -webkit-backdrop-filter: blur(20px) saturate(170%);
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        box-shadow: var(--shadow);
+      }
 
-    h2 {
-      margin: 0;
-      font-size: 1.05rem;
-      letter-spacing: -0.02em;
-    }
+      .panel {
+        padding: 20px;
+      }
 
-    .muted {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.6;
-    }
+      .panel-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
 
-    .preview {
-      min-height: 320px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      border-radius: 24px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border: 1px solid rgba(255,255,255,.06);
-    }
+      h2 {
+        margin: 0;
+        font-size: 1.05rem;
+        letter-spacing: -0.02em;
+      }
 
-    .preview-inner {
-      width: 100%;
-      padding: 28px 18px;
-    }
+      .muted {
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
 
-    i-ic {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text);
-      transition: all .25s ease;
-    }
+      .preview {
+        min-height: 320px;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        border-radius: 24px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .02));
+        border: 1px solid rgba(255, 255, 255, .06);
+      }
 
-    #previewIcon {
-      font-size: 120px;
-      line-height: 1;
-      filter: drop-shadow(0 16px 24px rgba(0,0,0,.22));
-    }
+      .preview-inner {
+        width: 100%;
+        padding: 28px 18px;
+      }
 
-    .classes-box, .code-box, .active-list {
-      margin-top: 14px;
-      padding: 14px;
-      border-radius: 18px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.08);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.92rem;
-      line-height: 1.55;
-      word-break: break-word;
-      white-space: pre-wrap;
-      color: #eef2ff;
-    }
+      i-ic {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        transition: all .25s ease;
+      }
 
-    textarea {
-      width: 100%;
-      min-height: 82px;
-      resize: vertical;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      color: var(--text);
-      border-radius: 18px;
-      padding: 14px 16px;
-      font: inherit;
-      outline: none;
-      transition: border-color .2s, box-shadow .2s, transform .2s;
-    }
+      #previewIcon {
+        font-size: 120px;
+        line-height: 1;
+        filter: drop-shadow(0 16px 24px rgba(0, 0, 0, .22));
+      }
 
-    textarea:focus {
-      border-color: rgba(192, 132, 252, 0.6);
-      box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.14);
-    }
+      .classes-box,
+      .code-box,
+      .active-list {
+        margin-top: 14px;
+        padding: 14px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, .04);
+        border: 1px solid rgba(255, 255, 255, .08);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.92rem;
+        line-height: 1.55;
+        word-break: break-word;
+        white-space: pre-wrap;
+        color: #eef2ff;
+      }
 
-    .controls {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
-    }
+      textarea {
+        width: 100%;
+        min-height: 82px;
+        resize: vertical;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, .05);
+        color: var(--text);
+        border-radius: 18px;
+        padding: 14px 16px;
+        font: inherit;
+        outline: none;
+        transition: border-color .2s, box-shadow .2s, transform .2s;
+      }
 
-    .btn, .chip {
-      border: 0;
-      border-radius: 14px;
-      padding: 12px 14px;
-      cursor: pointer;
-      font: 700 0.88rem/1 inherit;
-      transition: transform .18s ease, opacity .18s ease, background .18s ease, box-shadow .18s ease;
-    }
+      textarea:focus {
+        border-color: rgba(192, 132, 252, 0.6);
+        box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.14);
+      }
 
-    .btn {
-      color: #fff;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 14px 30px rgba(139, 92, 246, 0.25);
-    }
+      .controls {
+        display: grid;
+        gap: 12px;
+        margin-top: 16px;
+      }
 
-    .btn.secondary {
-      color: var(--text);
-      background: rgba(255,255,255,.06);
-      border: 1px solid var(--line);
-      box-shadow: none;
-    }
+      .btn,
+      .chip {
+        border: 0;
+        border-radius: 14px;
+        padding: 12px 14px;
+        cursor: pointer;
+        font: 700 0.88rem/1 inherit;
+        transition: transform .18s ease, opacity .18s ease, background .18s ease, box-shadow .18s ease;
+      }
 
-    .btn:active, .chip:active {
-      transform: translateY(1px) scale(.99);
-    }
+      .btn {
+        color: #fff;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 14px 30px rgba(139, 92, 246, 0.25);
+      }
 
-    .top-row {
-      display: grid;
-      gap: 12px;
-    }
+      .btn.secondary {
+        color: var(--text);
+        background: rgba(255, 255, 255, .06);
+        border: 1px solid var(--line);
+        box-shadow: none;
+      }
 
-    .stack {
-      display: grid;
-      gap: 14px;
-    }
+      .btn:active,
+      .chip:active {
+        transform: translateY(1px) scale(.99);
+      }
 
-    .utils {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 12px;
-      margin-top: 14px;
-    }
+      .top-row {
+        display: grid;
+        gap: 12px;
+      }
 
-    .util {
-      padding: 14px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.04);
-      transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
-      cursor: pointer;
-    }
+      .stack {
+        display: grid;
+        gap: 14px;
+      }
 
-    .util:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,.06);
-    }
+      .utils {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 12px;
+        margin-top: 14px;
+      }
 
-    .util.active {
-      background: rgba(139, 92, 246, 0.16);
-      border-color: rgba(192, 132, 252, 0.45);
-      box-shadow: 0 10px 24px rgba(139, 92, 246, 0.18);
-    }
+      .util {
+        padding: 14px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, .08);
+        background: rgba(255, 255, 255, .04);
+        transition: transform .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+        cursor: pointer;
+      }
 
-    .util .name {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-weight: 700;
-      font-size: 0.96rem;
-    }
+      .util:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, .06);
+      }
 
-    .util p {
-      margin: 8px 0 12px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      min-height: 2.6em;
-    }
+      .util.active {
+        background: rgba(139, 92, 246, 0.16);
+        border-color: rgba(192, 132, 252, 0.45);
+        box-shadow: 0 10px 24px rgba(139, 92, 246, 0.18);
+      }
 
-    .actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+      .util .name {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-weight: 700;
+        font-size: 0.96rem;
+      }
 
-    .chip {
-      color: var(--text);
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.08);
-    }
+      .util p {
+        margin: 8px 0 12px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        min-height: 2.6em;
+      }
 
-    .chip.copy {
-      background: rgba(34, 211, 238, .10);
-    }
+      .actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
 
-    .section {
-      margin-top: 18px;
-      padding: 20px;
-    }
+      .chip {
+        color: var(--text);
+        background: rgba(255, 255, 255, .07);
+        border: 1px solid rgba(255, 255, 255, .08);
+      }
 
-    .footer-note {
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
+      .chip.copy {
+        background: rgba(34, 211, 238, .10);
+      }
 
-    .small {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
+      .section {
+        margin-top: 18px;
+        padding: 20px;
+      }
 
-    .button-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
+      .footer-note {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
 
-    .code-box {
-      overflow: auto;
-    }
+      .small {
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
 
-    @media (max-width: 980px) {
-      .layout { grid-template-columns: 1fr; }
-      .preview { min-height: 270px; }
-    }
+      .button-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
 
-    @media (max-width: 640px) {
-      .wrap { padding: 16px; }
-      .panel, .section { padding: 16px; }
-      #previewIcon { font-size: 96px; }
-      .hero { padding-top: 18px; }
-      .tagline { letter-spacing: .22em; }
-    }
-  </style>
-</head>
-<body>
-  <main class="wrap">
-    <header class="hero">
-      <h1>Iconic</h1>
-      <p class="tagline">Simple. Fast. Free Icons.</p>
-    </header>
+      .code-box {
+        overflow: auto;
+      }
 
-    <section class="layout">
-      <article class="card panel">
-        <div class="preview">
-          <div class="preview-inner">
-            <i-ic id="previewIcon" class="ic-logo-iconic"></i-ic>
-            <div id="currentClasses" class="classes-box">ic-logo-iconic</div>
-          </div>
-        </div>
+      @media (max-width: 980px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
 
-        <div class="controls">
-          <div>
-            <label for="iconInput">Icon class</label>
-            <div class="small">Type any base icon class like <b>ic-google</b>, <b>ic-home</b>, or <b>ic-github</b>.</div>
-          </div>
-          <textarea id="iconInput" placeholder="ic-logo-icnonic"></textarea>
-          <div class="panel-head">
-            <button class="btn" id="copyHtmlBtn">Copy HTML</button>
-            <button class="btn secondary" id="clearAllBtn">Clear All</button>
-          </div>
-        </div>
-      </article>
+        .preview {
+          min-height: 270px;
+        }
+      }
 
-      <aside class="stack">
-        <article class="card section">
-          <div class="panel-head">
-            <h2>Active Classes</h2>
-            <div class="button-row">
-              <button class="btn secondary" id="copyClassesBtn">Copy Classes</button>
+      @media (max-width: 640px) {
+        .wrap {
+          padding: 16px;
+        }
+
+        .panel,
+        .section {
+          padding: 16px;
+        }
+
+        #previewIcon {
+          font-size: 96px;
+        }
+
+        .hero {
+          padding-top: 18px;
+        }
+
+        .tagline {
+          letter-spacing: .22em;
+        }
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <main class="wrap">
+      <header class="hero">
+        <h1>Iconic</h1>
+        <p class="tagline">Simple. Fast. Free Icons.</p>
+      </header>
+
+      <section class="layout">
+        <article class="card panel">
+          <div class="preview">
+            <div class="preview-inner">
+              <i-ic id="previewIcon" class="ic-logo-iconic"></i-ic>
+              <div id="currentClasses" class="classes-box">ic-logo-iconic</div>
             </div>
           </div>
-          <div id="activeList" class="active-list">ic-google</div>
-        </article>
 
-        <article class="card section">
-          <div class="panel-head">
-            <h2>Generated HTML</h2>
-            <button class="btn secondary" id="copyGeneratedBtn">Copy</button>
+          <div class="controls">
+            <div>
+              <label for="iconInput">Icon class</label>
+              <div class="small">Type any base icon class like <b>ic-google</b>, <b>ic-home</b>, or <b>ic-github</b>.
+              </div>
+            </div>
+            <textarea id="iconInput" placeholder="ic-logo-icnonic"></textarea>
+            <div class="panel-head">
+              <button class="btn" id="copyHtmlBtn">Copy HTML</button>
+              <button class="btn secondary" id="clearAllBtn">Clear All</button>
+            </div>
           </div>
-          <div id="generatedHtml" class="code-box">&lt;i-ic class="ic-google"&gt;&lt;/i-ic&gt;</div>
         </article>
 
-        <article class="card section">
-          <div class="panel-head">
-            <h2>Installation</h2>
-            <button class="btn secondary" id="copyInstallBtn">Copy</button>
-          </div>
-          <div class="code-box">HTML
+        <aside class="stack">
+          <article class="card section">
+            <div class="panel-head">
+              <h2>Active Classes</h2>
+              <div class="button-row">
+                <button class="btn secondary" id="copyClassesBtn">Copy Classes</button>
+              </div>
+            </div>
+            <div id="activeList" class="active-list">ic-google</div>
+          </article>
 
-&lt;link rel="stylesheet" href="iconic.css"&gt;
-&lt;link rel="stylesheet" href="iconic-u.css"&gt;</div>
-        </article>
-      </aside>
-    </section>
+          <article class="card section">
+            <div class="panel-head">
+              <h2>Generated HTML</h2>
+              <button class="btn secondary" id="copyGeneratedBtn">Copy</button>
+            </div>
+            <div id="generatedHtml" class="code-box">&lt;i-ic class="ic-google"&gt;&lt;/i-ic&gt;</div>
+          </article>
 
-    <section class="card section">
-      <div class="panel-head">
-        <h2>Utilities</h2>
-        <div class="small">Click a utility card to toggle it on the preview icon. Multiple utilities can be active together.</div>
-      </div>
-      <div id="utilsGrid" class="utils"></div>
-    </section>
-  </main>
+          <article class="card section">
+            <div class="panel-head">
+              <h2>Installation</h2>
+              <button class="btn secondary" id="copyInstallBtn">Copy</button>
+            </div>
+            <div class="code-box">HTML
 
-  <script>
-    const previewIcon = document.getElementById('previewIcon');
-    const currentClasses = document.getElementById('currentClasses');
-    const activeList = document.getElementById('activeList');
-    const generatedHtml = document.getElementById('generatedHtml');
-    const iconInput = document.getElementById('iconInput');
-    const utilsGrid = document.getElementById('utilsGrid');
+              &lt;link rel="stylesheet" href="iconic.css"&gt;
+              &lt;link rel="stylesheet" href="iconic-u.css"&gt;</div>
+          </article>
+        </aside>
+      </section>
 
-    const utilities = [
-      ['ic-spin', 'Rotates continuously.'],
-      ['ic-spin-slow', 'Slower continuous rotation.'],
-      ['ic-spin-fast', 'Faster continuous rotation.'],
-      ['ic-pulse', 'Soft pulse animation.'],
-      ['ic-pulse-slow', 'Slower pulse animation.'],
-      ['ic-pulse-fast', 'Faster pulse animation.'],
-      ['ic-bounce', 'Bounces up and down.'],
-      ['ic-bounce-slow', 'Slower bounce animation.'],
-      ['ic-bounce-fast', 'Faster bounce animation.'],
-      ['ic-shake', 'Shakes horizontally.'],
-      ['ic-shake-slow', 'Slower shake animation.'],
-      ['ic-shake-fast', 'Faster shake animation.'],
-      ['ic-beat', 'Scales in a beat motion.'],
-      ['ic-beat-slow', 'Slower beat animation.'],
-      ['ic-beat-fast', 'Faster beat animation.'],
-      ['ic-fade-in', 'Fades in.'],
-      ['ic-fade-out', 'Fades out.'],
-      ['ic-fade-pulse', 'Pulsing fade effect.'],
-      ['ic-flip', 'Flips around Y axis.'],
-      ['ic-flip-slow', 'Slower flip animation.'],
-      ['ic-flip-fast', 'Faster flip animation.'],
-      ['ic-swing', 'Swings side to side.'],
-      ['ic-swing-slow', 'Slower swing motion.'],
-      ['ic-swing-fast', 'Faster swing motion.'],
-      ['ic-wiggle', 'Wiggles slightly.'],
-      ['ic-wiggle-slow', 'Slower wiggle.'],
-      ['ic-wiggle-fast', 'Faster wiggle.'],
-      ['ic-slide-up', 'Slides in upward.'],
-      ['ic-slide-down', 'Slides in downward.'],
-      ['ic-slide-left', 'Slides in from right.'],
-      ['ic-slide-right', 'Slides in from left.'],
-      ['ic-zoom-in', 'Zooms in.'],
-      ['ic-zoom-out', 'Zooms out.'],
-      ['ic-rotate-in', 'Rotates into place.'],
-      ['ic-rotate-out', 'Rotates out.'],
-      ['ic-pop-in', 'Pops into place.'],
-      ['ic-pop-out', 'Pops out.'],
-      ['ic-float', 'Floats gently.'],
-      ['ic-float-slow', 'Slower floating motion.'],
-      ['ic-float-fast', 'Faster floating motion.'],
-      ['ic-heartbeat', 'Heartbeat motion.'],
-      ['ic-blink', 'Blinking opacity effect.']
-    ];
+      <section class="card section">
+        <div class="panel-head">
+          <h2>Utilities</h2>
+          <div class="small">Click a utility card to toggle it on the preview icon. Multiple utilities can be active
+            together.</div>
+        </div>
+        <div id="utilsGrid" class="utils"></div>
+      </section>
+    </main>
 
-    const utilitySet = new Set(utilities.map(([name]) => name));
-    const selected = new Set(['ic-google']);
+    <script>
+      const previewIcon = document.getElementById('previewIcon');
+      const currentClasses = document.getElementById('currentClasses');
+      const activeList = document.getElementById('activeList');
+      const generatedHtml = document.getElementById('generatedHtml');
+      const iconInput = document.getElementById('iconInput');
+      const utilsGrid = document.getElementById('utilsGrid');
 
-    const esc = s => s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[m]));
-    const copyText = async text => {
-      try { await navigator.clipboard.writeText(text); }
-      catch {
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        ta.remove();
-      }
-    };
+      const utilities = [
+        ['ic-spin', 'Rotates continuously.'],
+        ['ic-spin-slow', 'Slower continuous rotation.'],
+        ['ic-spin-fast', 'Faster continuous rotation.'],
+        ['ic-pulse', 'Soft pulse animation.'],
+        ['ic-pulse-slow', 'Slower pulse animation.'],
+        ['ic-pulse-fast', 'Faster pulse animation.'],
+        ['ic-bounce', 'Bounces up and down.'],
+        ['ic-bounce-slow', 'Slower bounce animation.'],
+        ['ic-bounce-fast', 'Faster bounce animation.'],
+        ['ic-shake', 'Shakes horizontally.'],
+        ['ic-shake-slow', 'Slower shake animation.'],
+        ['ic-shake-fast', 'Faster shake animation.'],
+        ['ic-beat', 'Scales in a beat motion.'],
+        ['ic-beat-slow', 'Slower beat animation.'],
+        ['ic-beat-fast', 'Faster beat animation.'],
+        ['ic-fade-in', 'Fades in.'],
+        ['ic-fade-out', 'Fades out.'],
+        ['ic-fade-pulse', 'Pulsing fade effect.'],
+        ['ic-flip', 'Flips around Y axis.'],
+        ['ic-flip-slow', 'Slower flip animation.'],
+        ['ic-flip-fast', 'Faster flip animation.'],
+        ['ic-swing', 'Swings side to side.'],
+        ['ic-swing-slow', 'Slower swing motion.'],
+        ['ic-swing-fast', 'Faster swing motion.'],
+        ['ic-wiggle', 'Wiggles slightly.'],
+        ['ic-wiggle-slow', 'Slower wiggle.'],
+        ['ic-wiggle-fast', 'Faster wiggle.'],
+        ['ic-slide-up', 'Slides in upward.'],
+        ['ic-slide-down', 'Slides in downward.'],
+        ['ic-slide-left', 'Slides in from right.'],
+        ['ic-slide-right', 'Slides in from left.'],
+        ['ic-zoom-in', 'Zooms in.'],
+        ['ic-zoom-out', 'Zooms out.'],
+        ['ic-rotate-in', 'Rotates into place.'],
+        ['ic-rotate-out', 'Rotates out.'],
+        ['ic-pop-in', 'Pops into place.'],
+        ['ic-pop-out', 'Pops out.'],
+        ['ic-float', 'Floats gently.'],
+        ['ic-float-slow', 'Slower floating motion.'],
+        ['ic-float-fast', 'Faster floating motion.'],
+        ['ic-heartbeat', 'Heartbeat motion.'],
+        ['ic-blink', 'Blinking opacity effect.']
+      ];
 
-    const getBaseClass = () => iconInput.value.trim().split(/\s+/).filter(Boolean)[0] || 'ic-google';
+      const utilitySet = new Set(utilities.map(([name]) => name));
+      const selected = new Set(['ic-google']);
 
-    const render = () => {
-      const classes = [...selected].join(' ').trim();
-      previewIcon.className = classes;
-      currentClasses.textContent = classes || '(none)';
-      activeList.textContent = classes || '(none)';
-      generatedHtml.innerHTML = esc(`<i-ic class="${classes}"></i-ic>`);
-      document.querySelectorAll('.util').forEach(card => card.classList.toggle('active', selected.has(card.dataset.util)));
-    };
+      const esc = s => s.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', '\'': '&#39;' }[m]));
+      const copyText = async text => {
+        try { await navigator.clipboard.writeText(text); }
+        catch {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          ta.remove();
+        }
+      };
 
-    const createUtilities = () => {
-      utilsGrid.innerHTML = utilities.map(([name, desc]) => `
+      const getBaseClass = () => iconInput.value.trim().split(/\s+/).filter(Boolean)[0] || 'ic-google';
+
+      const render = () => {
+        const classes = [...selected].join(' ').trim();
+        previewIcon.className = classes;
+        currentClasses.textContent = classes || '(none)';
+        activeList.textContent = classes || '(none)';
+        generatedHtml.innerHTML = esc(`<i-ic class="${classes}"></i-ic>`);
+        document.querySelectorAll('.util').forEach(card => card.classList.toggle('active', selected.has(card.dataset.util)));
+      };
+
+      const createUtilities = () => {
+        utilsGrid.innerHTML = utilities.map(([name, desc]) => `
         <div class="util" data-util="${name}">
           <div class="name">${name}</div>
           <p>${desc}</p>
@@ -473,64 +510,66 @@
           </div>
         </div>
       `).join('');
-    };
+      };
 
-    iconInput.addEventListener('input', () => {
-      const base = getBaseClass();
-      const utilitiesOn = [...selected].filter(c => utilitySet.has(c));
-      selected.clear();
-      selected.add(base);
-      utilitiesOn.forEach(u => selected.add(u));
-      render();
-    });
-
-    document.addEventListener('click', e => {
-      const btn = e.target.closest('button');
-      if (!btn) return;
-
-      const util = btn.dataset.util;
-      const action = btn.dataset.action;
-
-      if (action === 'apply' && util) {
-        selected.has(util) ? selected.delete(util) : selected.add(util);
-        render();
-        return;
-      }
-
-      if (action === 'copy' && util) {
-        copyText(util);
-        return;
-      }
-
-      if (btn.id === 'copyHtmlBtn' || btn.id === 'copyGeneratedBtn') {
-        copyText(`<i-ic class="${[...selected].join(' ')}"></i-ic>`);
-        return;
-      }
-
-      if (btn.id === 'copyClassesBtn') {
-        copyText([...selected].join(' '));
-        return;
-      }
-
-      if (btn.id === 'clearAllBtn') {
+      iconInput.addEventListener('input', () => {
         const base = getBaseClass();
+        const utilitiesOn = [...selected].filter(c => utilitySet.has(c));
         selected.clear();
         selected.add(base);
+        utilitiesOn.forEach(u => selected.add(u));
         render();
-        return;
-      }
+      });
 
-      if (btn.id === 'copyInstallBtn') {
-        copyText(`HTML
+      document.addEventListener('click', e => {
+        const btn = e.target.closest('button');
+        if (!btn) return;
+
+        const util = btn.dataset.util;
+        const action = btn.dataset.action;
+
+        if (action === 'apply' && util) {
+          selected.has(util) ? selected.delete(util) : selected.add(util);
+          render();
+          return;
+        }
+
+        if (action === 'copy' && util) {
+          copyText(util);
+          return;
+        }
+
+        if (btn.id === 'copyHtmlBtn' || btn.id === 'copyGeneratedBtn') {
+          copyText(`<i-ic class="${[...selected].join(' ')}"></i-ic>`);
+          return;
+        }
+
+        if (btn.id === 'copyClassesBtn') {
+          copyText([...selected].join(' '));
+          return;
+        }
+
+        if (btn.id === 'clearAllBtn') {
+          const base = getBaseClass();
+          selected.clear();
+          selected.add(base);
+          render();
+          return;
+        }
+
+        if (btn.id === 'copyInstallBtn') {
+          copyText(`HTML
 
 <link rel="stylesheet" href="iconic.css">
 <link rel="stylesheet" href="iconic-u.css">`);
-      }
-    });
+        }
+      });
 
-    createUtilities();
-    render();
-    iconInput.value = 'ic-google';
-  </script>
-</body>
+      createUtilities();
+      render();
+      iconInput.value = 'ic-google';
+    </script>
+  </body>
+  <script src="/js/favicon.js" defer></script>
+
 </html>
