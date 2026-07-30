@@ -59,156 +59,156 @@ ul,ol{margin:0;padding:0;list-style:none}
 
 
 /* ===== Font Families ===== */
-.ic-georgia{font-family:Georgia, serif!important}
-.ic-times{font-family:"Times New Roman", Times, serif!important}
-.ic-palatino{font-family:Palatino, "Palatino Linotype", "Book Antiqua", serif!important}
-.ic-garamond{font-family:Garamond, "Times New Roman", serif!important}
-.ic-bookman{font-family:"Book Antiqua", Palatino, serif!important}
-.ic-baskerville{font-family:Baskerville, "Baskerville Old Face", serif!important}
-.ic-cambria{font-family:Cambria, Georgia, serif!important}
-.ic-lucida-serif{font-family:"Lucida Bright", "Lucida Serif", serif!important}
-.ic-arial{font-family:Arial, Helvetica, sans-serif!important}
-.ic-helvetica{font-family:Helvetica, Arial, sans-serif!important}
-.ic-verdana{font-family:Verdana, Geneva, sans-serif!important}
-.ic-tahoma{font-family:Tahoma, Geneva, sans-serif!important}
-.ic-trebuchet{font-family:"Trebuchet MS", Helvetica, sans-serif!important}
-.ic-segoe{font-family:"Segoe UI", Verdana, sans-serif!important}
-.ic-gill-sans{font-family:"Gill Sans", "Gill Sans MT", sans-serif!important}
-.ic-lucida-sans{font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif!important}
-.ic-candara{font-family:Candara, Calibri, Segoe, sans-serif!important}
-.ic-calibri{font-family:Calibri, Candara, Segoe, sans-serif!important}
-.ic-futura{font-family:Futura, "Trebuchet MS", Arial, sans-serif!important}
-.ic-optima{font-family:Optima, "Segoe UI", sans-serif!important}
-.ic-arial-black{font-family:"Arial Black", Gadget, sans-serif!important}
-.ic-impact{font-family:Impact, Haettenschweiler, sans-serif!important}
-.ic-consolas{font-family:Consolas, "Courier New", monospace!important}
-.ic-courier{font-family:"Courier New", Courier, monospace!important}
-.ic-lucida-console{font-family:"Lucida Console", Monaco, monospace!important}
-.ic-monaco{font-family:Monaco, "Courier New", monospace!important}
-.ic-andale{font-family:"Andale Mono", Monaco, monospace!important}
-.ic-comic-sans{font-family:"Comic Sans MS", cursive!important}
-.ic-brush-script{font-family:"Brush Script MT", cursive!important}
+.ic-georgia{font-family:Georgia!important}
+.ic-times{font-family:"Times New Roman"!important}
+.ic-palatino{font-family:Palatino!important}
+.ic-garamond{font-family:Garamond!important}
+.ic-bookman{font-family:"Book Antiqua"!important}
+.ic-baskerville{font-family:Baskerville!important}
+.ic-cambria{font-family:Cambria!important}
+.ic-lucida-serif{font-family:"Lucida Bright"!important}
+.ic-arial{font-family:Arial!important}
+.ic-helvetica{font-family:Helvetica!important}
+.ic-verdana{font-family:Verdana!important}
+.ic-tahoma{font-family:Tahoma!important}
+.ic-trebuchet{font-family:"Trebuchet MS"!important}
+.ic-segoe{font-family:"Segoe UI"!important}
+.ic-gill-sans{font-family:"Gill Sans"!important}
+.ic-lucida-sans{font-family:"Lucida Sans Unicode"!important}
+.ic-candara{font-family:Candara!important}
+.ic-calibri{font-family:Calibri!important}
+.ic-futura{font-family:Futura!important}
+.ic-optima{font-family:Optima!important}
+.ic-arial-black{font-family:"Arial Black"!important}
+.ic-impact{font-family:Impact!important}
+.ic-consolas{font-family:Consolas!important}
+.ic-courier{font-family:"Courier New"!important}
+.ic-lucida-console{font-family:"Lucida Console"!important}
+.ic-monaco{font-family:Monaco!important}
+.ic-andale{font-family:"Andale Mono"!important}
+.ic-comic-sans{font-family:"Comic Sans MS"!important}
+.ic-brush-script{font-family:"Brush Script MT"!important}
 .ic-cursive{font-family:cursive!important}
-.ic-merri{font-family:"Merriweather",sans-serif!important}
-.ic-roboto{font-family:"Roboto",sans-serif!important}
-.ic-opensans{font-family:"Open Sans",sans-serif!important}
-.ic-lato{font-family:"Lato",sans-serif!important}
-.ic-mont{font-family:"Montserrat",sans-serif!important}
-.ic-poppi{font-family:"Poppins",sans-serif!important}
-.ic-inter{font-family:"Inter",sans-serif!important}
-.ic-nunit{font-family:"Nunito",sans-serif!important}
-.ic-works{font-family:"Work Sans",sans-serif!important}
-.ic-source{font-family:"Source Sans 3",sans-serif!important}
-.ic-soser{font-family:"Source Serif 4",sans-serif!important}
-.ic-playf{font-family:"Playfair Display",sans-serif!important}
-.ic-oswal{font-family:"Oswald",sans-serif!important}
-.ic-raleg{font-family:"Raleway",sans-serif!important}
-.ic-ptsan{font-family:"PT Sans",sans-serif!important}
-.ic-pseri{font-family:"PT Serif",sans-serif!important}
-.ic-mulii{font-family:"Mulish",sans-serif!important}
-.ic-rubik{font-family:"Rubik",sans-serif!important}
-.ic-karla{font-family:"Karla",sans-serif!important}
-.ic-inco{font-family:"Inconsolata",sans-serif!important}
-.ic-firas{font-family:"Fira Sans",sans-serif!important}
-.ic-firac{font-family:"Fira Code",sans-serif!important}
-.ic-ibms{font-family:"IBM Plex Sans",sans-serif!important}
-.ic-ibmser{font-family:"IBM Plex Serif",sans-serif!important}
-.ic-ibmmono{font-family:"IBM Plex Mono",sans-serif!important}
-.ic-dmsans{font-family:"DM Sans",sans-serif!important}
-.ic-dmser{font-family:"DM Serif Display",sans-serif!important}
-.ic-ubuntu{font-family:"Ubuntu",sans-serif!important}
-.ic-cabin{font-family:"Cabin",sans-serif!important}
-.ic-manrope{font-family:"Manrope",sans-serif!important}
-.ic-quick{font-family:"Quicksand",sans-serif!important}
-.ic-bitter{font-family:"Bitter",sans-serif!important}
-.ic-crimson{font-family:"Crimson Text",sans-serif!important}
-.ic-lora{font-family:"Lora",sans-serif!important}
-.ic-libre{font-family:"Libre Baskerville",sans-serif!important}
-.ic-libfran{font-family:"Libre Franklin",sans-serif!important}
-.ic-spaceg{font-family:"Space Grotesk",sans-serif!important}
-.ic-spacem{font-family:"Space Mono",sans-serif!important}
-.ic-notosans{font-family:"Noto Sans",sans-serif!important}
-.ic-notoser{font-family:"Noto Serif",sans-serif!important}
-.ic-notodisp{font-family:"Noto Serif Display",sans-serif!important}
-.ic-nuntsan{font-family:"Nunito Sans",sans-serif!important}
-.ic-hind{font-family:"Hind",sans-serif!important}
-.ic-hindsil{font-family:"Hind Siliguri",sans-serif!important}
-.ic-asap{font-family:"Asap",sans-serif!important}
-.ic-asapcon{font-family:"Asap Condensed",sans-serif!important}
-.ic-arvo{font-family:"Arvo",sans-serif!important}
-.ic-alegr{font-family:"Alegreya",sans-serif!important}
-.ic-alegs{font-family:"Alegreya Sans",sans-serif!important}
-.ic-alegsc{font-family:"Alegreya Sans SC",sans-serif!important}
-.ic-aleo{font-family:"Aleo",sans-serif!important}
-.ic-anton{font-family:"Anton",sans-serif!important}
-.ic-archivo{font-family:"Archivo",sans-serif!important}
-.ic-archnar{font-family:"Archivo Narrow",sans-serif!important}
-.ic-barlow{font-family:"Barlow",sans-serif!important}
-.ic-barcon{font-family:"Barlow Condensed",sans-serif!important}
-.ic-bebas{font-family:"Bebas Neue",sans-serif!important}
-.ic-bree{font-family:"Bree Serif",sans-serif!important}
-.ic-cairo{font-family:"Cairo",sans-serif!important}
-.ic-catamaran{font-family:"Catamaran",sans-serif!important}
-.ic-cormor{font-family:"Cormorant",sans-serif!important}
-.ic-corgar{font-family:"Cormorant Garamond",sans-serif!important}
-.ic-corinf{font-family:"Cormorant Infant",sans-serif!important}
-.ic-corsc{font-family:"Cormorant SC",sans-serif!important}
-.ic-crimpro{font-family:"Crimson Pro",sans-serif!important}
-.ic-exo2{font-family:"Exo 2",sans-serif!important}
-.ic-epilog{font-family:"Epilogue",sans-serif!important}
-.ic-fraunces{font-family:"Fraunces",sans-serif!important}
-.ic-gelasio{font-family:"Gelasio",sans-serif!important}
-.ic-hanken{font-family:"Hanken Grotesk",sans-serif!important}
-.ic-heebo{font-family:"Heebo",sans-serif!important}
-.ic-kanit{font-family:"Kanit",sans-serif!important}
-.ic-kalam{font-family:"Kalam",sans-serif!important}
-.ic-koho{font-family:"KoHo",sans-serif!important}
-.ic-lexend{font-family:"Lexend",sans-serif!important}
-.ic-merrysans{font-family:"Merriweather Sans",sans-serif!important}
-.ic-mukta{font-family:"Mukta",sans-serif!important}
-.ic-mplus1{font-family:"M PLUS 1",sans-serif!important}
-.ic-mplusr{font-family:"M PLUS Rounded 1c",sans-serif!important}
-.ic-mada{font-family:"Mada",sans-serif!important}
-.ic-neuton{font-family:"Neuton",sans-serif!important}
-.ic-nixie{font-family:"Nixie One",sans-serif!important}
-.ic-oldstd{font-family:"Old Standard TT",sans-serif!important}
-.ic-overpass{font-family:"Overpass",sans-serif!important}
-.ic-pacific{font-family:"Pacifico",sans-serif!important}
-.ic-pathway{font-family:"Pathway Gothic One",sans-serif!important}
-.ic-prata{font-family:"Prata",sans-serif!important}
-.ic-rajdhani{font-family:"Rajdhani",sans-serif!important}
-.ic-rasa{font-family:"Rasa",sans-serif!important}
-.ic-robcon{font-family:"Roboto Condensed",sans-serif!important}
-.ic-robslab{font-family:"Roboto Slab",sans-serif!important}
-.ic-sarabun{font-family:"Sarabun",sans-serif!important}
-.ic-satisfy{font-family:"Satisfy",sans-serif!important}
-.ic-spectral{font-family:"Spectral",sans-serif!important}
-.ic-titillium{font-family:"Titillium Web",sans-serif!important}
-.ic-tinos{font-family:"Tinos",sans-serif!important}
-.ic-tourney{font-family:"Tourney",sans-serif!important}
-.ic-ubuncon{font-family:"Ubuntu Condensed",sans-serif!important}
-.ic-varela{font-family:"Varela Round",sans-serif!important}
-.ic-vollkorn{font-family:"Vollkorn",sans-serif!important}
-.ic-yanone{font-family:"Yanone Kaffeesatz",sans-serif!important}
-.ic-zilla{font-family:"Zilla Slab",sans-serif!important}
-.ic-jetbrains{font-family:"JetBrains Mono",sans-serif!important}
-.ic-bodoni{font-family:"Bodoni Moda",sans-serif!important}
-.ic-cinzel{font-family:"Cinzel",sans-serif!important}
-.ic-ebgaram{font-family:"EB Garamond",sans-serif!important}
-.ic-estonia{font-family:"Estonia",sans-serif!important}
-.ic-gfsdidot{font-family:"GFS Didot",sans-serif!important}
-.ic-josefin{font-family:"Josefin Sans",sans-serif!important}
-.ic-orbitron{font-family:"Orbitron",sans-serif!important}
-.ic-pinyon{font-family:"Pinyon Script",sans-serif!important}
-.ic-playfsc{font-family:"Playfair Display SC",sans-serif!important}
-.ic-ubunmono{font-family:"Ubuntu Sans Mono",sans-serif!important}
-.ic-gloock{font-family:"Gloock",sans-serif!important}
-.ic-golos{font-family:"Golos Text",sans-serif!important}
-.ic-onest{font-family:"Onest",sans-serif!important}
-.ic-platypi{font-family:"Platypi",sans-serif!important}
-.ic-sora{font-family:"Sora",sans-serif!important}
-.ic-unbounded{font-family:"Unbounded",sans-serif!important}
-.ic-vazir{font-family:"Vazirmatn",sans-serif!important}
+.ic-merri{font-family:"Merriweather"!important}
+.ic-roboto{font-family:"Roboto"!important}
+.ic-opensans{font-family:"Open Sans"!important}
+.ic-lato{font-family:"Lato"!important}
+.ic-mont{font-family:"Montserrat"!important}
+.ic-poppi{font-family:"Poppins"!important}
+.ic-inter{font-family:"Inter"!important}
+.ic-nunit{font-family:"Nunito"!important}
+.ic-works{font-family:"Work Sans"!important}
+.ic-source{font-family:"Source Sans 3"!important}
+.ic-soser{font-family:"Source Serif 4"!important}
+.ic-playf{font-family:"Playfair Display"!important}
+.ic-oswal{font-family:"Oswald"!important}
+.ic-raleg{font-family:"Raleway"!important}
+.ic-ptsan{font-family:"PT Sans"!important}
+.ic-pseri{font-family:"PT Serif"!important}
+.ic-mulii{font-family:"Mulish"!important}
+.ic-rubik{font-family:"Rubik"!important}
+.ic-karla{font-family:"Karla"!important}
+.ic-inco{font-family:"Inconsolata"!important}
+.ic-firas{font-family:"Fira Sans"!important}
+.ic-firac{font-family:"Fira Code"!important}
+.ic-ibms{font-family:"IBM Plex Sans"!important}
+.ic-ibmser{font-family:"IBM Plex Serif"!important}
+.ic-ibmmono{font-family:"IBM Plex Mono"!important}
+.ic-dmsans{font-family:"DM Sans"!important}
+.ic-dmser{font-family:"DM Serif Display"!important}
+.ic-ubuntu{font-family:"Ubuntu"!important}
+.ic-cabin{font-family:"Cabin"!important}
+.ic-manrope{font-family:"Manrope"!important}
+.ic-quick{font-family:"Quicksand"!important}
+.ic-bitter{font-family:"Bitter"!important}
+.ic-crimson{font-family:"Crimson Text"!important}
+.ic-lora{font-family:"Lora"!important}
+.ic-libre{font-family:"Libre Baskerville"!important}
+.ic-libfran{font-family:"Libre Franklin"!important}
+.ic-spaceg{font-family:"Space Grotesk"!important}
+.ic-spacem{font-family:"Space Mono"!important}
+.ic-notosans{font-family:"Noto Sans"!important}
+.ic-notoser{font-family:"Noto Serif"!important}
+.ic-notodisp{font-family:"Noto Serif Display"!important}
+.ic-nuntsan{font-family:"Nunito Sans"!important}
+.ic-hind{font-family:"Hind"!important}
+.ic-hindsil{font-family:"Hind Siliguri"!important}
+.ic-asap{font-family:"Asap"!important}
+.ic-asapcon{font-family:"Asap Condensed"!important}
+.ic-arvo{font-family:"Arvo"!important}
+.ic-alegr{font-family:"Alegreya"!important}
+.ic-alegs{font-family:"Alegreya Sans"!important}
+.ic-alegsc{font-family:"Alegreya Sans SC"!important}
+.ic-aleo{font-family:"Aleo"!important}
+.ic-anton{font-family:"Anton"!important}
+.ic-archivo{font-family:"Archivo"!important}
+.ic-archnar{font-family:"Archivo Narrow"!important}
+.ic-barlow{font-family:"Barlow"!important}
+.ic-barcon{font-family:"Barlow Condensed"!important}
+.ic-bebas{font-family:"Bebas Neue"!important}
+.ic-bree{font-family:"Bree Serif"!important}
+.ic-cairo{font-family:"Cairo"!important}
+.ic-catamaran{font-family:"Catamaran"!important}
+.ic-cormor{font-family:"Cormorant"!important}
+.ic-corgar{font-family:"Cormorant Garamond"!important}
+.ic-corinf{font-family:"Cormorant Infant"!important}
+.ic-corsc{font-family:"Cormorant SC"!important}
+.ic-crimpro{font-family:"Crimson Pro"!important}
+.ic-exo2{font-family:"Exo 2"!important}
+.ic-epilog{font-family:"Epilogue"!important}
+.ic-fraunces{font-family:"Fraunces"!important}
+.ic-gelasio{font-family:"Gelasio"!important}
+.ic-hanken{font-family:"Hanken Grotesk"!important}
+.ic-heebo{font-family:"Heebo"!important}
+.ic-kanit{font-family:"Kanit"!important}
+.ic-kalam{font-family:"Kalam"!important}
+.ic-koho{font-family:"KoHo"!important}
+.ic-lexend{font-family:"Lexend"!important}
+.ic-merrysans{font-family:"Merriweather Sans"!important}
+.ic-mukta{font-family:"Mukta"!important}
+.ic-mplus1{font-family:"M PLUS 1"!important}
+.ic-mplusr{font-family:"M PLUS Rounded 1c"!important}
+.ic-mada{font-family:"Mada"!important}
+.ic-neuton{font-family:"Neuton"!important}
+.ic-nixie{font-family:"Nixie One"!important}
+.ic-oldstd{font-family:"Old Standard TT"!important}
+.ic-overpass{font-family:"Overpass"!important}
+.ic-pacific{font-family:"Pacifico"!important}
+.ic-pathway{font-family:"Pathway Gothic One"!important}
+.ic-prata{font-family:"Prata"!important}
+.ic-rajdhani{font-family:"Rajdhani"!important}
+.ic-rasa{font-family:"Rasa"!important}
+.ic-robcon{font-family:"Roboto Condensed"!important}
+.ic-robslab{font-family:"Roboto Slab"!important}
+.ic-sarabun{font-family:"Sarabun"!important}
+.ic-satisfy{font-family:"Satisfy"!important}
+.ic-spectral{font-family:"Spectral"!important}
+.ic-titillium{font-family:"Titillium Web"!important}
+.ic-tinos{font-family:"Tinos"!important}
+.ic-tourney{font-family:"Tourney"!important}
+.ic-ubuncon{font-family:"Ubuntu Condensed"!important}
+.ic-varela{font-family:"Varela Round"!important}
+.ic-vollkorn{font-family:"Vollkorn"!important}
+.ic-yanone{font-family:"Yanone Kaffeesatz"!important}
+.ic-zilla{font-family:"Zilla Slab"!important}
+.ic-jetbrains{font-family:"JetBrains Mono"!important}
+.ic-bodoni{font-family:"Bodoni Moda"!important}
+.ic-cinzel{font-family:"Cinzel"!important}
+.ic-ebgaram{font-family:"EB Garamond"!important}
+.ic-estonia{font-family:"Estonia"!important}
+.ic-gfsdidot{font-family:"GFS Didot"!important}
+.ic-josefin{font-family:"Josefin Sans"!important}
+.ic-orbitron{font-family:"Orbitron"!important}
+.ic-pinyon{font-family:"Pinyon Script"!important}
+.ic-playfsc{font-family:"Playfair Display SC"!important}
+.ic-ubunmono{font-family:"Ubuntu Sans Mono"!important}
+.ic-gloock{font-family:"Gloock"!important}
+.ic-golos{font-family:"Golos Text"!important}
+.ic-onest{font-family:"Onest"!important}
+.ic-platypi{font-family:"Platypi"!important}
+.ic-sora{font-family:"Sora"!important}
+.ic-unbounded{font-family:"Unbounded"!important}
+.ic-vazir{font-family:"Vazirmatn"!important}
 
 /* ===== Font Sizes ===== */
 .ic-pico{font-size:0.5rem!important}
